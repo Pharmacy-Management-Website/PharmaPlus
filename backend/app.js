@@ -13,7 +13,9 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const medicineRouter = require('./routers/medicineRouter.js');
+const authRouter = require('./routers/authRouter.js');
 
 app.use('/medapi', medicineRouter);
+app.use('/auth', authRouter);
 
 module.exports = app;
