@@ -17,16 +17,4 @@ const authUserSchema = new mongoose.Schema({
 	}
 });
 
-authUserSchema.methods.getJWTToken = function () {
-	return jwt.sign(
-		{ id: this._id },
-		process.env.JWT_SECRET,
-		{ expiresIn: process.env.JWT_EXPIRES_IN }
-	);
-};
-
-authUserSchema.methods.matchPassword = async function (password) {
-	return await bcrypt.compare(password, this.password);
-};
-
 module.exports = mongoose.model('AuthUser', authUserSchema);
