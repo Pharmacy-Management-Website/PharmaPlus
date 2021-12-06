@@ -20,5 +20,13 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
     "nodemon": "^2.0.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pharmacy-Management-Website/PharmaPlus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pharmacy-Management-Website/PharmaPlus/issues"
+  },
+  "homepage": "https://github.com/Pharmacy-Management-Website/PharmaPlus#readme"
 }
