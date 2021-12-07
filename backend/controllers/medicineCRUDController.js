@@ -19,7 +19,6 @@ exports.getAllMedicinesDetails = async (req, res, next) => {
 		let medicines = await apiFeature.query;
 		let filteredMedCounts = medicines.length;
 		apiFeature.pagination(resultPerPage);
-		// medicines = await apiFeature.query;
 		res.status(200).json({
 			success: true,
 			medicines: medicines,

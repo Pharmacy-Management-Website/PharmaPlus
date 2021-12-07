@@ -9,8 +9,10 @@ const {
 	deleteMedicineDetails
 } = require('../controllers/medicineCRUDController.js');
 
+const { authorizeRoles } = require('../middleware/authRoles.js');
+
 // ? GET all medicines
-router.get('/medicines', getAllMedicinesDetails);
+router.get('/medicines', getAllMedicinesDetails, authorizeRoles("datamanager"));
 
 // ? POST Add new medicine
 router.post('/addmedicine', addMedicineDetails);

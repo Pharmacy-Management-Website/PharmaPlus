@@ -11,10 +11,6 @@ const authUserSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	role: {
-		type: String,
-		default: 'datamanager',
-	}
 });
 
 module.exports = mongoose.model('AuthUser', authUserSchema);
