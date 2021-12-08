@@ -5,27 +5,27 @@ const ApiFeatures = require('../utils/apiFeatures.js');
 // ? @route: GET /medapi/medicines
 exports.getAllMedicinesDetails = async (req, res, next) => {
 	try {
-		// const medicines = await Medicine.find();
-		// res.status(200).json({
-		// 	success: true,
-		// 	medicines: medicines,
-		// 	length: medicines.length
-		// });
-
-		const resultPerPage = 2;
-		const medCounts = await Medicine.countDocuments();
-		const apiFeature = new ApiFeatures(Medicine.find(), req.query)
-			.search();
-		let medicines = await apiFeature.query;
-		let filteredMedCounts = medicines.length;
-		apiFeature.pagination(resultPerPage);
+		const medicines = await Medicine.find();
 		res.status(200).json({
 			success: true,
 			medicines: medicines,
-			medCounts: medCounts,
-			resultPerPage,
-			filteredMedCounts,
+			length: medicines.length
 		});
+
+		// const resultPerPage = 2;
+		// const medCounts = await Medicine.countDocuments();
+		// const apiFeature = new ApiFeatures(Medicine.find(), req.query)
+		// 	.search();
+		// let medicines = await apiFeature.query;
+		// let filteredMedCounts = medicines.length;
+		// apiFeature.pagination(resultPerPage);
+		// res.status(200).json({
+		// 	success: true,
+		// 	medicines: medicines,
+		// 	medCounts: medCounts,
+		// 	resultPerPage,
+		// 	filteredMedCounts,
+		// });
 	} catch (error) {
 		res.status(500).json({
 			message: error.message
@@ -35,15 +35,12 @@ exports.getAllMedicinesDetails = async (req, res, next) => {
 
 // ? @desc: Add Medicine details
 // ? @route: POST /medapi/addmedicine
-exports.addMedicineDetails = async (req, res, next) => {
+exports.addMedicine = async (req, res, next) => {
 	try {
 		const medicine = new Medicine({
+			med_id: req.body.med_id,
 			name: req.body.name,
-			content: req.body.content,
-			company: req.body.company,
-			price: req.body.price,
-			inStock: req.body.inStock,
-			shelfNo: req.body.shelfNo,
+			composition: req.body.composition,
 		});
 		const result = await medicine.save();
 		res.status(201).json({
@@ -57,6 +54,37 @@ exports.addMedicineDetails = async (req, res, next) => {
 		});
 	}
 };
+
+// ? @desc: Add stock details
+// ? @route: POST /medapi/addstockdetails/:id
+exports.addStockDetails = async (req, res, next) => {
+	try {
+		const {
+			price, inStock
+		} = req.body;
+		const medStockDetails = {
+			price: price,
+			inStock: inStock
+		}
+		const medicine = await Medicine.findById(req.params.id);
+		if (!medicine)
+			return res.status(404).json({
+				success: false,
+				message: 'Medicine Not Found'
+			});
+		medicine.stockDetails.push(medStockDetails);
+		await medicine.save();
+		res.status(200).json({
+			success: true,
+			message: 'Added stock details',
+			medicine: medicine
+		});
+	} catch (error) {
+		res.status(500).json({
+			message: error.message
+		});
+	}
+}
 
 // ? desc: GET Medicine details By ID
 // ? route: GET /medapi/medicine/:id
@@ -122,6 +150,38 @@ exports.deleteMedicineDetails = async (req, res, next) => {
 		res.status(200).json({
 			success: true,
 			message: 'Medicine Deleted Successfully'
+		});
+	} catch (error) {
+		res.status(500).json({
+			message: error.message
+		});
+	}
+};
+
+// ? @desc: Delete Medicine stock details
+// ? @route: DELETE /medapi/medicine/:id/stockdetails/:stockId
+exports.deleteMedicineStockDetails = async (req, res, next) => {
+	try {
+		const medicine = await Medicine.findById(req.params.id);
+		if (!medicine) {
+			return res.status(404).json({
+				success: false,
+				message: 'Medicine Not Found'
+			});
+		}
+		const stockDetails = medicine.stockDetails.find(stock => stock._id == req.query.stockId);
+		if (!stockDetails) {
+			return res.status(404).json({
+				success: false,
+				message: 'Stock details Not Found'
+			});
+		}
+		medicine.stockDetails.remove(stockDetails);
+		await medicine.save();
+		res.status(200).json({
+			success: true,
+			message: 'Stock details Deleted Successfully',
+			medicine: medicine
 		});
 	} catch (error) {
 		res.status(500).json({
