@@ -23,6 +23,12 @@ exports.createDataManager = async (req, res, next) => {
 		});
 		await newDataManager.save();
 		const accesstoken = createAccessToken({ id: newDataManager._id });
+		const refreshtoken = createRefreshToken({ id: newDataManager._id });
+		res.cookie('refreshtoken', refreshtoken, {
+			httpOnly: true,
+			path: '/auth/refresh-token',
+			maxAge: 7 * 24 * 60 * 60 * 1000 // 7d
+		});
 		res.status(201).json({
 			message: 'Data Manager created successfully',
 			accesstoken,
@@ -63,6 +69,12 @@ exports.authLogin = async (req, res, next) => {
 			});
 		}
 		const accesstoken = createAccessToken({ id: user._id });
+		const refreshtoken = createRefreshToken({ id: user._id });
+		res.cookie('refreshtoken', refreshtoken, {
+			httpOnly: true,
+			path: '/auth/refresh-token',
+			maxAge: 7 * 24 * 60 * 60 * 1000 // 7d
+		});
 		res.status(200).json({
 			message: 'Auth successful',
 			accesstoken,
@@ -86,7 +98,31 @@ exports.authLogout = async (req, res, next) => {
 		success: true,
 		message: "Logged Out",
 	});
+};
+
+// ? @desc: Refresh token
+// ? @route: GET /authapi/refresh_token
+exports.refreshToken = async (req, res, next) => {
+	try {
+		const rf_token = req.cookies.refreshtoken;
+		if (!rf_token)
+			return res.status(400).json({
+				success: false,
+				message: "Please Login"
+			});
+		jwt.verify(rf_token, process.env.JWT_REFRESH_SECRET, (error, user) => {
+			if (error)
+				return res.status(400).json({
+					msg: "Please Login"
+				})
+			const accesstoken = createAccessToken({ id: user.id });
+			res.json({ accesstoken });
+		});
+	} catch (error) {
+		return res.status(500).json({ message: error.message });
+	}
 }
+
 
 // ? @desc: Update Adminapi details
 // ? @route: PUT /adminapi/update-adminapi
@@ -123,5 +159,9 @@ exports.updateAdminapi = async (req, res, next) => {
 
 
 const createAccessToken = (user) => {
-	return jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '11m' })
+	return jwt.sign(user, process.env.JWT_ACCESS_SECRET, { expiresIn: '11m' });
+}
+
+const createRefreshToken = (user) => {
+	return jwt.sign(user, process.env.JWT_REFRESH_SECRET, { expiresIn: '7d' });
 }

@@ -4,6 +4,7 @@ const router = express.Router();
 const {
 	createDataManager,
 	authLogin,
+	refreshToken,
 	authLogout,
 	updateAdminapi
 } = require('../controllers/authController.js');
@@ -12,6 +13,8 @@ const {
 router.post('/create-data-manager', createDataManager);
 
 router.post('/login', authLogin);
+
+router.get('/refresh-token', refreshToken);
 
 router.get('/logout', authLogout);
 
