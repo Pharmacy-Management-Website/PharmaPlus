@@ -1,6 +1,10 @@
 const AuthUser = require('../schema/authUserSchema.js');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+// const {
+// 	createAccessToken,
+// 	createRefreshToken
+// } = require('../utils/jwToken.js');
 
 // ? @desc: Create Data manager
 // ? @route: POST /adminapi/create-data-manager

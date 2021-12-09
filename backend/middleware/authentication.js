@@ -1,18 +1,15 @@
 const jwt = require('jsonwebtoken');
-const AuthUser = require('../schema/authUserSchema.js');
 
 exports.isAuthenticated = async (req, res, next) => {
 	try {
 		const token = req.header("Authorization")
-		if (!token) return res.status(400).json({ msg: "Invalid Authentication" })
-
-		jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-			if (err) return res.status(400).json({ msg: "Invalid Authentication" })
-
+		if (!token) return res.status(400).json({ message: "Invalid Authentication" })
+		jwt.verify(token, process.env.JWT_ACCESS_SECRET, (error, user) => {
+			if (error) return res.status(400).json({ message: "Invalid Authentication" })
 			req.user = user
 			next()
 		})
-	} catch (err) {
-		return res.status(500).json({ msg: err.message })
+	} catch (error) {
+		return res.status(500).json({ message: error.message })
 	}
 };
