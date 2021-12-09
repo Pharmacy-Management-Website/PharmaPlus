@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 
+const errorMiddleWare = require('./middleware/errorMiddleWare.js');
+
 if (process.env.NODE_ENV !== "PRODUCTION") {
 	require("dotenv").config({ path: "backend/config/config.env" });
 }
@@ -19,5 +21,8 @@ const { isAuthenticated } = require('./middleware/authentication.js')
 
 app.use('/medapi', isAuthenticated, medicineRouter);
 app.use('/auth', authRouter);
+
+// ! Middleware for error handlers
+app.use(errorMiddleWare);
 
 module.exports = app;
