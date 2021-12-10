@@ -12,6 +12,7 @@ exports.getAllMedicinesDetails = async (req, res, next) => {
 			length: medicines.length
 		});
 
+		
 		// const resultPerPage = 2;
 		// const medCounts = await Medicine.countDocuments();
 		// const apiFeature = new ApiFeatures(Medicine.find(), req.query)
@@ -26,6 +27,7 @@ exports.getAllMedicinesDetails = async (req, res, next) => {
 		// 	resultPerPage,
 		// 	filteredMedCounts,
 		// });
+		
 	} catch (error) {
 		res.status(500).json({
 			message: error.message
