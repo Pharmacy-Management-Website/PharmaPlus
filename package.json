@@ -28,5 +28,6 @@
   "bugs": {
     "url": "https://github.com/Pharmacy-Management-Website/PharmaPlus/issues"
   },
-  "homepage": "https://github.com/Pharmacy-Management-Website/PharmaPlus#readme"
+  "homepage": "https://github.com/Pharmacy-Management-Website/PharmaPlus#readme",
+  "devDependencies": {}
 }

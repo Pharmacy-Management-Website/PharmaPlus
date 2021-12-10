@@ -17,12 +17,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const medicineRouter = require('./routers/medicineRouter.js');
 const authRouter = require('./routers/authRouter.js');
 
-const { isAuthenticated } = require('./middleware/authentication.js')
+// const { isAuthenticated } = require('./middleware/authentication.js')
 
-app.use('/medapi', isAuthenticated, medicineRouter);
+app.use('/medapi', medicineRouter);
 app.use('/auth', authRouter);
 
 // ! Middleware for error handlers
-app.use(errorMiddleWare);
+// app.use(errorMiddleWare);
 
 module.exports = app;
