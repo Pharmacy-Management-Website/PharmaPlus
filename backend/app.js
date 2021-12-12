@@ -25,6 +25,6 @@ app.use('/auth', authRouter);
 app.use('/invoice', invoiceRouter);
 
 // ! Middleware for error handlers
-// app.use(errorMiddleWare);
+app.use(errorMiddleWare);
 
 module.exports = app;
