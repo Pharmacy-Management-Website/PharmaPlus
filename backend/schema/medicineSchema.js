@@ -5,6 +5,7 @@ const medicineSchema = new mongoose.Schema({
 		type: Number,
 		length: [4, "med_id must be 4 digits"],
 		required: [true, "med_id is required"],
+		unique: true
 	},
 	name: {
 		type: String,
