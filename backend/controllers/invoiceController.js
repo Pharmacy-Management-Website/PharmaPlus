@@ -29,15 +29,35 @@ exports.newInvoice = async (req, res) => {
 			customerMobileNumber,
 			purchasedMedicines,
 		} = req.body;
-		const medicineArray = [];
+		// const medicineArray = [];
 		for (let i = 0; i < purchasedMedicines.length; i++) {
 			const medicine = await Medicine.findById(purchasedMedicines[i].medicine);
-			medicineArray.push(medicine);
+			if (!medicine)
+				return res.status(404).json({
+					success: false,
+					message: 'Medicine not found'
+				});
+			// console.log(medicine.stockDetails[0]._id);
+			// newMedInStock = medicine.stockDetails[0].inStock - purchasedMedicines[i].qty;
+			medicine.stockDetails.findByIdAndUpdate(medicine.stockDetails[0]._id, {
+				inStock: medicine.stockDetails[0].inStock - purchasedMedicines[i].qty
+			},
+				{
+					new: true,
+					runValidators: true,
+					useFindAndModify: false
+				}
+			);
+
+			// const upMedId = { _id: medicine._id };
+			// const upMedStock = {
+			// 	inStock: newMedInStock
+			// };
+			// await Medicine.findByIdAndUpdate(upMedId, upMedStock, {
+			// 	new: true,
+			// 	upsert: true,
+			// });
 		}
-		console.log(medicineArray);
-		medicineArray.forEach(async (medicine) => {
-			console.log(medicine.stockDetails);
-		});
 		const newInvoice = new Invoice({
 			invoiceNumber,
 			invoiceDate,

@@ -6,7 +6,14 @@ import {
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const reducer = combineReducers({});
+import { medicinesReducer } from './reducers/medicineReducer.js';
+
+import { userReducer } from './reducers/userReducer.js';
+
+const reducer = combineReducers({
+	user: userReducer,
+	medicines: medicinesReducer,
+});
 
 const initialState = {};
 
