@@ -5,15 +5,12 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#17d7a0),
-    to(#32c1cd)
+  font-family: "Readex Pro";
+  background: linear-gradient(
+    to right bottom,
+    rgba(0, 0, 0, 0.75),
+    rgba(34, 40, 49, 0.9)
   );
-  background: linear-gradient(#17d7a0, #32c1cd);
 }
 
 .login-box {
@@ -22,20 +19,20 @@ body {
   left: 50%;
   width: 400px;
   padding: 40px;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.5);
-  -webkit-box-sizing: border-box;
+  background: rgba(77, 213, 153, 0.7);
   box-sizing: border-box;
-  -webkit-box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.8);
   border-radius: 10px;
 }
 
 h2 {
   margin: 0 0 30px;
   padding: 0;
-  color: #fff;
+  font-family: "Ubuntu", sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  color: #eeeeee;
   text-align: center;
 }
 
@@ -43,27 +40,28 @@ h2 {
   position: relative;
 }
 
-.user-box input {
+input {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  color: #faedf0;
   margin-bottom: 30px;
   border: none;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #faedf0;
   outline: none;
   background: transparent;
 }
 
-.user-box label {
+label {
   position: absolute;
   top: 0;
   left: 0;
   padding: 10px 0;
   font-size: 16px;
-  color: #fff;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #faedf0;
   pointer-events: none;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -71,6 +69,47 @@ input:focus ~ label,
 input:valid ~ label {
   top: -20px;
   left: 0;
-  color: #03e9f4;
-  font-size: 12px;
+  color: #faedf0;
+  font-size: 13.5px;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  font-family: "Readex Pro";
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 0.75rem 1.5rem;
+  display: inline-block;
+  border-radius: 4rem;
+  transition: all 0.2s;
+  position: relative;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(34, 40, 49, 0.75);
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn:active,
+.btn:focus {
+  outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 0.25rem 0.5rem rgba(34, 40, 49, 0.75);
+}
+
+.btn--green {
+  background-color: #000000;
+  color: #faedf0;
+}
+.btn--green::after {
+  background-color: #000000;
 }
