@@ -8,6 +8,7 @@ const {
 	authLogout,
 	updateAdminapi
 } = require('../controllers/authController.js');
+const { isAuthenticated } = require('../middleware/authentication.js');
 
 // ? POST Create One data manager
 router.post('/create-data-manager', createDataManager);
@@ -19,9 +20,9 @@ router.post('/login', authLogin);
 router.get('/refresh-token', refreshToken);
 
 // ? GET logout
-router.get('/logout', authLogout);
+router.get('/logout', isAuthenticated, authLogout);
 
 // ? PUT Update Adminapi
-router.put('/update-adminapi', updateAdminapi);
+router.put('/update-adminapi', isAuthenticated, updateAdminapi);
 
 module.exports = router;

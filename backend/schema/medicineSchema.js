@@ -1,5 +1,26 @@
 const mongoose = require('mongoose');
 
+const stockSchema = new mongoose.Schema({
+	price: {
+		type: Number,
+		required: true
+	},
+	inStock: {
+		type: Number,
+		required: true
+	},
+	mfgDate: {
+		type: Date,
+		default: Date.now(),
+		required: true
+	},
+	expDate: {
+		type: Date,
+		default: Date.now() + (1000 * 60 * 60 * 24 * 182),
+		required: true
+	},
+});
+
 const medicineSchema = new mongoose.Schema({
 	med_id: {
 		type: Number,
@@ -15,28 +36,7 @@ const medicineSchema = new mongoose.Schema({
 	composition: {
 		type: String
 	},
-	stockDetails: [
-		{
-			price: {
-				type: Number,
-				required: true
-			},
-			inStock: {
-				type: Number,
-				required: true
-			},
-			mfgDate: {
-				type: Date,
-				default: Date.now(),
-				required: true
-			},
-			expDate: {
-				type: Date,
-				default: Date.now() + (1000 * 60 * 60 * 24 * 182),
-				required: true
-			},
-		}
-	]
+	stockDetails: [stockSchema]
 }, {
 	timestamps: true
 });

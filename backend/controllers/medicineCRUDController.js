@@ -12,7 +12,7 @@ exports.getAllMedicinesDetails = async (req, res, next) => {
 			length: medicines.length
 		});
 
-		
+
 		// const resultPerPage = 2;
 		// const medCounts = await Medicine.countDocuments();
 		// const apiFeature = new ApiFeatures(Medicine.find(), req.query)
@@ -27,7 +27,7 @@ exports.getAllMedicinesDetails = async (req, res, next) => {
 		// 	resultPerPage,
 		// 	filteredMedCounts,
 		// });
-		
+
 	} catch (error) {
 		res.status(500).json({
 			message: error.message
@@ -61,26 +61,16 @@ exports.addMedicine = async (req, res, next) => {
 // ? @route: POST /medapi/addstockdetails/:id
 exports.addStockDetails = async (req, res, next) => {
 	try {
-		const {
-			price, inStock
-		} = req.body;
-		const medStockDetails = {
-			price: price,
-			inStock: inStock
-		}
+		const { price, inStock } = req.body;
 		const medicine = await Medicine.findById(req.params.id);
-		if (!medicine)
-			return res.status(404).json({
-				success: false,
-				message: 'Medicine Not Found'
-			});
-		medicine.stockDetails.push(medStockDetails);
-		await medicine.save();
-		res.status(200).json({
-			success: true,
-			message: 'Added stock details',
-			medicine: medicine
-		});
+		if (medicine) {
+			const stockDetail = {
+				price,
+				inStock
+			};
+			medicine.stockDetails.push(stockDetail);
+			await medicine.save();
+		}
 	} catch (error) {
 		res.status(500).json({
 			message: error.message
@@ -128,6 +118,37 @@ exports.updateMedicineDetails = async (req, res, next) => {
 		res.status(200).json({
 			success: true,
 			message: 'Medicine Updated Successfully',
+			medicine: medicine
+		});
+	} catch (error) {
+		res.status(500).json({
+			message: error.message
+		});
+	}
+};
+
+// ? @desc: Update Medicine stock details
+// ? @route: PUT /medapi/medicine/:id/stock
+exports.updateMedicineStockDetails = async (req, res, next) => {
+	try {
+		let medicine = await Medicine.findById(req.params.id);
+		if (!medicine)
+			return res.status(404).json({
+				success: false,
+				message: 'Medicine Not Found'
+			});
+		const stockDetail = medicine.stockDetails.id(req.body.stockId);
+		if (!stockDetail)
+			return res.status(404).json({
+				success: false,
+				message: 'Stock Detail Not Found'
+			});
+		stockDetail.price = req.body.price;
+		stockDetail.inStock = req.body.inStock;
+		await medicine.save();
+		res.status(200).json({
+			success: true,
+			message: 'Medicine Stock Details Updated Successfully',
 			medicine: medicine
 		});
 	} catch (error) {

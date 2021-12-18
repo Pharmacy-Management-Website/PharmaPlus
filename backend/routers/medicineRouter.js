@@ -7,6 +7,7 @@ const {
 	addStockDetails,
 	getMedicineDetails,
 	updateMedicineDetails,
+	updateMedicineStockDetails,
 	deleteMedicineDetails,
 	deleteMedicineStockDetails
 } = require('../controllers/medicineCRUDController.js');
@@ -23,8 +24,11 @@ router.post('/addstockdetails/:id', addStockDetails);
 // ? GET medicine by ID
 router.get('/medicine/:id', getMedicineDetails);
 
-// ? PATCH Update medicine details
+// ? PUT Update medicine details
 router.put('/medicine/:id', updateMedicineDetails);
+
+// ? PUT Update medicine stock details
+router.put('/medicinestockdetails/:id', updateMedicineStockDetails);
 
 // ? DELETE Medicine details
 router.delete('/medicine/:id', deleteMedicineDetails);
