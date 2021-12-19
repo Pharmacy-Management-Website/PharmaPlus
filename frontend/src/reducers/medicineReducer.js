@@ -15,7 +15,7 @@ export const medicinesReducer = (state = { medicines: [] }, action) => {
 		case ALL_MEDICINE_SUCCESS:
 			return {
 				loading: false,
-				medicines: action.payload
+				medicines: action.payload.medicines,
 			};
 		case ALL_MEDICINE_FAIL:
 			return {
