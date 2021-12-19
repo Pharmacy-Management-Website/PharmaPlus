@@ -10,7 +10,7 @@ import {
 import axios from 'axios';
 
 // ? Login
-export const login = (email, password) => async dispatch => {
+export const loginUser = (username, password) => async dispatch => {
 	try {
 		dispatch({ type: LOGIN_REQUEST });
 		const config = {
@@ -20,7 +20,7 @@ export const login = (email, password) => async dispatch => {
 		}
 		const { data } = await axios.post(
 			`/auth/login`,
-			{ email, password },
+			{ username, password },
 			config
 		);
 		dispatch({
@@ -30,6 +30,11 @@ export const login = (email, password) => async dispatch => {
 	} catch (err) {
 		dispatch({ type: LOGIN_FAIL, payload: err.response.data.msg });
 	}
+};
+
+// ? Clearing Errors
+export const clearErrors = () => async (dispatch) => {
+	dispatch({ type: CLEAR_ERRORS });
 };
 
 

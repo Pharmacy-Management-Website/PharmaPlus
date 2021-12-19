@@ -90,7 +90,20 @@ input:valid ~ label {
   cursor: pointer;
 }
 
-.btn:hover {
+input[type="submit"] {
+  background: #000000;
+  color: #ffffff;
+  margin-top: 30px;
+  font-family: "Ubuntu", sans-serif;
+  transition: all 0.4s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  background-color: rgba(158, 241, 205, 0.7);
+  box-shadow: 0 0.5rem 1rem rgba(34, 40, 49, 0.75);
+}
+
+/* .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 0.5rem 1rem rgba(34, 40, 49, 0.75);
 }
@@ -112,4 +125,4 @@ input:valid ~ label {
 }
 .btn--green::after {
   background-color: #000000;
-}
+} */

@@ -19,3 +19,8 @@ export const allMedicines = () => async (dispatch) => {
 		dispatch({ type: ALL_MEDICINE_FAIL, payload: error.message });
 	}
 };
+
+// ? Clearing Errors
+export const clearErrors = () => async (dispatch) => {
+	dispatch({ type: CLEAR_ERRORS });
+};
