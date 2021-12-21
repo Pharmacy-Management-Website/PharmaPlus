@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allMedicines, clearErrors } from "../../actions/medicineActions.js";
 import { useAlert } from "react-alert";
+import Loader from "../Utils/Loader/Loader.js";
+import Title from "../Utils/Meta/Title.js";
 
 const HomePage = () => {
+
 	const dispatch = useDispatch();
 	const alert = useAlert();
 
-	const { error, medicines } = useSelector((state) => state.medicines);
+	const { error, loading, medicines } = useSelector((state) => state.medicines);
 
 	useEffect(() => {
 		if (error) {
@@ -18,14 +21,23 @@ const HomePage = () => {
 	}, [dispatch, error]);
 
 	return (
-		<div>
-			<h1>Home Page</h1>
-			<ul>
-				{medicines.map((medicine) => (
-					<li key={medicine.id}>{medicine.name}</li>
-				))}
-			</ul>
-		</div>
+		<Fragment>
+			{
+				loading ? (
+					<Loader />
+				) : (
+					<Fragment>
+						<Title title="Home" />
+						<h1>Home Page</h1>
+						<ul>
+							{medicines.map((medicine) => (
+								<li key={medicine.id}>{medicine.name}</li>
+							))}
+						</ul>
+					</Fragment>
+				)
+			}
+		</Fragment>
 	);
 };
 
