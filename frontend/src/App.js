@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute.js";
 import { useSelector } from "react-redux";
 import LoginPage from "./components/Auth/LoginPage";
+import RegisterPage from "./components/Auth/RegisterPage.js";
 import HomePage from "./components/Home/HomePage.js";
 import "./App.css";
 
@@ -15,6 +16,7 @@ function App() {
 			<Fragment>
 				<Routes>
 					<Route exact path="/" element={<LoginPage />} />
+					<Route exact path="/register" element={<RegisterPage />} />
 					<Route exact path='/home' element={<HomePage />} />
 				</Routes>
 			</Fragment>

@@ -1,5 +1,5 @@
 const Medicine = require('../schema/medicineSchema.js');
-const ApiFeatures = require('../utils/apiFeatures.js');
+// const ApiFeatures = require('../utils/apiFeatures.js');
 
 // ? @desc: All medicine details
 // ? @route: GET /medapi/medicines
@@ -63,6 +63,11 @@ exports.addStockDetails = async (req, res, next) => {
 	try {
 		const { price, inStock } = req.body;
 		const medicine = await Medicine.findById(req.params.id);
+		if (!medicine)
+			res.status(400).json({
+				success: false,
+				message: "Medicine not found"
+			});
 		if (medicine) {
 			const stockDetail = {
 				price,
