@@ -33,7 +33,7 @@ export const loginUser = (username, password) => async dispatch => {
 			payload: data.user
 		});
 	} catch (err) {
-		dispatch({ type: LOGIN_FAIL, payload: err.response.data.msg });
+		dispatch({ type: LOGIN_FAIL, payload: err.response.data.message });
 	}
 };
 

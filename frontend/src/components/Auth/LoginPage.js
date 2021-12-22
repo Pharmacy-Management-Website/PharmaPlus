@@ -26,7 +26,7 @@ const LoginPage = () => {
 
 	useEffect(() => {
 		if (error) {
-			alert(error);
+			alert.error(error);
 			dispatch(clearErrors());
 		}
 		if (isAuthenticated) {
