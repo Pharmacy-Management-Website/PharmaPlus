@@ -1,33 +1,20 @@
 const Medicine = require('../schema/medicineSchema.js');
-// const ApiFeatures = require('../utils/apiFeatures.js');
+const ApiFeatures = require('../utils/apiFeatures.js');
 
 // ? @desc: All medicine details
 // ? @route: GET /medapi/medicines
 exports.getAllMedicinesDetails = async (req, res, next) => {
 	try {
-		const medicines = await Medicine.find();
+		const resultPerPage = 5;
+		const apiFeature = new ApiFeatures(Medicine.find(), req.query)
+			.search()
+			.pagination(resultPerPage)
+		const medicines = await apiFeature.query;
 		res.status(200).json({
 			success: true,
+			length: medicines.length,
 			medicines: medicines,
-			length: medicines.length
 		});
-
-
-		// const resultPerPage = 2;
-		// const medCounts = await Medicine.countDocuments();
-		// const apiFeature = new ApiFeatures(Medicine.find(), req.query)
-		// 	.search();
-		// let medicines = await apiFeature.query;
-		// let filteredMedCounts = medicines.length;
-		// apiFeature.pagination(resultPerPage);
-		// res.status(200).json({
-		// 	success: true,
-		// 	medicines: medicines,
-		// 	medCounts: medCounts,
-		// 	resultPerPage,
-		// 	filteredMedCounts,
-		// });
-
 	} catch (error) {
 		res.status(500).json({
 			message: error.message
