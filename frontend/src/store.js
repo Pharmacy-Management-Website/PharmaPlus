@@ -3,26 +3,23 @@ import {
 	combineReducers,
 	applyMiddleware,
 } from 'redux';
+import { persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { medicinesReducer } from './reducers/medicineReducer.js';
+import reducer from './root-reducers';
 
-import { userReducer } from './reducers/userReducer.js';
-
-const reducer = combineReducers({
-	user: userReducer,
-	medicines: medicinesReducer,
-});
-
-const initialState = {};
+const initialState = {
+};
 
 const middleware = [thunk];
 
-const store = createStore(
+export const store = createStore(
 	reducer,
 	initialState,
 	composeWithDevTools(applyMiddleware(...middleware)),
 );
 
-export default store;
+export const persistor = persistStore(store);
+
+export default { store, persistor };

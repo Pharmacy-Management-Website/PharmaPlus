@@ -1,16 +1,19 @@
 import React, { useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { allMedicines, clearErrors } from "../../actions/medicineActions.js";
 import { useAlert } from "react-alert";
 import Loader from "../Utils/Loader/Loader.js";
 import Title from "../Utils/Meta/Title.js";
 
-const MedicinesPg = () => {
+const MedicinesPage = () => {
 
 	const dispatch = useDispatch();
 	const alert = useAlert();
+	const navigate = useNavigate();
 
 	const { error, loading, medicines } = useSelector((state) => state.medicines);
+	const { isAuthenticated } = useSelector((state) => state.user);
 
 	useEffect(() => {
 		if (error) {
@@ -27,7 +30,7 @@ const MedicinesPg = () => {
 					<Loader />
 				) : (
 					<Fragment>
-						<Title title="Home" />
+						<Title title="Medicines" />
 						<h1>Home Page</h1>
 						<ul>
 							{medicines.map((medicine) => (
@@ -41,4 +44,4 @@ const MedicinesPg = () => {
 	)
 }
 
-export default MedicinesPg;
+export default MedicinesPage;

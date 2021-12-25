@@ -32,6 +32,7 @@ export const loginUser = (username, password) => async dispatch => {
 			type: LOGIN_SUCCESS,
 			payload: data.user
 		});
+		// localStorage.setItem('userInfo', data.user);
 	} catch (err) {
 		dispatch({ type: LOGIN_FAIL, payload: err.response.data.message });
 	}
@@ -48,6 +49,7 @@ export const registerUser = (username, password) => async dispatch => {
 			config
 		);
 		dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
+		// localStorage.setItem('userInfo', data.user);
 	}
 	catch (error) {
 		dispatch({ type: REGISTER_USER_FAIL, payload: error.response.data.msg });
