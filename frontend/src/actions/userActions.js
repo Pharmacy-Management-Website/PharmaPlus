@@ -8,8 +8,7 @@ import {
 	REGISTER_USER_REQUEST,
 	REGISTER_USER_SUCCESS,
 	REGISTER_USER_FAIL,
-	LOGOUT_SUCCESS,
-	LOGOUT_FAIL,
+	LOGOUT_USER,
 	CLEAR_ERRORS
 } from '../constants/userConstants.js';
 import axios from 'axios';
@@ -30,9 +29,9 @@ export const loginUser = (username, password) => async dispatch => {
 		);
 		dispatch({
 			type: LOGIN_SUCCESS,
-			payload: data.user
+			payload: data,
 		});
-		// localStorage.setItem('userInfo', data.user);
+		localStorage.setItem('datamanager', JSON.stringify(data));
 	} catch (err) {
 		dispatch({ type: LOGIN_FAIL, payload: err.response.data.message });
 	}
@@ -48,8 +47,11 @@ export const registerUser = (username, password) => async dispatch => {
 			{ username, password },
 			config
 		);
-		dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
-		// localStorage.setItem('userInfo', data.user);
+		dispatch({
+			type: REGISTER_USER_SUCCESS,
+			payload: data
+		});
+		localStorage.setItem('datamanager', JSON.stringify(data));
 	}
 	catch (error) {
 		dispatch({ type: REGISTER_USER_FAIL, payload: error.response.data.msg });
@@ -57,13 +59,10 @@ export const registerUser = (username, password) => async dispatch => {
 };
 
 // ? Logout
-export const logoutUser = () => async dispatch => {
-	try {
-		await axios.get(`/auth/logout`);
-		dispatch({ type: LOGOUT_SUCCESS });
-	} catch (error) {
-		dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });
-	}
+export const logoutUser = () => async (dispatch) => {
+	localStorage.removeItem('datamanager');
+	dispatch({ type: LOGOUT_USER })
+	// document.location.href = '/'
 };
 
 // ? Clearing Errors

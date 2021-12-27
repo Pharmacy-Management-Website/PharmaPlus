@@ -10,17 +10,17 @@ import "./App.css";
 
 function App() {
 
-	const { isAuthenticated } = useSelector((state) => state.user);
+	const userLogin = useSelector((state) => state.userLogin);
+	const { loading, error, manager } = userLogin;
 	const alert = useAlert();
 
 	function RequiredAuth() {
-		if (!isAuthenticated) {
+		if (!manager) {
 			alert.error("Please Login");
 			return <Navigate to="/" />
 		}
 		return <Outlet />
 	}
-
 
 	return (
 		<Router>

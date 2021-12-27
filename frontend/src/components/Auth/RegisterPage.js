@@ -13,27 +13,33 @@ const RegisterPage = () => {
 	const alert = useAlert();
 	const navigate = useNavigate();
 
-	const { error, loading, isAuthenticated } = useSelector(
-		(state) => state.user
-	);
+	const userRegister = useSelector((state) => state.userRegister);
+	const { error, loading, manager } = userRegister;
 
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const [confirmPassword, setConfirmPassword] = useState("");
 
 	const registerSubmit = (e) => {
 		e.preventDefault();
-		dispatch(registerUser(username, password));
+		if (password !== confirmPassword) {
+			alert.error("Passwords do not match");
+		}
+		else {
+			dispatch(registerUser(username, password));
+			navigate("/home");
+		}
 	};
 
 	useEffect(() => {
-		if (error) {
-			alert(error);
-			dispatch(clearErrors());
-		}
-		if (isAuthenticated) {
+		if (manager) {
 			navigate("/home");
 		}
-	}, [dispatch, alert, error, isAuthenticated, navigate]);
+		else if (error) {
+			alert.error(error);
+			dispatch(clearErrors());
+		}
+	}, [manager, navigate, error, alert, dispatch]);
 
 	return (
 		<Fragment>
@@ -67,6 +73,16 @@ const RegisterPage = () => {
 										onChange={(e) => setPassword(e.target.value)}
 									/>
 									<label>Password</label>
+								</div>
+								<div class="user-box">
+									<input
+										type="password"
+										required
+										name="password"
+										value={confirmPassword}
+										onChange={(e) => setConfirmPassword(e.target.value)}
+									/>
+									<label>Confirm Password</label>
 								</div>
 								<input type="submit" value="Register" />
 								<span></span>

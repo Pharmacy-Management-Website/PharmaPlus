@@ -1,10 +1,7 @@
 const AuthUser = require('../schema/authUserSchema.js');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-// const {
-// 	createAccessToken,
-// 	createRefreshToken
-// } = require('../utils/jwToken.js');
+const { generateToken } = require('../utils/tokenizer.js');
 
 // ? @desc: Create Data manager
 // ? @route: POST /adminapi/create-data-manager
@@ -14,30 +11,25 @@ exports.createDataManager = async (req, res, next) => {
 			username,
 			password
 		} = req.body;
-		const dataManager = await AuthUser.findOne({ username });
-		if (dataManager) {
+		const dmExists = await AuthUser.findOne({ username });
+		if (dmExists) {
 			return res.status(400).json({
-				message: 'Data Manager already exists'
+				msg: 'Data manager already exists'
 			});
 		}
-		const hashedPassword = await bcrypt.hash(password, 10);
-		const newDataManager = new AuthUser({
+		const newDataManager = await AuthUser.create({
 			username,
-			password: hashedPassword
+			password
 		});
-		await newDataManager.save();
-		const accesstoken = createAccessToken({ id: newDataManager._id });
-		const refreshtoken = createRefreshToken({ id: newDataManager._id });
-		res.cookie('refreshtoken', refreshtoken, {
-			httpOnly: true,
-			path: '/auth/refresh-token',
-			maxAge: 7 * 24 * 60 * 60 * 1000 // 7d
-		});
-		res.status(201).json({
-			message: 'Data Manager created successfully',
-			accesstoken,
-			user: newDataManager
-		});
+		if (newDataManager) {
+			res.status(200).json({
+				message: 'Data Manager created successfully',
+				_id: newDataManager._id,
+				username: newDataManager.username,
+				password: newDataManager.password,
+				token: generateToken(newDataManager._id)
+			});
+		}
 	} catch (error) {
 		res.status(500).json({
 			message: 'Creating user failed'
@@ -59,35 +51,26 @@ exports.authLogin = async (req, res, next) => {
 				message: 'Invalid credentials'
 			});
 		}
-		const user = await AuthUser.findOne({ username });
-		if (!user) {
-			return res.status(401).json({
+		const dataManager = await AuthUser.findOne({ username });
+		if (dataManager && (await dataManager.validatePassword(password))) {
+			res.status(200).json({
+				message: 'Auth successful',
+				_id: dataManager._id,
+				username: dataManager.username,
+				password: dataManager.password,
+				token: generateToken(dataManager._id)
+			});
+		}
+		else {
+			res.status(401).json({
 				success: false,
-				message: 'No user found'
+				message: 'Invalid credentials'
 			});
 		}
-		const isPasswordMatch = await bcrypt.compare(password, user.password);
-		if (!isPasswordMatch) {
-			return res.status(401).json({
-				message: 'Auth failed'
-			});
-		}
-		const accesstoken = createAccessToken({ id: user._id });
-		const refreshtoken = createRefreshToken({ id: user._id });
-		res.cookie('refreshtoken', refreshtoken, {
-			httpOnly: true,
-			path: '/auth/refresh-token',
-			maxAge: 7 * 24 * 60 * 60 * 1000 // 7d
-		});
-		res.status(200).json({
-			message: 'Auth successful',
-			accesstoken,
-			user
-		});
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({
-			message: 'Login failed'
+			message: 'Invalid credentials'
 		});
 	}
 }
@@ -163,10 +146,10 @@ exports.updateAdminapi = async (req, res, next) => {
 }
 
 
-const createAccessToken = (user) => {
-	return jwt.sign(user, process.env.JWT_ACCESS_SECRET, { expiresIn: '11m' });
-}
+// const createAccessToken = (user) => {
+// 	return jwt.sign(user, process.env.JWT_ACCESS_SECRET, { expiresIn: '11m' });
+// }
 
-const createRefreshToken = (user) => {
-	return jwt.sign(user, process.env.JWT_REFRESH_SECRET, { expiresIn: '7d' });
-}
+// const createRefreshToken = (user) => {
+// 	return jwt.sign(user, process.env.JWT_REFRESH_SECRET, { expiresIn: '7d' });
+// }

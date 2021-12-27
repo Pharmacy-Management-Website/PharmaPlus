@@ -13,7 +13,6 @@ const MedicinesPage = () => {
 	const navigate = useNavigate();
 
 	const { error, loading, medicines } = useSelector((state) => state.medicines);
-	const { isAuthenticated } = useSelector((state) => state.user);
 
 	useEffect(() => {
 		if (error) {

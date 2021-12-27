@@ -12,9 +12,8 @@ const LoginPage = () => {
 	const alert = useAlert();
 	const navigate = useNavigate();
 
-	const { error, loading, isAuthenticated } = useSelector(
-		(state) => state.user
-	);
+	const userLogin = useSelector((state) => state.userLogin);
+	const { loading, error, manager } = userLogin;
 
 	const [loginUsername, setLoginUsername] = useState("");
 	const [loginPassword, setLoginPassword] = useState("");
@@ -25,14 +24,14 @@ const LoginPage = () => {
 	};
 
 	useEffect(() => {
-		if (error) {
+		if (manager) {
+			navigate("/home");
+		}
+		else if (error) {
 			alert.error(error);
 			dispatch(clearErrors());
 		}
-		if (isAuthenticated) {
-			navigate("/home");
-		}
-	}, [dispatch, alert, error, isAuthenticated, navigate]);
+	}, [manager, navigate, error, alert, dispatch]);
 
 	return (
 		<Fragment>

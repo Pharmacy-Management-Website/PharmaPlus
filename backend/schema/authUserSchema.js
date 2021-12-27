@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const authUserSchema = new mongoose.Schema({
 	username: {
@@ -9,6 +10,15 @@ const authUserSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+});
+
+authUserSchema.methods.validatePassword = async function (enteredPassword) {
+	return await bcrypt.compare(enteredPassword, this.password);
+};
+
+authUserSchema.pre('save', async function (next) {
+	const salt = await bcrypt.genSalt(10)
+	this.password = await bcrypt.hash(this.password, salt)
 });
 
 module.exports = mongoose.model('AuthUser', authUserSchema);
