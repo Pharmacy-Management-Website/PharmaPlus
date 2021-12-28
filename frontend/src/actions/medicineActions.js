@@ -7,10 +7,11 @@ import {
 import axios from 'axios';
 
 // ? All medicines
-export const allMedicines = () => async (dispatch) => {
+export const allMedicines = (keyword = "", currentPage = 1) => async (dispatch) => {
 	try {
 		dispatch({ type: ALL_MEDICINE_REQUEST });
-		const { data } = await axios.get('/medapi/medicines');
+		let link = `/medapi/medicines?keyword=${keyword}&page=${currentPage}`;
+		const { data } = await axios.get(link);
 		dispatch({
 			type: ALL_MEDICINE_SUCCESS,
 			payload: data

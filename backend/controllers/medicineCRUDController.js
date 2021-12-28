@@ -5,15 +5,22 @@ const ApiFeatures = require('../utils/apiFeatures.js');
 // ? @route: GET /medapi/medicines
 exports.getAllMedicinesDetails = async (req, res, next) => {
 	try {
-		const resultPerPage = 5;
+		const resultPerPage = 8;
+		const medCounts = await Medicine.countDocuments();
+
 		const apiFeature = new ApiFeatures(Medicine.find(), req.query)
 			.search()
-			.pagination(resultPerPage)
-		const medicines = await apiFeature.query;
+			.pagination(resultPerPage);
+
+		let medicines = await apiFeature.query;
+
+		let filteredMedicinesCount = medicines.length;
 		res.status(200).json({
 			success: true,
-			length: medicines.length,
-			medicines: medicines,
+			medicines,
+			medCounts,
+			resultPerPage,
+			filteredMedicinesCount,
 		});
 	} catch (error) {
 		res.status(500).json({

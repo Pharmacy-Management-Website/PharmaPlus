@@ -16,6 +16,9 @@ export const medicinesReducer = (state = { medicines: [] }, action) => {
 			return {
 				loading: false,
 				medicines: action.payload.medicines,
+				medCounts: action.payload.medCounts,
+				resultPerPage: action.payload.resultPerPage,
+				filteredMedicinesCount: action.payload.filteredMedicinesCount,
 			};
 		case ALL_MEDICINE_FAIL:
 			return {
