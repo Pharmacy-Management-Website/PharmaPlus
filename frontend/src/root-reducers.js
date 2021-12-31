@@ -7,7 +7,8 @@ import {
 
 import {
 	medicinesReducer,
-	medicineDetailsReducer
+	medicineDetailsReducer,
+	stockDetailsReducer
 } from './reducers/medicineReducer.js';
 
 import { cartReducer } from "./reducers/cartReducer.js";
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
 	userRegister: managerRegisterReducer,
 	medicines: medicinesReducer,
 	medicineDetails: medicineDetailsReducer,
+	stockDetails: stockDetailsReducer,
 	cart: cartReducer,
 });
 
