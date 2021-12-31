@@ -5,6 +5,7 @@ import { allMedicines, clearErrors } from "../../actions/medicineActions.js";
 import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
 import SearchBox from "../Utils/SearchBox/SearchBox.js";
+import MedDisplay from "../Utils/MedComp/MedDisplay.js";
 import Loader from "../Utils/Loader/Loader.js";
 import Title from "../Utils/Meta/Title.js";
 
@@ -68,7 +69,7 @@ const MedicinesPage = () => {
 						</form>
 						<ul>
 							{medicines.map((medicine) => (
-								<li key={medicine.id}>{medicine.name}</li>
+								<MedDisplay key={medicine._id} medicine={medicine} />
 							))}
 						</ul>
 						<div className="paginationBox">

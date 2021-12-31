@@ -2,6 +2,9 @@ import {
 	ALL_MEDICINE_REQUEST,
 	ALL_MEDICINE_SUCCESS,
 	ALL_MEDICINE_FAIL,
+	MEDICINE_DETAILS_REQUEST,
+	MEDICINE_DETAILS_SUCCESS,
+	MEDICINE_DETAILS_FAIL,
 	CLEAR_ERRORS
 } from '../constants/medicineConstants.js';
 
@@ -21,6 +24,34 @@ export const medicinesReducer = (state = { medicines: [] }, action) => {
 				filteredMedicinesCount: action.payload.filteredMedicinesCount,
 			};
 		case ALL_MEDICINE_FAIL:
+			return {
+				...state,
+				loading: false,
+				error: action.payload
+			};
+		case CLEAR_ERRORS:
+			return {
+				...state,
+				error: null
+			};
+		default:
+			return state;
+	}
+};
+
+export const medicineDetailsReducer = (state = { medicine: {} }, action) => {
+	switch (action.type) {
+		case MEDICINE_DETAILS_REQUEST:
+			return {
+				loading: true,
+				...state,
+			};
+		case MEDICINE_DETAILS_SUCCESS:
+			return {
+				loading: false,
+				medicine: action.payload,
+			};
+		case MEDICINE_DETAILS_FAIL:
 			return {
 				...state,
 				loading: false,

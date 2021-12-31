@@ -6,6 +6,7 @@ import LoginPage from "./components/Auth/LoginPage";
 import RegisterPage from "./components/Auth/RegisterPage.js";
 import HomePage from "./components/Home/HomePage.js";
 import MedicinesPage from "./components/Medicines/MedicinesPage.js";
+import Medicine from "./components/Medicines/Medicine.js";
 import "./App.css";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
 					<Route element={<RequiredAuth />}>
 						<Route exact path='/home' element={<HomePage />} />
 						<Route exact path='/medicines' element={<MedicinesPage />} />
+						<Route path='/medicine/:id' element={<Medicine />} />
 					</Route>
 				</Routes>
 			</Fragment>
