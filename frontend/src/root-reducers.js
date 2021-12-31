@@ -1,26 +1,19 @@
 import { combineReducers } from "redux";
-// import { persistReducer } from "redux-persist";
-// import storage from "redux-persist/lib/storage";
 
 import {
 	managerLoginReducer,
 	managerRegisterReducer
 } from './reducers/userReducer.js';
+
 import { medicinesReducer } from './reducers/medicineReducer.js';
 
-// const persistConfig = {
-// 	key: "root",
-// 	storage,
-// 	whitelist: ["user", "medicines"],
-// }
+import { cartReducer } from "./reducers/cartReducer.js";
 
 const rootReducer = combineReducers({
 	userLogin: managerLoginReducer,
 	userRegister: managerRegisterReducer,
 	medicines: medicinesReducer,
+	cart: cartReducer,
 });
 
-// export default persistReducer(persistConfig, rootReducer);
 export default rootReducer;
-
-// export default reducer;
