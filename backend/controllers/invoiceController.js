@@ -48,13 +48,9 @@ exports.newInvoice = async (req, res) => {
 			await medicine.save();
 		}
 		const allNames = purchasedMedicines.map(medicine => medicine.name);
-		const allQty = purchasedMedicines.map(medicine => medicine.qty);
-		const allPrice = purchasedMedicines.map(medicine => medicine.price);
 		var options = {
 			authorization: process.env.FAST_TWO_SMS_API,
-			message: `Hi ${customerDetails.name}\nYour invoice number is ${invoiceNumber}\n
-					${allNames.join(', ')}
-			Thank you for shopping with us.`,
+			message: `PHARMA+\n\nHi ${customerDetails.name}\nYour invoice number is ${invoiceNumber}\n${allNames.join(', ')}\nThank you for shopping with us.`,
 			numbers: [customerDetails.mobileNumber],
 		};
 		fast2sms.sendMessage(options);
