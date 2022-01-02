@@ -1,10 +1,10 @@
 const AuthUser = require('../schema/authUserSchema.js');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const { generateToken } = require('../utils/tokenizer.js');
 
 // ? @desc: Create Data manager
-// ? @route: POST /adminapi/create-data-manager
+// ? @route: POST /authapi/create-data-manager
+// ? @access: Admin
 exports.createDataManager = async (req, res, next) => {
 	try {
 		const {
@@ -14,7 +14,7 @@ exports.createDataManager = async (req, res, next) => {
 		const dmExists = await AuthUser.findOne({ username });
 		if (dmExists) {
 			return res.status(400).json({
-				msg: 'Data manager already exists'
+				message: 'Data manager already exists'
 			});
 		}
 		const newDataManager = await AuthUser.create({
@@ -26,7 +26,7 @@ exports.createDataManager = async (req, res, next) => {
 				message: 'Data Manager created successfully',
 				_id: newDataManager._id,
 				username: newDataManager.username,
-				password: newDataManager.password,
+				role: newDataManager.role,
 				token: generateToken(newDataManager._id)
 			});
 		}
@@ -47,7 +47,6 @@ exports.authLogin = async (req, res, next) => {
 		} = req.body;
 		if (!username || !password) {
 			return res.status(401).json({
-				success: false,
 				message: 'Invalid credentials'
 			});
 		}
@@ -57,13 +56,12 @@ exports.authLogin = async (req, res, next) => {
 				message: 'Auth successful',
 				_id: dataManager._id,
 				username: dataManager.username,
-				password: dataManager.password,
+				role: dataManager.role,
 				token: generateToken(dataManager._id)
 			});
 		}
 		else {
 			res.status(401).json({
-				success: false,
 				message: 'Invalid credentials'
 			});
 		}
@@ -83,51 +81,66 @@ exports.authLogout = async (req, res, next) => {
 		httpOnly: true,
 	});
 	res.status(200).json({
-		success: true,
 		message: "Logged Out",
 	});
 };
 
-// ? @desc: Refresh token
-// ? @route: GET /authapi/refresh_token
-exports.refreshToken = async (req, res, next) => {
+// ? @desc: Get all data managers
+// ? @route: GET /authapi/get-data-managers
+exports.getDataManagers = async (req, res, next) => {
 	try {
-		const rf_token = req.cookies.refreshtoken;
-		if (!rf_token)
-			return res.status(400).json({
-				success: false,
-				message: "Please Login"
-			});
-		jwt.verify(rf_token, process.env.JWT_REFRESH_SECRET, (error, user) => {
-			if (error)
-				return res.status(400).json({
-					msg: "Please Login"
-				})
-			const accesstoken = createAccessToken({ id: user.id });
-			res.json({ accesstoken });
+		const dataManagers = await AuthUser.find({
+			role: 'datamanager'
+		});
+		res.status(200).json({
+			message: 'Data Managers retrieved successfully',
+			dataManagers
 		});
 	} catch (error) {
-		return res.status(500).json({ message: error.message });
+		res.status(500).json({
+			message: 'Retrieving data managers failed'
+		});
 	}
-}
+};
 
+// ? @desc: Get Data Manager by ID
+// ? @route: GET /authapi/get-dm/:id
+// ? @access: Admin
+exports.getDataManagerById = async (req, res, next) => {
+	try {
+		const dataManager = await AuthUser.findById(req.params.id);
+		if (!dataManager) {
+			return res.status(400).json({
+				message: 'Data Manager does not exist'
+			});
+		}
+		res.status(200).json({
+			message: 'Data Manager retrieved successfully',
+			dataManager
+		});
+	} catch (error) {
+		res.status(500).json({
+			message: 'Retrieving data manager failed'
+		});
+	}
+};
 
-// ? @desc: Update Adminapi details
-// ? @route: PUT /adminapi/update-adminapi
-exports.updateAdminapi = async (req, res, next) => {
+// ? @desc: Update manager details
+// ? @route: PUT /authapi/update-dm/:id
+exports.updateManager = async (req, res, next) => {
 	try {
 		const {
 			username,
 			password
 		} = req.body;
-		const dataManager = await AuthUser.findOne({ username });
+		let dataManager = await AuthUser.findById(req.params.id);
 		if (!dataManager) {
 			return res.status(400).json({
 				message: 'Data Manager does not exist'
 			});
 		}
 		const hashedPassword = await bcrypt.hash(password, 10);
-		const updatedDataManager = await AuthUser.findOneAndUpdate({ username }, {
+		dataManager = await AuthUser.findByIdAndUpdate(req.params.id, {
 			username,
 			password: hashedPassword
 		}, {
@@ -135,21 +148,40 @@ exports.updateAdminapi = async (req, res, next) => {
 			runValidators: true,
 			useFindAndModify: false,
 		});
+		await dataManager.save();
 		res.status(200).json({
-			message: 'Data Manager updated successfully'
+			message: 'Data Manager updated successfully',
+			dataManager
 		});
 	} catch (error) {
 		res.status(500).json({
 			message: 'Updating user failed'
 		});
 	}
-}
+};
 
-
-// const createAccessToken = (user) => {
-// 	return jwt.sign(user, process.env.JWT_ACCESS_SECRET, { expiresIn: '11m' });
-// }
-
-// const createRefreshToken = (user) => {
-// 	return jwt.sign(user, process.env.JWT_REFRESH_SECRET, { expiresIn: '7d' });
-// }
+// ? @desc: Delete data manager
+// ? @route: DELETE /authapi/delete-dm/:id
+exports.deleteManager = async (req, res, next) => {
+	try {
+		const dataManager = await AuthUser.findById(req.params.id);
+		if (!dataManager) {
+			return res.status(400).json({
+				message: 'Data Manager does not exist'
+			});
+		}
+		if (dataManager.role === 'admin') {
+			return res.status(400).json({
+				message: 'Admin cannot be deleted'
+			});
+		}
+		await AuthUser.findByIdAndDelete(req.params.id);
+		res.status(200).json({
+			message: 'Data Manager deleted successfully'
+		});
+	} catch (error) {
+		res.status(500).json({
+			message: 'Deleting data manager failed'
+		});
+	}
+};

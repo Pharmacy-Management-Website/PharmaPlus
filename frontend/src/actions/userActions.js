@@ -23,7 +23,7 @@ export const loginUser = (username, password) => async dispatch => {
 			},
 		}
 		const { data } = await axios.post(
-			`/auth/login`,
+			`/authapi/login`,
 			{ username, password },
 			config
 		);
@@ -43,7 +43,7 @@ export const registerUser = (username, password) => async dispatch => {
 		dispatch({ type: REGISTER_USER_REQUEST });
 		const config = { headers: { "Content-Type": "application/json" } };
 		const { data } = await axios.post(
-			`/auth/create-data-manager`,
+			`/authapi/create-data-manager`,
 			{ username, password },
 			config
 		);
@@ -62,7 +62,6 @@ export const registerUser = (username, password) => async dispatch => {
 export const logoutUser = () => async (dispatch) => {
 	localStorage.removeItem('datamanager');
 	dispatch({ type: LOGOUT_USER })
-	// document.location.href = '/'
 };
 
 // ? Clearing Errors

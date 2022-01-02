@@ -1,13 +1,13 @@
 const Invoice = require('../schema/invoiceSchema.js');
 const Medicine = require('../schema/medicineSchema.js');
+const fast2sms = require('fast-two-sms')
 
 // ? @desc: Get All Invoices
-// ? @route: GET /all-invoices
+// ? @route: GET /invoiceapi/all-invoices
 exports.getAllInvoices = async (req, res) => {
 	try {
 		const invoices = await Invoice.find({});
 		return res.status(200).json({
-			success: true,
 			length: invoices.length,
 			invoices
 		});
@@ -19,18 +19,16 @@ exports.getAllInvoices = async (req, res) => {
 };
 
 // ? @desc: New Invoice
-// ? @route: POST /new-invoice
+// ? @route: POST /invoiceapi/new-invoice
 exports.newInvoice = async (req, res) => {
 	try {
 		const {
 			invoiceNumber,
-			invoiceDate,
-			customerName,
-			customerMobileNumber,
+			customerDetails,
 			purchasedMedicines,
 		} = req.body;
 		for (let i = 0; i < purchasedMedicines.length; i++) {
-			const medicine = await Medicine.findById(purchasedMedicines[i].medicine);
+			let medicine = await Medicine.findById(purchasedMedicines[i].medicine);
 			if (!medicine)
 				return res.status(404).json({
 					success: false,
@@ -41,29 +39,32 @@ exports.newInvoice = async (req, res) => {
 					success: false,
 					message: 'Medicine quantity not available'
 				});
-			// ? update medicine stock
-			medicine.stockDetails[0].inStock -= purchasedMedicines[i].qty;
-			await medicine.save();
 			if (medicine.stockDetails[0].expDate < (Date.now() + 30))
 				return res.status(400).json({
 					success: false,
 					message: 'Medicine is about to expire'
 				});
+			medicine.stockDetails[0].inStock -= purchasedMedicines[i].qty;
+			await medicine.save();
 		}
+		var options = {
+			authorization: process.env.FAST_TWO_SMS_API,
+			message: `Hi ${customerDetails.name}\nYour invoice number is ${invoiceNumber},
+					Thank you for shopping with us.`,
+			numbers: [customerDetails.mobileNumber],
+		};
+		fast2sms.sendMessage(options);
 		const newInvoice = new Invoice({
 			invoiceNumber,
-			invoiceDate,
-			customerName,
-			customerMobileNumber,
+			customerDetails,
 			purchasedMedicines
 		});
 		const invoice = await newInvoice.save();
 		return res.status(200).json({
-			success: true,
 			invoice
 		});
 	} catch (error) {
-		console.log(error);
+		console.log(error.message);
 		res.status(500).json({
 			message: error.message
 		});
@@ -77,11 +78,9 @@ exports.getInvoiceById = async (req, res) => {
 		const invoice = await Invoice.findById(req.params.id);
 		if (!invoice)
 			return res.status(404).json({
-				success: false,
 				message: 'Invoice not found'
 			});
 		return res.status(200).json({
-			success: true,
 			invoice
 		});
 	} catch (error) {
@@ -98,12 +97,10 @@ exports.deleteInvoice = async (req, res) => {
 		const invoice = await Invoice.findById(req.params.id);
 		if (!invoice)
 			return res.status(404).json({
-				success: false,
 				message: 'Invoice not found'
 			});
 		await Invoice.findByIdAndDelete(req.params.id);
 		return res.status(200).json({
-			success: true,
 			message: 'Invoice deleted successfully'
 		});
 	} catch (error) {

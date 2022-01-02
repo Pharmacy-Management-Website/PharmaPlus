@@ -4,11 +4,17 @@ const router = express.Router();
 const {
 	createDataManager,
 	authLogin,
-	refreshToken,
+	getDataManagers,
+	getDataManagerById,
 	authLogout,
-	updateAdminapi
+	updateManager,
+	deleteManager,
 } = require('../controllers/authController.js');
-const { isAuthenticated } = require('../middleware/authentication.js');
+
+const {
+	isAuthenticated,
+	isAdmin
+} = require('../middleware/authentication.js');
 
 // ? POST Create One data manager
 router.post('/create-data-manager', createDataManager);
@@ -16,13 +22,19 @@ router.post('/create-data-manager', createDataManager);
 // ? POST Login
 router.post('/login', authLogin);
 
-// ? GET Refresh Token
-router.get('/refresh-token', refreshToken);
-
 // ? GET logout
 router.get('/logout', isAuthenticated, authLogout);
 
-// ? PUT Update Adminapi
-router.put('/update-adminapi', isAuthenticated, updateAdminapi);
+// ? GET get all data managers
+router.get('/get-data-managers', isAuthenticated, isAdmin, getDataManagers);
+
+// ? GET get one data manager
+router.get('/get-dm/:id', isAuthenticated, isAdmin, getDataManagerById);
+
+// ? PUT Update Manager details
+router.put('/update-dm/:id', updateManager);
+
+// ? DELETE Delete Manager
+router.delete('/delete-dm/:id', isAuthenticated, isAdmin, deleteManager);
 
 module.exports = router;

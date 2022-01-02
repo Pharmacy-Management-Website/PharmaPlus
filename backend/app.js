@@ -18,11 +18,11 @@ const medicineRouter = require('./routers/medicineRouter.js');
 const authRouter = require('./routers/authRouter.js');
 const invoiceRouter = require('./routers/invoiceRouter.js');
 
-// const { isAuthenticated } = require('./middleware/authentication.js')
+const { isAuthenticated } = require('./middleware/authentication.js')
 
-app.use('/medapi', medicineRouter);
-app.use('/auth', authRouter);
-app.use('/invoice', invoiceRouter);
+app.use('/medapi', isAuthenticated, medicineRouter);
+app.use('/authapi', authRouter);
+app.use('/invoiceapi', invoiceRouter);
 
 // ! Middleware for error handlers
 app.use(errorMiddleWare);

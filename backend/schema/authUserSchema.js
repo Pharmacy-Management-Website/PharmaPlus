@@ -10,6 +10,11 @@ const authUserSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	role: {
+		type: String,
+		required: true,
+		default: "datamanager",
+	},
 });
 
 authUserSchema.methods.validatePassword = async function (enteredPassword) {

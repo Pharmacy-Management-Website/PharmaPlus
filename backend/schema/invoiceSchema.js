@@ -3,22 +3,22 @@ const mongoose = require('mongoose');
 const invoiceSchema = new mongoose.Schema({
 	invoiceNumber: {
 		type: String,
-		required: true,
-		unique: true
+		required: true
+	},
+	customerDetails: {
+		name: {
+			type: String,
+			required: true
+		},
+		mobileNumber: {
+			type: String,
+			required: true
+		},
 	},
 	invoiceDate: {
 		type: Date,
-		default: Date.now,
-		required: true
-	},
-	customerName: {
-		type: String,
-		// required: true
-	},
-	customerMobileNumber: {
-		type: Number,
-		length: 10,
-		// required: true
+		required: true,
+		default: Date.now
 	},
 	purchasedMedicines: [
 		{
