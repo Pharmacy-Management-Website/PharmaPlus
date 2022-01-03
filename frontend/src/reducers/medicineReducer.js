@@ -8,6 +8,9 @@ import {
 	STOCK_DETAILS_REQUEST,
 	STOCK_DETAILS_SUCCESS,
 	STOCK_DETAILS_FAIL,
+	MED_STOCK_REQUEST,
+	MED_STOCK_SUCCESS,
+	MED_STOCK_FAIL,
 	CREATE_MEDICINE_REQUEST,
 	CREATE_MEDICINE_SUCCESS,
 	CREATE_MEDICINE_FAIL,
@@ -16,6 +19,19 @@ import {
 	ADD_MEDICINE_STOCK_SUCCESS,
 	ADD_MEDICINE_STOCK_FAIL,
 	ADD_MEDICINE_STOCK_RESET,
+	UPDATE_MEDICINE_REQUEST,
+	UPDATE_MEDICINE_SUCCESS,
+	UPDATE_MEDICINE_FAIL,
+	UPDATE_MEDICINE_RESET,
+	DELETE_MEDICINE_REQUEST,
+	DELETE_MEDICINE_SUCCESS,
+	DELETE_MEDICINE_FAIL,
+	UPDATE_MEDICINE_STOCK_REQUEST,
+	UPDATE_MEDICINE_STOCK_SUCCESS,
+	UPDATE_MEDICINE_STOCK_FAIL,
+	DELETE_MEDICINE_STOCK_REQUEST,
+	DELETE_MEDICINE_STOCK_SUCCESS,
+	DELETE_MEDICINE_STOCK_FAIL,
 	CLEAR_ERRORS
 } from '../constants/medicineConstants.js';
 
@@ -106,6 +122,34 @@ export const stockDetailsReducer = (state = { stock: [] }, action) => {
 	}
 };
 
+export const medStockDetailReducer = (state = { stock: {} }, action) => {
+	switch (action.type) {
+		case MED_STOCK_REQUEST:
+			return {
+				loading: true,
+				...state,
+			};
+		case MED_STOCK_SUCCESS:
+			return {
+				loading: false,
+				medStock: action.payload,
+			};
+		case MED_STOCK_FAIL:
+			return {
+				...state,
+				loading: false,
+				error: action.payload
+			};
+		case CLEAR_ERRORS:
+			return {
+				...state,
+				error: null
+			};
+		default:
+			return state;
+	}
+}
+
 export const newMedicineReducer = (state = {}, action) => {
 	switch (action.type) {
 		case CREATE_MEDICINE_REQUEST:
@@ -160,6 +204,105 @@ export const newStockReducer = (state = {}, action) => {
 			return {
 				...state,
 				error: null
+			};
+		default:
+			return state;
+	}
+};
+
+export const medicineUpdateReducer = (state = {}, action) => {
+	switch (action.type) {
+		case UPDATE_MEDICINE_REQUEST:
+			return {
+				loading: true,
+				...state,
+			};
+		case UPDATE_MEDICINE_SUCCESS:
+			return {
+				loading: false,
+				medicine: action.payload,
+			};
+		case UPDATE_MEDICINE_FAIL:
+			return {
+				...state,
+				loading: false,
+				error: action.payload
+			};
+		case UPDATE_MEDICINE_RESET:
+			return {};
+		case CLEAR_ERRORS:
+			return {
+				...state,
+				error: null
+			};
+		default:
+			return state;
+	}
+};
+
+export const medicineDeleteReducer = (state = {}, action) => {
+	switch (action.type) {
+		case DELETE_MEDICINE_REQUEST:
+			return {
+				loading: true,
+				...state,
+			};
+		case DELETE_MEDICINE_SUCCESS:
+			return {
+				loading: false,
+				success: true,
+			};
+		case DELETE_MEDICINE_FAIL:
+			return {
+				...state,
+				loading: false,
+				error: action.payload
+			};
+		default:
+			return state;
+	}
+};
+
+export const medicineStockUpdateReducer = (state = {}, action) => {
+	switch (action.type) {
+		case UPDATE_MEDICINE_STOCK_REQUEST:
+			return {
+				loading: true,
+				...state,
+			};
+		case UPDATE_MEDICINE_STOCK_SUCCESS:
+			return {
+				loading: false,
+				stock: action.payload,
+			};
+		case UPDATE_MEDICINE_STOCK_FAIL:
+			return {
+				...state,
+				loading: false,
+				error: action.payload
+			};
+		default:
+			return state;
+	}
+};
+
+export const medicineStockDeleteReducer = (state = {}, action) => {
+	switch (action.type) {
+		case DELETE_MEDICINE_STOCK_REQUEST:
+			return {
+				loading: true,
+				...state,
+			};
+		case DELETE_MEDICINE_STOCK_SUCCESS:
+			return {
+				loading: false,
+				success: true,
+			};
+		case DELETE_MEDICINE_STOCK_FAIL:
+			return {
+				...state,
+				loading: false,
+				error: action.payload
 			};
 		default:
 			return state;

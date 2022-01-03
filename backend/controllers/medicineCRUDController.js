@@ -116,8 +116,32 @@ exports.updateMedicineDetails = async (req, res, next) => {
 	}
 };
 
+// ? @desc: Stock detail by Id
+// ? @route: GET /medapi/medicines/stockdetails/:id
+exports.getMedicineStockDetailsById = async (req, res, next) => {
+	try {
+		const medicine = await Medicine.findById(req.params.id);
+		if (!medicine)
+			return res.status(404).json({
+				message: 'Medicine Not Found'
+			});
+		const stockDetail = medicine.stockDetails.id(req.query.stockId);
+		if (!stockDetail)
+			return res.status(404).json({
+				message: 'Stock Detail Not Found'
+			});
+		res.status(200).json({
+			stockDetail: stockDetail
+		});
+	} catch (error) {
+		res.status(500).json({
+			message: error.message
+		});
+	}
+};
+
 // ? @desc: Update Medicine stock details
-// ? @route: PUT /medapi/medicine/:id/stock
+// ? @route: PUT /medapi/medicinestockdetails/:id
 exports.updateMedicineStockDetails = async (req, res, next) => {
 	try {
 		let medicine = await Medicine.findById(req.params.id);

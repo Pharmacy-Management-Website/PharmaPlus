@@ -6,6 +6,7 @@ const {
 	addMedicine,
 	addStockDetails,
 	getMedicineDetails,
+	getMedicineStockDetailsById,
 	updateMedicineDetails,
 	updateMedicineStockDetails,
 	deleteMedicineDetails,
@@ -23,6 +24,9 @@ router.post('/addstockdetails/:id', addStockDetails);
 
 // ? GET medicine by ID
 router.get('/medicine/:id', getMedicineDetails);
+
+// ? GET medicine stock details by ID
+router.get('/medicinestock/:id', getMedicineStockDetailsById);
 
 // ? PUT Update medicine details
 router.put('/medicine/:id', updateMedicineDetails);

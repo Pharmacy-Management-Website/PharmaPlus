@@ -9,8 +9,13 @@ import {
 	medicinesReducer,
 	medicineDetailsReducer,
 	stockDetailsReducer,
+	medStockDetailReducer,
 	newMedicineReducer,
-	newStockReducer
+	newStockReducer,
+	medicineDeleteReducer,
+	medicineUpdateReducer,
+	medicineStockUpdateReducer,
+	medicineStockDeleteReducer
 } from './reducers/medicineReducer.js';
 
 import { cartReducer } from "./reducers/cartReducer.js";
@@ -21,8 +26,13 @@ const rootReducer = combineReducers({
 	medicines: medicinesReducer,
 	medicineDetails: medicineDetailsReducer,
 	stockDetails: stockDetailsReducer,
+	medStockDetail: medStockDetailReducer,
 	newMedicine: newMedicineReducer,
 	newStock: newStockReducer,
+	medicineDelete: medicineDeleteReducer,
+	medicineUpdate: medicineUpdateReducer,
+	medicineStockUpdate: medicineStockUpdateReducer,
+	medicineStockDelete: medicineStockDeleteReducer,
 	cart: cartReducer,
 });
 
