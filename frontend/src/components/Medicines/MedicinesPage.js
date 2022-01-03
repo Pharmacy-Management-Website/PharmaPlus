@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { allMedicines, clearErrors } from "../../actions/medicineActions.js";
 import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
@@ -58,7 +58,9 @@ const MedicinesPage = () => {
 				) : (
 					<Fragment>
 						<Title title="Medicines" />
-						<h1>Home Page</h1>
+						<Link to="/newmed">
+							Add new +
+						</Link>
 						<form className="searchBox" onSubmit={searchHandler}>
 							<input
 								type="text"

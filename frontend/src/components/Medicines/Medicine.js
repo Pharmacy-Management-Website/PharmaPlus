@@ -33,10 +33,13 @@ const Medicine = () => {
 						<h1>{medicine.name}</h1>
 						<p>{medicine.composition}</p>
 						<Link to={`/stock/${medId}`}>Stocks</Link>
+						<div>
+							<Link to={`/newstock/${medicine._id}`}>New Stock+</Link>
+						</div>
 					</div>
 				)
 			}
-		</Fragment>
+		</Fragment >
 	)
 };
 

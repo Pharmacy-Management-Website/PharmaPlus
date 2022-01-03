@@ -8,6 +8,14 @@ import {
 	STOCK_DETAILS_REQUEST,
 	STOCK_DETAILS_SUCCESS,
 	STOCK_DETAILS_FAIL,
+	CREATE_MEDICINE_REQUEST,
+	CREATE_MEDICINE_SUCCESS,
+	CREATE_MEDICINE_FAIL,
+	CREATE_MEDICINE_RESET,
+	ADD_MEDICINE_STOCK_REQUEST,
+	ADD_MEDICINE_STOCK_SUCCESS,
+	ADD_MEDICINE_STOCK_FAIL,
+	ADD_MEDICINE_STOCK_RESET,
 	CLEAR_ERRORS
 } from '../constants/medicineConstants.js';
 
@@ -88,6 +96,66 @@ export const stockDetailsReducer = (state = { stock: [] }, action) => {
 				loading: false,
 				error: action.payload
 			};
+		case CLEAR_ERRORS:
+			return {
+				...state,
+				error: null
+			};
+		default:
+			return state;
+	}
+};
+
+export const newMedicineReducer = (state = {}, action) => {
+	switch (action.type) {
+		case CREATE_MEDICINE_REQUEST:
+			return {
+				loading: true,
+				...state,
+			};
+		case CREATE_MEDICINE_SUCCESS:
+			return {
+				loading: false,
+				medicine: action.payload,
+			};
+		case CREATE_MEDICINE_FAIL:
+			return {
+				...state,
+				loading: false,
+				error: action.payload
+			};
+		case CREATE_MEDICINE_RESET:
+			return {};
+		case CLEAR_ERRORS:
+			return {
+				...state,
+				error: null
+			};
+		default:
+			return state;
+	}
+};
+
+export const newStockReducer = (state = {}, action) => {
+	switch (action.type) {
+		case ADD_MEDICINE_STOCK_REQUEST:
+			return {
+				loading: true,
+				...state,
+			};
+		case ADD_MEDICINE_STOCK_SUCCESS:
+			return {
+				loading: false,
+				stock: action.payload,
+			};
+		case ADD_MEDICINE_STOCK_FAIL:
+			return {
+				...state,
+				loading: false,
+				error: action.payload
+			};
+		case ADD_MEDICINE_STOCK_RESET:
+			return {};
 		case CLEAR_ERRORS:
 			return {
 				...state,

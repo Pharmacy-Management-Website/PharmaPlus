@@ -8,6 +8,8 @@ import HomePage from "./components/Home/HomePage.js";
 import MedicinesPage from "./components/Medicines/MedicinesPage.js";
 import Medicine from "./components/Medicines/Medicine.js";
 import Stocks from "./components/Medicines/Stocks.js";
+import AddMedicine from "./components/Medicines/AddMedicine.js";
+import NewStock from "./components/Medicines/NewStock.js";
 import "./App.css";
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
 						<Route exact path='/medicines' element={<MedicinesPage />} />
 						<Route path='/medicine/:id' element={<Medicine />} />
 						<Route path='/stock/:id' element={<Stocks />} />
+						<Route path='/newmed' element={<AddMedicine />} />
+						<Route path='/newstock/:id' element={<NewStock />} />
 					</Route>
 				</Routes>
 			</Fragment>
