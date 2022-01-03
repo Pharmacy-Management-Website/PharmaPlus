@@ -20,7 +20,7 @@ const invoiceRouter = require('./routers/invoiceRouter.js');
 
 const { isAuthenticated } = require('./middleware/authentication.js')
 
-app.use('/medapi', isAuthenticated, medicineRouter);
+app.use('/medapi', medicineRouter);
 app.use('/authapi', authRouter);
 app.use('/invoiceapi', invoiceRouter);
 

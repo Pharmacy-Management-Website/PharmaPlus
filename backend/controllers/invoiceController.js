@@ -47,10 +47,15 @@ exports.newInvoice = async (req, res) => {
 			medicine.stockDetails[0].inStock -= purchasedMedicines[i].qty;
 			await medicine.save();
 		}
-		const allNames = purchasedMedicines.map(medicine => medicine.name);
+		const allDetails = [];
+		let sumtotal = 0;
+		for (let i = 0; i < purchasedMedicines.length; i++) {
+			allDetails.push(`${i + 1}. ${purchasedMedicines[i].name} : (${purchasedMedicines[i].qty}) : Rs.${purchasedMedicines[i].price}\n`);
+			sumtotal += purchasedMedicines[i].price * purchasedMedicines[i].qty;
+		}
 		var options = {
 			authorization: process.env.FAST_TWO_SMS_API,
-			message: `PHARMA+\n\nHi ${customerDetails.name}\nYour invoice number is ${invoiceNumber}\n${allNames.join(', ')}\nThank you for shopping with us.`,
+			message: `PHARMA+\n\nHi ${customerDetails.name}\nYour invoice number is ${invoiceNumber}\n\n${allDetails.join('\n')}\n\nTotal: Rs.${sumtotal}\n\nThank you for shopping with us.`,
 			numbers: [customerDetails.mobileNumber],
 		};
 		fast2sms.sendMessage(options);
