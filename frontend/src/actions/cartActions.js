@@ -4,8 +4,14 @@ import {
 } from "../constants/cartConstants.js";
 import axios from "axios";
 
-export const addMedToCart = (id, quantity) => async (dispatch, getState) => {
-	const { data } = await axios.get(`/medapi/medicine/${id}`);
+export const addMedToCart = (id, qty) => async (dispatch, getState) => {
+	const { userLogin: { manager } } = getState();
+	const config = {
+		headers: {
+			Authorization: `${manager.token}`,
+		},
+	};
+	const { data } = await axios.get(`/medapi/medicine/${id}`, config);
 	dispatch({
 		type: ADD_TO_CART,
 		payload: {
@@ -13,14 +19,10 @@ export const addMedToCart = (id, quantity) => async (dispatch, getState) => {
 			name: data.medicine.name,
 			price: data.medicine.stockDetails[0].price,
 			inStock: data.medicine.stockDetails[0].inStock,
-			quantity,
-		}
+			qty,
+		},
 	});
-	localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
-	dispatch({
-		type: ADD_TO_CART,
-		payload: item,
-	});
+	localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
 };
 
 export const removeMedFromCart = (id) => async (dispatch, getState) => {
@@ -29,4 +31,4 @@ export const removeMedFromCart = (id) => async (dispatch, getState) => {
 		payload: id,
 	});
 	localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
-}
+};

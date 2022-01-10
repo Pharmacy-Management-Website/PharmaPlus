@@ -1,7 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
+import { clearErrors } from "./actions/medicineActions";
 import LoginPage from "./components/Auth/LoginPage";
 import RegisterPage from "./components/Auth/RegisterPage.js";
 import HomePage from "./components/Home/HomePage.js";
@@ -10,12 +11,15 @@ import Medicine from "./components/Medicines/Medicine.js";
 import Stocks from "./components/Medicines/Stocks.js";
 import AddMedicine from "./components/Medicines/AddMedicine.js";
 import NewStock from "./components/Medicines/NewStock.js";
+import Cart from "./components/Cart/Cart.js";
 import "./App.css";
 
 function App() {
 
 	const userLogin = useSelector((state) => state.userLogin);
-	const { loading, error, manager } = userLogin;
+	const { error, manager } = userLogin;
+
+	const dispatch = useDispatch();
 	const alert = useAlert();
 
 	function RequiredAuth() {
@@ -24,7 +28,14 @@ function App() {
 			return <Navigate to="/" />
 		}
 		return <Outlet />
-	}
+	};
+
+	useEffect(() => {
+		if (error) {
+			alert.error(error);
+			dispatch(clearErrors());
+		}
+	}, [error, alert, dispatch]);
 
 	return (
 		<Router>
@@ -39,6 +50,7 @@ function App() {
 						<Route path='/stock/:id' element={<Stocks />} />
 						<Route path='/newmed' element={<AddMedicine />} />
 						<Route path='/newstock/:id' element={<NewStock />} />
+						<Route path='/cart' element={<Cart />} />
 					</Route>
 				</Routes>
 			</Fragment>

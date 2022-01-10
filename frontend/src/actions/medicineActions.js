@@ -34,10 +34,11 @@ import {
 import axios from 'axios';
 
 // ? All medicines
-export const allMedicines = (keyword = "", currentPage = 1) => async (dispatch) => {
+export const allMedicines = (keyword = "", currentPage = 1) => async (dispatch, getState) => {
 	try {
 		dispatch({ type: ALL_MEDICINE_REQUEST });
 		let link = `/medapi/medicines?keyword=${keyword}&page=${currentPage}`;
+		const { userLogin: { manager } } = getState();
 		const config = {
 			headers: {
 				Authorization: `${manager.token}`,
@@ -53,9 +54,10 @@ export const allMedicines = (keyword = "", currentPage = 1) => async (dispatch) 
 	}
 };
 
-export const getMedicineDetails = (id) => async (dispatch) => {
+export const getMedicineDetails = (id) => async (dispatch, getState) => {
 	try {
 		dispatch({ type: MEDICINE_DETAILS_REQUEST });
+		const { userLogin: { manager } } = getState();
 		const config = {
 			headers: {
 				Authorization: `${manager.token}`,
@@ -72,10 +74,16 @@ export const getMedicineDetails = (id) => async (dispatch) => {
 };
 
 // ? Medicine stock details
-export const getMedicineStockDetails = (id) => async (dispatch) => {
+export const getMedicineStockDetails = (id) => async (dispatch, getState) => {
 	try {
 		dispatch({ type: STOCK_DETAILS_REQUEST });
-		const { data } = await axios.get(`/medapi/medicine/${id}`);
+		const { userLogin: { manager } } = getState();
+		const config = {
+			headers: {
+				Authorization: `${manager.token}`,
+			},
+		};
+		const { data } = await axios.get(`/medapi/medicine/${id}`, config);
 		dispatch({
 			type: STOCK_DETAILS_SUCCESS,
 			payload: data.medicine.stockDetails
@@ -86,9 +94,10 @@ export const getMedicineStockDetails = (id) => async (dispatch) => {
 };
 
 // ? Medicine stock details by ID
-export const medicineStockDetail = (id) => async (dispatch) => {
+export const medicineStockDetail = (stockId) => async (dispatch, getState) => {
 	try {
 		dispatch({ type: MED_STOCK_REQUEST });
+		const { userLogin: { manager } } = getState();
 		const config = {
 			headers: {
 				Authorization: `${manager.token}`,
@@ -97,7 +106,7 @@ export const medicineStockDetail = (id) => async (dispatch) => {
 				stockId
 			},
 		}
-		const { data } = await axios.get(`/medapi/medicinestock/${id}`, config);
+		const { data } = await axios.get(`/medapi/medicinestock/${stockId}`, config);
 		dispatch({
 			type: MED_STOCK_SUCCESS,
 			payload: data
