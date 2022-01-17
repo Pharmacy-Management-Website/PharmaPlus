@@ -1,10 +1,9 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { allMedicines, clearErrors } from "../../actions/medicineActions.js";
 import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
-import SearchBox from "../Utils/SearchBox/SearchBox.js";
 import MedDisplay from "../Utils/MedComp/MedDisplay.js";
 import Loader from "../Utils/Loader/Loader.js";
 import Title from "../Utils/Meta/Title.js";
@@ -13,7 +12,6 @@ const MedicinesPage = () => {
 
 	const dispatch = useDispatch();
 	const alert = useAlert();
-	const navigate = useNavigate();
 	const params = useParams();
 
 	const {
@@ -30,16 +28,6 @@ const MedicinesPage = () => {
 
 	const setCurrentPageNum = (e) => {
 		setCurrentPage(e);
-	};
-
-	const searchHandler = (e) => {
-		// e.preventDefault();
-		// if (keyword.trim() !== "") {
-		// 	navigate(`/medicines`);
-		// }
-		// else {
-		// 	navigate("/medicines");
-		// }
 	};
 
 	useEffect(() => {
@@ -61,14 +49,6 @@ const MedicinesPage = () => {
 						<Link to="/newmed">
 							Add new +
 						</Link>
-						<form className="searchBox" onSubmit={searchHandler}>
-							<input
-								type="text"
-								placeholder="Search..."
-							// onChange={(e) => setKeyword(e.target.value)}
-							/>
-							<input type="submit" value="Search" />
-						</form>
 						<ul>
 							{medicines.map((medicine) => (
 								<MedDisplay key={medicine._id} medicine={medicine} />

@@ -1,9 +1,10 @@
 import {
 	ADD_TO_CART,
 	REMOVE_CART_ITEM,
+	SAVE_CUSTOMER_INFO,
 } from "../constants/cartConstants.js";
 
-export const cartReducer = (state = { cartItems: [] }, action) => {
+export const cartReducer = (state = { cartItems: [], customerInfo: {} }, action) => {
 	switch (action.type) {
 		case ADD_TO_CART:
 			const item = action.payload;
@@ -27,6 +28,11 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
 			return {
 				...state,
 				cartItems: state.cartItems.filter((x) => x.medicine !== action.payload)
+			};
+		case SAVE_CUSTOMER_INFO:
+			return {
+				...state,
+				customerInfo: action.payload,
 			};
 		default:
 			return state;

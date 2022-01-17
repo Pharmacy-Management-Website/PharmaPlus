@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import { logoutUser } from "../../actions/userActions.js";
-import SearchBox from "../Utils/SearchBox/SearchBox.js";
 import Title from "../Utils/Meta/Title.js";
 
 const HomePage = () => {
@@ -21,7 +20,6 @@ const HomePage = () => {
 	return (
 		<Fragment>
 			<Title title="Home" />
-			{/* <SearchBox /> */}
 			HOME PAGE
 			<Link to="/medicines" variant="primary">Meds</Link>
 			<button

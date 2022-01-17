@@ -20,6 +20,13 @@ import {
 
 import { cartReducer } from "./reducers/cartReducer.js";
 
+import {
+	newInvoiceReducer,
+	allInvoicesReducer,
+	invoiceDetailsReducer,
+	deleteInvoiceReducer,
+} from './reducers/invoiceReducer.js';
+
 const rootReducer = combineReducers({
 	userLogin: managerLoginReducer,
 	userRegister: managerRegisterReducer,
@@ -34,6 +41,10 @@ const rootReducer = combineReducers({
 	medicineStockUpdate: medicineStockUpdateReducer,
 	medicineStockDelete: medicineStockDeleteReducer,
 	cart: cartReducer,
+	newInvoice: newInvoiceReducer,
+	allInvoices: allInvoicesReducer,
+	invoiceDetails: invoiceDetailsReducer,
+	invoiceDelete: deleteInvoiceReducer,
 });
 
 export default rootReducer;

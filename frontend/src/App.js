@@ -12,6 +12,8 @@ import Stocks from "./components/Medicines/Stocks.js";
 import AddMedicine from "./components/Medicines/AddMedicine.js";
 import NewStock from "./components/Medicines/NewStock.js";
 import Cart from "./components/Cart/Cart.js";
+import CustomerInfo from "./components/Cart/CustomerInfo.js";
+import OrderPreview from "./components/Cart/OrderPreview.js";
 import "./App.css";
 
 function App() {
@@ -51,6 +53,8 @@ function App() {
 						<Route path='/newmed' element={<AddMedicine />} />
 						<Route path='/newstock/:id' element={<NewStock />} />
 						<Route path='/cart' element={<Cart />} />
+						<Route path='/custinfo' element={<CustomerInfo />} />
+						<Route path='/orderpreview' element={<OrderPreview />} />
 					</Route>
 				</Routes>
 			</Fragment>

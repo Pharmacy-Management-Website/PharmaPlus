@@ -54,6 +54,7 @@ export const allMedicines = (keyword = "", currentPage = 1) => async (dispatch, 
 	}
 };
 
+// ? Medicine details
 export const getMedicineDetails = (id) => async (dispatch, getState) => {
 	try {
 		dispatch({ type: MEDICINE_DETAILS_REQUEST });

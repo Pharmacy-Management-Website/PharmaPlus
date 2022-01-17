@@ -1,17 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAlert } from "react-alert";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ItemCard from "./ItemCard.js";
 import {
 	addMedToCart,
 	removeMedFromCart,
+	clearErrors,
 } from '../../actions/cartActions';
 
 const Cart = () => {
 
-	const { loading, error, cartItems } = useSelector((state) => state.cart);
 	const dispatch = useDispatch();
+	const alert = useAlert();
+
+	const { loading, error, cartItems } = useSelector((state) => state.cart);
 
 	const increaseQuantity = (id, quantity, stock) => {
 		const newQty = quantity + 1;
@@ -32,6 +35,13 @@ const Cart = () => {
 	const deleteItemFromList = (id) => {
 		dispatch(removeMedFromCart(id));
 	};
+
+	useEffect(() => {
+		if (error) {
+			alert.error(error);
+			dispatch(clearErrors());
+		}
+	}, [error, alert, dispatch]);
 
 	return (
 		<Fragment>
@@ -81,6 +91,9 @@ const Cart = () => {
 								</div>
 							)
 						}
+						<Link to="/custinfo">
+							Proceed
+						</Link>
 					</div>
 				)
 			}

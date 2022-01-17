@@ -15,12 +15,17 @@ const cartItemsFromStorage = localStorage.getItem('cartItems')
 	? JSON.parse(localStorage.getItem('cartItems'))
 	: []
 
+const customerInfoFromStorage = localStorage.getItem('customerDetails')
+	? JSON.parse(localStorage.getItem('customerDetails'))
+	: {}
+
 const initialState = {
 	userLogin: {
 		manager: managerInfoFromStorage,
 	},
 	cart: {
 		cartItems: cartItemsFromStorage,
+		customerInfo: customerInfoFromStorage,
 	},
 };
 
