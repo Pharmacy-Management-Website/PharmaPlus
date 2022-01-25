@@ -36,11 +36,6 @@ const OrderPreview = () => {
 	};
 
 	useEffect(() => {
-		let custInfo = localStorage.getItem("customerDetails");
-		if (!custInfo) {
-			alert.error('Please enter customer details');
-			navigate('/custinfo');
-		}
 		if (error) {
 			alert.error(error);
 			dispatch(clearErrors());

@@ -30,9 +30,6 @@ const CustomerInfo = () => {
 			alert.error(error);
 			dispatch(clearErrors());
 		}
-		if (customerInfo) {
-			navigate('/orderpreview');
-		}
 	}, [error, alert, dispatch, customerInfo, navigate]);
 
 	return (
