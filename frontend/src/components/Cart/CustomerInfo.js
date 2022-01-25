@@ -7,7 +7,7 @@ import { saveCustInfo, clearErrors } from '../../actions/cartActions';
 const CustomerInfo = () => {
 
 	const [customerName, setCustomerName] = useState('');
-	const [cutomerMobileNumber, setCutomerMobileNumber] = useState();
+	const [customerMobileNumber, setCustomerMobileNumber] = useState();
 
 	const dispatch = useDispatch();
 	const alert = useAlert();
@@ -16,8 +16,12 @@ const CustomerInfo = () => {
 	const { loading, error, customerInfo } = useSelector((state) => state.cart);
 
 	const saveHandler = (e) => {
+		if (customerMobileNumber.length !== 10) {
+			alert.error('Please enter valid mobile number');
+			return;
+		}
 		e.preventDefault();
-		dispatch(saveCustInfo({ customerName, cutomerMobileNumber }));
+		dispatch(saveCustInfo({ customerName, customerMobileNumber }));
 		navigate('/orderpreview');
 	};
 
@@ -56,8 +60,8 @@ const CustomerInfo = () => {
 									type="number"
 									placeholder="Mobile Number"
 									required
-									value={cutomerMobileNumber}
-									onChange={(e) => setCutomerMobileNumber(e.target.value)}
+									value={customerMobileNumber}
+									onChange={(e) => setCustomerMobileNumber(e.target.value)}
 								/>
 							</div>
 							<input type="submit" value="Save" />

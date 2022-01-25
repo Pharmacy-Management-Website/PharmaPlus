@@ -16,7 +16,7 @@ import {
 import axios from "axios";
 
 // ? New Invoice
-export const newInvoice = (order) => async (dispatch, getState) => {
+export const newInvoice = (invoice) => async (dispatch, getState) => {
 	try {
 		dispatch({ type: NEW_INVOICE_REQUEST });
 		const { userLogin: { manager } } = getState();
@@ -28,7 +28,7 @@ export const newInvoice = (order) => async (dispatch, getState) => {
 		};
 		const { data } = await axios.post(
 			`/invoiceapi/new-invoice`,
-			order,
+			invoice,
 			config
 		);
 		dispatch({
