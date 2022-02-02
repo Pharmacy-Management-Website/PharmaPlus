@@ -1,8 +1,15 @@
 import React, { Fragment, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate, Outlet } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import { clearErrors } from "./actions/medicineActions";
+import Header from "./components/Header";
 import LoginPage from "./components/Auth/LoginPage";
 import RegisterPage from "./components/Auth/RegisterPage.js";
 import HomePage from "./components/Home/HomePage.js";
@@ -16,49 +23,53 @@ import CustomerInfo from "./components/Cart/CustomerInfo.js";
 import OrderPreview from "./components/Cart/OrderPreview.js";
 
 function App() {
+  const userLogin = useSelector((state) => state.userLogin);
+  const { error, manager } = userLogin;
 
-	const userLogin = useSelector((state) => state.userLogin);
-	const { error, manager } = userLogin;
+  const dispatch = useDispatch();
+  const alert = useAlert();
 
-	const dispatch = useDispatch();
-	const alert = useAlert();
+  // <Header />
+  function RequiredAuth() {
+    if (!manager) {
+      alert.error("Please Login");
+      return <Navigate to="/" />;
+    }
+    return <Outlet />;
+  }
 
-	function RequiredAuth() {
-		if (!manager) {
-			alert.error("Please Login");
-			return <Navigate to="/" />
-		}
-		return <Outlet />
-	};
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+  }, [error, alert, dispatch]);
 
-	useEffect(() => {
-		if (error) {
-			alert.error(error);
-			dispatch(clearErrors());
-		}
-	}, [error, alert, dispatch]);
-
-	return (
-		<Router>
-			<Fragment>
-				<Routes>
-					<Route exact path="/" element={<LoginPage />} />
-					<Route exact path="/register" element={<RegisterPage />} />
-					<Route element={<RequiredAuth />}>
-						<Route exact path='/home' element={<HomePage />} />
-						<Route exact path='/medicines' element={<MedicinesPage />} />
-						<Route path='/medicine/:id' element={<Medicine />} />
-						<Route path='/stock/:id' element={<Stocks />} />
-						<Route path='/newmed' element={<AddMedicine />} />
-						<Route path='/newstock/:id' element={<NewStock />} />
-						<Route path='/cart' element={<Cart />} />
-						<Route path='/custinfo' element={<CustomerInfo />} />
-						<Route path='/orderpreview' element={<OrderPreview />} />
-					</Route>
-				</Routes>
-			</Fragment>
-		</Router>
-	);
+  return (
+    <Router>
+      <Fragment>
+        <Routes>
+          <Route exact path="/" element={<LoginPage />} />
+          <Route exact path="/register" element={<RegisterPage />} />
+          <Route element={<RequiredAuth />}>
+            <Route exact path="/home" element={<HomePage />} />
+            <Route exact path="/medicines" element={<MedicinesPage />} />
+            <Route path="/medicine/:id" element={<Medicine />} />
+            <Route path="/stock/:id" element={<Stocks />} />
+            <Route path="/newmed" element={<AddMedicine />} />
+            <Route path="/newstock/:id" element={<NewStock />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/custinfo" element={<CustomerInfo />} />
+            <Route path="/orderpreview" element={<OrderPreview />} />
+          </Route>
+        </Routes>
+      </Fragment>
+    </Router>
+  );
 }
 
 export default App;
+
+// git add .
+// git commit - m "hmm"
+// git push origin master

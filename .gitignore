@@ -4,8 +4,6 @@
 # production
 /frontend/build
 
-# images
-/frontend/src/Images
 
 # misc
 /backend/config/config.env
