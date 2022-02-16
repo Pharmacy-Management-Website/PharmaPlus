@@ -26,7 +26,9 @@ export const managerLoginReducer = (state = {}, action) => {
 				error: action.payload,
 			};
 		case LOGOUT_USER:
-			return {};
+			return {
+				manager: null,
+			};
 		case CLEAR_ERRORS:
 			return {
 				...state,

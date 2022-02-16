@@ -47,7 +47,7 @@ const CustomerInfo = () => {
 								<input
 									type="text"
 									placeholder="Name"
-									required
+									// required
 									value={customerName}
 									onChange={(e) => setCustomerName(e.target.value)}
 								/>
@@ -56,7 +56,7 @@ const CustomerInfo = () => {
 								<input
 									type="number"
 									placeholder="Mobile Number"
-									required
+									// required
 									value={customerMobileNumber}
 									onChange={(e) => setCustomerMobileNumber(e.target.value)}
 								/>

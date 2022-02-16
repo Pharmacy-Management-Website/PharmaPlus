@@ -51,7 +51,9 @@ const MedicinesPage = () => {
 						</Link>
 						<ul>
 							{medicines.map((medicine) => (
-								<MedDisplay key={medicine._id} medicine={medicine} />
+								<li>
+									<MedDisplay key={medicine._id} medicine={medicine} />
+								</li>
 							))}
 						</ul>
 						<div className="paginationBox">
