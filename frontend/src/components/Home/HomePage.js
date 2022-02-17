@@ -58,7 +58,7 @@ const HomePage = () => {
                   Making a meaningful difference in patients’ lives.
                 </p>
                 <div className="button__wrapper">
-                  <a href="#" className="btn primary-btn">
+                  <a href="Medicine.js" className="btn primary-btn">
                     Explore Medicines
                   </a>
                 </div>
