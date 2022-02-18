@@ -19,6 +19,7 @@ const Medicine = () => {
   const medId = params.id;
 
   const increaseQuantity = () => {
+    // TODO if (medicine.stockDetails === null) return;
     if (medicine.stockDetails[0].inStock <= quantity) return;
     const qty = quantity + 1;
     setQuantity(qty);

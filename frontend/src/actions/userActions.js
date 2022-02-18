@@ -57,8 +57,12 @@ export const registerUser = (username, password) => async dispatch => {
 
 // ? Logout
 export const logoutUser = () => async (dispatch) => {
-	localStorage.removeItem('datamanager');
-	dispatch({ type: LOGOUT_USER })
+	try {
+		dispatch({ type: LOGOUT_USER });
+		localStorage.removeItem('datamanager');
+	} catch (error) {
+		dispatch({ type: LOGIN_FAIL, payload: error.response.data.msg });
+	}
 };
 
 // ? Clearing Errors

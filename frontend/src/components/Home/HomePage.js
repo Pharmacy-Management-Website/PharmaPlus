@@ -58,7 +58,7 @@ const HomePage = () => {
                   Making a meaningful difference in patients’ lives.
                 </p>
                 <div className="button__wrapper">
-                  <a href="Medicine.js" className="btn primary-btn">
+                  <a href="#" className="btn primary-btn">
                     Explore Medicines
                   </a>
                 </div>
@@ -315,7 +315,7 @@ const HomePage = () => {
           <div className="footer__wrapper">
             <div className="footer__col1">
               <div className="footer__logo">
-                <a href="#" className="logo">
+                <a href="/" className="logo">
                   <i className="fas fa-capsules fa-5x"></i>
                 </a>
               </div>
@@ -326,7 +326,7 @@ const HomePage = () => {
                 <h4 className="footer__socials__title">Follow us</h4>
                 <ol className="footer__socials__list">
                   <li>
-                    <a href="#">
+                    <a href="/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -344,7 +344,7 @@ const HomePage = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -371,7 +371,7 @@ const HomePage = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -395,10 +395,10 @@ const HomePage = () => {
               <h3 className="footer__text__title">Links</h3>
               <ol className="footer__text">
                 <li>
-                  <a href="#">Home</a>
+                  <a href="/">Home</a>
                 </li>
                 <li>
-                  <a href="#">Medicines</a>
+                  <a href="/">Medicines</a>
                 </li>
               </ol>
             </div>
@@ -406,10 +406,10 @@ const HomePage = () => {
               <h3 className="footer__text__title">Support</h3>
               <ol className="footer__text">
                 <li>
-                  <a href="#">Contact</a>
+                  <a href="/">Contact</a>
                 </li>
                 <li>
-                  <a href="#">Refund Policy</a>
+                  <a href="/">Refund Policy</a>
                 </li>
               </ol>
             </div>
@@ -417,13 +417,13 @@ const HomePage = () => {
               <h3 className="footer__text__title">Contact</h3>
               <ol className="footer__text">
                 <li>
-                  <a href="#">+9876543210</a>
+                  <a href="/">+9876543210</a>
                 </li>
                 <li>
-                  <a href="#">abcdefgh@gmail.com</a>
+                  <a href="/">abcdefgh@gmail.com</a>
                 </li>
                 <li>
-                  <a href="#">Jayanagar, Bangalore.</a>
+                  <a href="/">Jayanagar, Bangalore.</a>
                 </li>
               </ol>
             </div>

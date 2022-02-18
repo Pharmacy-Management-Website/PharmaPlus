@@ -52,7 +52,7 @@ const OrderPreview = () => {
 						<h2>Order Preview</h2>
 						<div>
 							<p>Customer Name: {customerInfo.customerName}</p>
-							<p>Mobile Number: {customerInfo.cutomerMobileNumber}</p>
+							<p>Mobile Number: {customerInfo.customerMobileNumber}</p>
 						</div>
 						<div>
 							<p>Total Items: {cartItems.length}</p>
