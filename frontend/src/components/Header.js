@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { logoutUser } from "../actions/userActions";
 import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
@@ -10,10 +10,21 @@ const Header = () => {
 	const navigate = useNavigate();
 	const alert = useAlert();
 
+	const [keyword, setKeyword] = useState("");
+
 	const handleLogout = () => {
 		dispatch(logoutUser());
 		alert.success("Logged out successfully");
 		navigate("/");
+	};
+
+	const handleSearch = (e) => {
+		e.preventDefault();
+		if (keyword.trim()) {
+			navigate(`/medicines/${keyword}`);
+		} else {
+			navigate("/medicines");
+		}
 	};
 
 	return (
@@ -24,13 +35,14 @@ const Header = () => {
 						<i className="fas fa-capsules fa-5x"></i>
 					</a>
 
-					<form className="search">
+					<form className="search" onSubmit={handleSearch}>
 						<input
 							type="text"
 							className="search__input"
 							placeholder="Search Medicines"
+							onChange={(e) => setKeyword(e.target.value)}
 						/>
-						<button className="search__button">
+						<button type="submit" className="search__button">
 							<i className="fa fa-search" aria-hidden="true"></i>
 						</button>
 					</form>

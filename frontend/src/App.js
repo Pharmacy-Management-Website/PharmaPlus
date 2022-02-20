@@ -60,6 +60,7 @@ function App() {
 					<Route element={<RequiredAuth />}>
 						<Route exact path="/home" element={<HomePage />} />
 						<Route exact path="/medicines" element={<MedicinesPage />} />
+						<Route exact path="/medicines/:keyword" element={<MedicinesPage />} />
 						<Route path="/medicine/:id" element={<Medicine />} />
 						<Route path="/newmed" element={<AddMedicine />} />
 						<Route path="/updatemed/:id" element={<UpdateMedicine />} />
