@@ -15,8 +15,8 @@ import RegisterPage from "./components/Auth/RegisterPage.js";
 import HomePage from "./components/Home/HomePage.js";
 import MedicinesPage from "./components/Medicines/MedicinesPage.js";
 import Medicine from "./components/Medicines/Medicine.js";
-import Stocks from "./components/Medicines/Stocks.js";
 import AddMedicine from "./components/Medicines/AddMedicine.js";
+import UpdateMedicine from "./components/Medicines/UpdateMedicine";
 import NewStock from "./components/Medicines/NewStock.js";
 import Cart from "./components/Cart/Cart.js";
 import CustomerInfo from "./components/Cart/CustomerInfo.js";
@@ -60,9 +60,10 @@ function App() {
 					<Route element={<RequiredAuth />}>
 						<Route exact path="/home" element={<HomePage />} />
 						<Route exact path="/medicines" element={<MedicinesPage />} />
+						<Route exact path="/medicines/:keyword" element={<MedicinesPage />} />
 						<Route path="/medicine/:id" element={<Medicine />} />
-						<Route path="/stock/:id" element={<Stocks />} />
 						<Route path="/newmed" element={<AddMedicine />} />
+						<Route path="/updatemed/:id" element={<UpdateMedicine />} />
 						<Route path="/newstock/:id" element={<NewStock />} />
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/custinfo" element={<CustomerInfo />} />

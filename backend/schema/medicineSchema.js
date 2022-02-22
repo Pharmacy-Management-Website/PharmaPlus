@@ -19,6 +19,11 @@ const stockSchema = new mongoose.Schema({
 		default: Date.now() + (1000 * 60 * 60 * 24 * 182),
 		required: true
 	},
+	createdAt: {
+		type: Date,
+		default: Date.now(),
+		expires: Date.now() + (1000 * 60 * 60 * 24 * 150),
+	},
 });
 
 const medicineSchema = new mongoose.Schema({
