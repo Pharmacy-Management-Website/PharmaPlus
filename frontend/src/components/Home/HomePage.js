@@ -50,9 +50,9 @@ const HomePage = () => {
                   Making a meaningful difference in patients’ lives.
                 </p>
                 <div className="button__wrapper">
-                  <a href="#" className="btn primary-btn">
+                  <Link to="/medicines" className="btn primary-btn">
                     Explore Medicines
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -167,7 +167,7 @@ const HomePage = () => {
               <div className="discount__stars">
                 <img src={Star} alt="3 stars" />
               </div>
-              <a className="btn primary-btn" href="./booking.html">
+              <a className="btn primary-btn" href="/cart">
                 Order Now
               </a>
             </div>
