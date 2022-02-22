@@ -15,6 +15,17 @@ const Header = () => {
     navigate("/");
   };
 
+  const [keyword, setKeyword] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (keyword.trim()) {
+      navigate(`/medicines/${keyword}`);
+    } else {
+      navigate("/medicines");
+    }
+  };
+
   return (
     <div className="nav">
       <div className="container">
@@ -22,18 +33,17 @@ const Header = () => {
           <a href="/meds" className="logo">
             <i className="fas fa-capsules fa-5x"></i>
           </a>
-
-          <form className="search">
+          <form className="search" onSubmit={handleSearch}>
             <input
               type="text"
               className="search__input"
               placeholder="Search Medicines"
+              onChange={(e) => setKeyword(e.target.value)}
             />
-            <button className="search__button">
+            <button type="submit" className="search__button">
               <i className="fa fa-search" aria-hidden="true"></i>
             </button>
           </form>
-
           <nav>
             <div className="nav__icon">
               <svg
@@ -72,7 +82,6 @@ const Header = () => {
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </div>
-
               <div className="nav__list__wrapper">
                 <li>
                   <a className="nav__link" href="/home">
