@@ -35,7 +35,8 @@
   margin-bottom: 1.5rem;
   color: var(--black-2);
 }
-.button__wrapper {
+
+.btn__wrapper {
   text-align: center;
 }
 
@@ -95,93 +96,5 @@
   .hero__left,
   .hero__right {
     flex: 1;
-  }
-}
-
-.roller {
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 3.5rem;
-  font-weight: 600;
-  height: 4rem;
-  line-height: 4rem;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  display: flex;
-  /* justify-content: center;
-  align-items: center; */
-  color: var(--black-1);
-  margin-bottom: 1.5rem;
-}
-
-#spare-time {
-  font-size: 1rem;
-  font-style: italic;
-  letter-spacing: 1rem;
-  margin-top: 0;
-  color: #a8dadc;
-}
-
-.roller #rolltext {
-  position: absolute;
-  top: 0;
-  animation: slide 4s ease-in-out;
-  animation-delay: 1.5s;
-}
-
-@keyframes slide {
-  0% {
-    top: 0;
-  }
-  25% {
-    top: -4rem;
-  }
-  50% {
-    top: -8rem;
-  }
-  72.5% {
-    top: -12.25rem;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  h1 {
-    text-align: center;
-    text-transform: uppercase;
-    color: #f1faee;
-    font-size: 2.125rem;
-  }
-
-  .roller {
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 2rem;
-    font-weight: 600;
-    height: 4rem;
-    line-height: 2.5rem;
-  }
-
-  #spare-time {
-    font-size: 1rem;
-    letter-spacing: 0.1rem;
-  }
-
-  .roller #rolltext {
-    animation: slide-mob 5s;
-    animation-delay: 1.5s;
-  }
-
-  @keyframes slide-mob {
-    0% {
-      top: 0;
-    }
-    25% {
-      top: -2.125rem;
-    }
-    50% {
-      top: -4.25rem;
-    }
-    72.5% {
-      top: -6.375rem;
-    }
   }
 }

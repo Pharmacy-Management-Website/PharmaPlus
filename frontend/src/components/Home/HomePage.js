@@ -42,19 +42,11 @@ const HomePage = () => {
           <div className="hero__wrapper">
             <div className="hero__left" data-aos="fade-left">
               <div className="hero__left__wrapper">
-                <h1 className="hero__heading">Only Shop for your</h1>
-                <div className="roller">
-                  <span id="rolltext">Healthy Lifestyle.</span>
-                  <br />
-                  Better Wellbeing
-                  <br />
-                  Curiosity
-                  <br />
-                  <span id="spare-time">too much spare time?</span>
-                  <br />
-                </div>
-                <p className="hero__info">
-                  An Ounce of Public Health is Worth a Pound of Health Care.
+                <h1 class="hero__heading">
+                  Only Shop for your Healthy LifeStyle
+                </h1>
+
+                <p class="hero__info">
                   Making a meaningful difference in patients’ lives.
                 </p>
                 <div className="button__wrapper">

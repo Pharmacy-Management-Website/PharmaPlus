@@ -7,7 +7,9 @@ import Pagination from "react-js-pagination";
 import MedDisplay from "../Utils/MedComp/MedDisplay.js";
 import Loader from "../Utils/Loader/Loader.js";
 import Title from "../Utils/Meta/Title.js";
-// import Prescription from "../../images/Medicine Page-1.png";
+import MedPage_1 from "../../images/Medicine Page-1.png";
+import MedPage_2 from "../../images/Medicine Page-2.png";
+import "./AddMedicine.css";
 
 const MedicinesPage = () => {
   const dispatch = useDispatch();
@@ -48,23 +50,25 @@ const MedicinesPage = () => {
           <section className="event">
             <div className="event-left">
               <div className="event-banner">
-                {/* <img
-                  src="./images/Medicine Page-1.png"
+                <img
+                  src={MedPage_1}
                   alt="event banner"
                   className="banner-img"
                 />
                 <img
-                  src="./images/Medicine Page-2.png"
+                  src={MedPage_2}
                   alt="event banner"
                   className="banner-img"
-                /> */}
+                />
               </div>
             </div>
 
             <div className="event-right">
-              <button className="btn btn-primary">
-                <p className="btn-text">
-                  <Link to="/newmed"> Add New +</Link>
+              <button className="button button-primary">
+                <p className="button-text">
+                  <Link className="button-text-link" to="/newmed">
+                    Add New +
+                  </Link>
                 </p>
                 <span className="square"></span>
               </button>

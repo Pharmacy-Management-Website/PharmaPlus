@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import { saveCustInfo, clearErrors } from "../../actions/cartActions";
+// import "./CustInfo.css";
 
 const CustomerInfo = () => {
   const [customerName, setCustomerName] = useState("");
@@ -104,13 +105,13 @@ const CustomerInfo = () => {
                     </div>
 
                     <div className="event-right">
-                      <button className="btn btn-primary">
+                      <button className="button button-primary">
                         <input
                           type="submit"
                           value="Save"
-                          className="btn-text"
+                          className="button-text"
                         />
-                        {/* <p className="btn-text">Create Invoice</p> */}
+                        {/* <p className="button-text">Create Invoice</p> */}
                         <span className="square"></span>
                       </button>
                     </div>

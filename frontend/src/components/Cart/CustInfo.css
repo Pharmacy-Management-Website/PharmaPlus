@@ -82,7 +82,7 @@ html {
       #0780ff90 50%,
       transparent 50%
     ),
-    url(../images/form-bg-1.jpg);
+    url(../../images/form-bg-1.jpg);
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -97,7 +97,7 @@ html {
         rgba(255, 255, 255, 0.9) 65%,
         transparent 65%
       ),
-      url(../images/form-bg-1.jpg);
+      url(../../images/form-bg-1.jpg);
     background-size: cover;
   }
 }
@@ -109,7 +109,7 @@ html {
         rgba(255, 255, 255, 0.9) 0%,
         rgba(255, 255, 255, 0.9) 100%
       ),
-      url(../images/form-bg-1.jpg);
+      url(../../images/form-bg-1.jpg);
   }
 }
 

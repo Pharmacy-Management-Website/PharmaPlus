@@ -9,7 +9,6 @@
 /* Nav Styles */
 .nav {
   padding: 2rem 0;
-  /* background: #0780ff20; */
 }
 
 .nav__icon,
@@ -39,12 +38,30 @@
 .nav__list .nav__link {
   font-size: 1.8rem;
   font-family: Poppins;
-  color: var(--black-2);
+  color: #3f3c3c;
   padding: 0.5rem;
 }
 
 .nav__list li:hover .nav__link {
   color: #516beb95;
+}
+
+.primary-btn {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  padding: 1rem 1rem;
+  color: #eef2ff;
+  background: #548cff;
+}
+
+@media only screen and (min-width: 700px) {
+  .btn {
+    padding: 1.3rem 2rem;
+    font-size: 2rem;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -67,7 +84,7 @@
   .nav__close {
     display: block;
     position: absolute;
-    color: var(--black-1);
+    color: #3b413a);
     right: 1rem;
     top: 1rem;
     cursor: pointer;
