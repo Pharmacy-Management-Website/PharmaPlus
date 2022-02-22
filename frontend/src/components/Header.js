@@ -15,7 +15,6 @@ const Header = () => {
     navigate("/");
   };
 
-<<<<<<< HEAD
   return (
     <div className="nav">
       <div className="container">
@@ -73,44 +72,6 @@ const Header = () => {
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </div>
-=======
-	const [keyword, setKeyword] = useState("");
-
-	const handleLogout = () => {
-		dispatch(logoutUser());
-		alert.success("Logged out successfully");
-		navigate("/");
-	};
-
-	const handleSearch = (e) => {
-		e.preventDefault();
-		if (keyword.trim()) {
-			navigate(`/medicines/${keyword}`);
-		} else {
-			navigate("/medicines");
-		}
-	};
-
-	return (
-		<div className="nav">
-			<div className="container">
-				<div className="nav__wrapper">
-					<a href="/meds" className="logo">
-						<i className="fas fa-capsules fa-5x"></i>
-					</a>
-
-					<form className="search" onSubmit={handleSearch}>
-						<input
-							type="text"
-							className="search__input"
-							placeholder="Search Medicines"
-							onChange={(e) => setKeyword(e.target.value)}
-						/>
-						<button type="submit" className="search__button">
-							<i className="fa fa-search" aria-hidden="true"></i>
-						</button>
-					</form>
->>>>>>> c486e93c022c5809156503ecc9894b10a6b92ed5
 
               <div className="nav__list__wrapper">
                 <li>
