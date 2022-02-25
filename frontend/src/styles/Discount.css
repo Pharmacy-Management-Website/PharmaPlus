@@ -6,7 +6,7 @@
   flex-direction: column;
   padding: 1.5rem;
   border-radius: 12px;
-  background: #0780ff35 url(../images/discount-doctor.png) no-repeat bottom
+  background: #0780ff40 url(../images/discount-doctor.png) no-repeat bottom
     right / 100px;
 }
 
@@ -16,22 +16,27 @@
   width: 100%;
   margin-bottom: 2rem;
 }
+
 .discount__img1 {
   flex: 2;
 }
+
 .discount__img2 {
   flex: 3;
 }
+
 .discount__images img {
   object-fit: cover;
   border-radius: 12px;
 }
+
 .discount__text {
   font-size: 1.4rem;
   font-weight: 900;
   color: #07689f;
   margin-bottom: 0.5rem;
 }
+
 .discount__title {
   font-family: "Josefin Sans", sans-serif;
   font-size: 2rem;
@@ -39,6 +44,7 @@
   font-weight: 700;
   margin-bottom: 1rem;
 }
+
 .discount__price {
   font-size: 1.4rem;
   font-weight: 600;
@@ -46,18 +52,22 @@
   gap: 1rem;
   margin-bottom: 1rem;
 }
+
 .discount__oldPrice {
   color: #3d7ea6;
   text-decoration: line-through;
 }
+
 .discount__newPrice {
   color: #3d7ea6;
 }
+
 .discount__stars {
   width: max-content;
   height: 15px;
   margin-bottom: 1rem;
 }
+
 @media only screen and (min-width: 768px) {
   .discount__wrapper {
     flex-direction: row;
@@ -99,6 +109,7 @@
     margin-bottom: 2rem;
   }
 }
+
 @media only screen and (max-width: 1000px) {
   .discount__wrapper {
     gap: 2rem;

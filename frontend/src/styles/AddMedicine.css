@@ -110,7 +110,7 @@ html {
   color: #ef2f88;
 }
 
-// Media Queries
+/* Media */
 
 @media (min-width: 575px) {
   .event-card {

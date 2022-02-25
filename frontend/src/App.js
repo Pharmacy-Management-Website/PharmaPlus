@@ -23,8 +23,10 @@ import CustomerInfo from "./components/Cart/CustomerInfo.js";
 import OrderPreview from "./components/Cart/OrderPreview.js";
 import AllInvoices from "./components/Invoice/AllInvoices";
 import InvoiceDetails from "./components/Invoice/InvoiceDetails";
+import NotFound from "./components/Utils/NotFound/NotFound";
 
 function App() {
+
 	const userLogin = useSelector((state) => state.userLogin);
 	const { error, manager } = userLogin;
 
@@ -71,6 +73,7 @@ function App() {
 						<Route path="/allinvoices" element={<AllInvoices />} />
 						<Route path="/invoice/:id" element={<InvoiceDetails />} />
 					</Route>
+					<Route exact path="*" element={<NotFound />} />
 				</Routes>
 			</Fragment>
 		</Router>

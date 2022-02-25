@@ -30,7 +30,7 @@ const Header = () => {
     <div className="nav">
       <div className="container">
         <div className="nav__wrapper">
-          <a href="/meds" className="logo">
+          <a href="/home" className="logo">
             <i className="fas fa-capsules fa-5x"></i>
           </a>
           <form className="search" onSubmit={handleSearch}>
@@ -84,11 +84,6 @@ const Header = () => {
               </div>
               <div className="nav__list__wrapper">
                 <li>
-                  <a className="nav__link" href="/home">
-                    Home
-                  </a>
-                </li>
-                <li>
                   <a className="nav__link" href="/medicines">
                     Medicines
                   </a>
@@ -96,6 +91,11 @@ const Header = () => {
                 <li>
                   <a className="nav__link" href="/allinvoices">
                     Invoices
+                  </a>
+                </li>
+                <li>
+                  <a className="nav__link" href="/cart">
+                    Cart
                   </a>
                 </li>
                 <li>

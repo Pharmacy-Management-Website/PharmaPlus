@@ -123,29 +123,3 @@ const MedicinesPage = () => {
 };
 
 export default MedicinesPage;
-
-{
-  /* <ul>
-            {medicines.map((medicine) => (
-              <li>
-                <MedDisplay key={medicine._id} medicine={medicine} />
-              </li>
-            ))}
-          </ul>
-          <div className="paginationBox">
-            <Pagination
-              activePage={currentPage}
-              itemsCountPerPage={resultPerPage}
-              totalItemsCount={medCounts}
-              onChange={setCurrentPageNum}
-              nextPageText="Next"
-              prevPageText="Prev"
-              firstPageText="1st"
-              lastPageText="Last"
-              itemClass="page-item"
-              linkClass="page-link"
-              activeClass="pageItemActive"
-              activeLinkClass="pageLinkActive"
-            />
-          </div> */
-}

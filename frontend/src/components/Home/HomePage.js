@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import { logoutUser } from "../../actions/userActions.js";
 import Title from "../Utils/Meta/Title.js";
+import "../../styles/main.js";
 
 import Hero from "../../images/hero-2.svg";
 import Clock from "../../images/clock.png";
@@ -50,9 +51,9 @@ const HomePage = () => {
                   Making a meaningful difference in patients’ lives.
                 </p>
                 <div className="button__wrapper">
-                  <a href="#" className="btn primary-btn">
+                  <Link to="/medicines" className="btn primary-btn">
                     Explore Medicines
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -167,7 +168,7 @@ const HomePage = () => {
               <div className="discount__stars">
                 <img src={Star} alt="3 stars" />
               </div>
-              <a className="btn primary-btn" href="./booking.html">
+              <a className="btn primary-btn" href="/cart">
                 Order Now
               </a>
             </div>
@@ -426,7 +427,7 @@ const HomePage = () => {
       {/* <!-- End Footer --> */}
 
       {/* <!-- aos script --> */}
-      {/* <script src="https://unpkg.com/aos@next/dist/aos.js"></script> */}
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
       {/* <!-- custom script --> */}
       {/* <script src="./main.js"></script> */}
     </Fragment>

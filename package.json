@@ -12,6 +12,7 @@
   "author": "SMSP",
   "license": "ISC",
   "dependencies": {
+    "aos": "^2.3.4",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
@@ -32,6 +33,5 @@
   "bugs": {
     "url": "https://github.com/Pharmacy-Management-Website/PharmaPlus/issues"
   },
-  "homepage": "https://github.com/Pharmacy-Management-Website/PharmaPlus#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/Pharmacy-Management-Website/PharmaPlus#readme"
 }
