@@ -70,12 +70,9 @@ const Medicine = () => {
 					<h4>Stocks</h4>
 					{
 						medicine.stockDetails ? (
-							medicine.stockDetails.map((stock, index) => (
-								<div key={index}>
-									<h3>{stock.price}</h3>
-									<p>{stock.inStock}</p>
-								</div>
-							))
+							<span>
+								₹{medicine.stockDetails[0].price}
+							</span>
 						)
 							:
 							("No stocks")
