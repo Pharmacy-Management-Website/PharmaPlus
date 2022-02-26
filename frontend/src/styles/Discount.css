@@ -54,12 +54,12 @@
 }
 
 .discount__oldPrice {
-  color: #3d7ea6;
+  color: #07689f;
   text-decoration: line-through;
 }
 
 .discount__newPrice {
-  color: #3d7ea6;
+  color: #07689f;
 }
 
 .discount__stars {

@@ -100,7 +100,7 @@ const RegisterPage = () => {
                             className="login-button"
                           />
                         </a>
-                        <a href="/login">
+                        <a href="/">
                           Login
                           <span></span>
                           <span></span>

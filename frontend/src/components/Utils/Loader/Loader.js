@@ -4,7 +4,16 @@ import "./Loader.css";
 const Loader = () => {
   return (
     <div className="item">
-      <i className="loader --9"></i>
+      <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+      <i className="loader --7"></i>
     </div>
   );
 };

@@ -42,7 +42,7 @@
 }
 .medicineGrid__item__price {
   font-size: 1.4rem;
-  color: var(--green-1);
+  color: #07689f;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
