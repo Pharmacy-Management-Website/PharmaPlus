@@ -21,6 +21,9 @@ const LoginPage = () => {
 
   const loginSubmit = (e) => {
     e.preventDefault();
+    if(loginUsername === "" || loginPassword === ""){
+      alert.show("Please fill in all fields");
+    }
     dispatch(loginUser(loginUsername, loginPassword));
   };
 
