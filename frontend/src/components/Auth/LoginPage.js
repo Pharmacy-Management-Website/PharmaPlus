@@ -79,7 +79,7 @@ const LoginPage = () => {
                           <label>Password</label>
                         </div>
 
-                        <a href="/register">
+                        <a href="/">
                           <span></span>
                           <span></span>
                           <span></span>
