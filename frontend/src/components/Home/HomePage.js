@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import { logoutUser } from "../../actions/userActions.js";
 import Title from "../Utils/Meta/Title.js";
-
+import "../../styles/main.js";
 import Hero from "../../images/hero-2.svg";
 import Clock from "../../images/clock.png";
 import Address from "../../images/address.png";

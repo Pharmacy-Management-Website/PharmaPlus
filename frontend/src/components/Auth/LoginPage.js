@@ -40,38 +40,6 @@ const LoginPage = () => {
       ) : (
         <Fragment>
           <Title title="Login" />
-          {/* <div className="login-box">
-            <h2 style={{ color: "white" }}>LOGIN</h2>
-            <form onSubmit={loginSubmit}>
-              <div className="user-box">
-                <input
-                  type="text"
-                  value={loginUsername}
-                  required
-                  onChange={(e) => setLoginUsername(e.target.value)}
-                />
-                <label>Username</label>
-              </div>
-              <div className="user-box">
-                <input
-                  type="password"
-                  value={loginPassword}
-                  required
-                  onChange={(e) => setLoginPassword(e.target.value)}
-                />
-                <label>Password</label>
-              </div>
-              <input type="submit" value="Login" />
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </form>
-            <div className="navigate__reg__log">
-              Create new manager account? <Link to="/register">Register</Link>
-            </div>
-          </div> */}
-
           <section id="login">
             <div className="container">
               {/* <!-- Login Page --> */}
@@ -108,13 +76,13 @@ const LoginPage = () => {
                             onChange={(e) => setLoginPassword(e.target.value)}
                           />
                           <label>Password</label>
-                        </div>
-                        <input type="submit" value="Login" />
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        Submit
+                        </div><a href="/home"  type="submit" value="Login">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          Login
+                        </a>
                         <a href="/register">
                           <span></span>
                           <span></span>
