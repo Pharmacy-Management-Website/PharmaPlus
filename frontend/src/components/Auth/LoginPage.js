@@ -5,8 +5,8 @@ import { useAlert } from "react-alert";
 import { loginUser, clearErrors } from "../../actions/userActions.js";
 import Loader from "../Utils/Loader/Loader.js";
 import Title from "../Utils/Meta/Title.js";
-// import "./LoginPage.css";
-import SignUp from "../../images/SignUp.svg";
+import "./LoginPage.css";
+import SignIn from "../../images/SignIn.svg";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -21,6 +21,9 @@ const LoginPage = () => {
 
   const loginSubmit = (e) => {
     e.preventDefault();
+    if(loginUsername === "" || loginPassword === ""){
+      alert.show("Please fill in all fields");
+    }
     dispatch(loginUser(loginUsername, loginPassword));
   };
 
@@ -40,37 +43,6 @@ const LoginPage = () => {
       ) : (
         <Fragment>
           <Title title="Login" />
-          {/* <div className="login-box">
-            <h2 style={{ color: "white" }}>LOGIN</h2>
-            <form onSubmit={loginSubmit}>
-              <div className="user-box">
-                <input
-                  type="text"
-                  value={loginUsername}
-                  required
-                  onChange={(e) => setLoginUsername(e.target.value)}
-                />
-                <label>Username</label>
-              </div>
-              <div className="user-box">
-                <input
-                  type="password"
-                  value={loginPassword}
-                  required
-                  onChange={(e) => setLoginPassword(e.target.value)}
-                />
-                <label>Password</label>
-              </div>
-              <input type="submit" value="Login" />
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </form>
-            <div className="navigate__reg__log">
-              Create new manager account? <Link to="/register">Register</Link>
-            </div>
-          </div> */}
 
           <section id="login">
             <div className="container">
@@ -80,7 +52,7 @@ const LoginPage = () => {
 
                 <div className="login__right" data-aos="fade-right">
                   <div className="login__imgWrapper">
-                    <img src={SignUp} />
+                    <img src={SignIn} />
                   </div>
                 </div>
 
@@ -89,7 +61,7 @@ const LoginPage = () => {
                 <div className="login__left" data-aos="fade-left">
                   <div className="login__left__wrapper">
                     <div className="login-box">
-                      <h2>Welcome! Login</h2>
+                      <h2>Welcome 😀! Login</h2>
                       <form onSubmit={loginSubmit}>
                         <div className="user-box">
                           <input
@@ -109,18 +81,25 @@ const LoginPage = () => {
                           />
                           <label>Password</label>
                         </div>
-                        <input type="submit" value="Login" />
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        Submit
+
+                        <a href="/">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <input
+                            type="submit"
+                            value="Login"
+                            className="login-button"
+                          />
+                        </a>
+
                         <a href="/register">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                          <span></span>
                           Register
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
                         </a>
                       </form>
                     </div>
