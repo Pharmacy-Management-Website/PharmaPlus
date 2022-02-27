@@ -107,7 +107,7 @@ const HomePage = () => {
               </div>
               <div className="medicineGrid__item__info">
                 <h3 className="medicineGrid__item__title">Calpol</h3>
-                <h3 className="medicineGrid__item__price">$14</h3>
+                <h3 className="medicineGrid__item__price">₹14</h3>
                 <div className="medicineGrid__item__stars">
                   <img src={Star} alt="3 star" />
                 </div>
@@ -119,7 +119,7 @@ const HomePage = () => {
               </div>
               <div className="medicineGrid__item__info">
                 <h3 className="medicineGrid__item__title">Dolo 650</h3>
-                <h3 className="medicineGrid__item__price">$27</h3>
+                <h3 className="medicineGrid__item__price">₹27</h3>
                 <div className="medicineGrid__item__stars">
                   <img src={Star} alt="3 star" />
                 </div>
@@ -131,7 +131,7 @@ const HomePage = () => {
               </div>
               <div className="medicineGrid__item__info">
                 <h3 className="medicineGrid__item__title">Montek LC</h3>
-                <h3 className="medicineGrid__item__price">$156</h3>
+                <h3 className="medicineGrid__item__price">₹156</h3>
                 <div className="medicineGrid__item__stars">
                   <img src={Star} alt="3 star" />
                 </div>
@@ -161,8 +161,8 @@ const HomePage = () => {
               <h3 className="discount__text">20% OFF</h3>
               <h3 className="discount__title">Discount on Combo Medicines</h3>
               <h3 className="discount__price">
-                <span className="discount__oldPrice">$45</span>
-                <span className="discount__newPrice">$35</span>
+                <span className="discount__oldPrice">₹300</span>
+                <span className="discount__newPrice">₹260</span>
               </h3>
               <div className="discount__stars">
                 <img src={Star} alt="3 stars" />
@@ -307,7 +307,7 @@ const HomePage = () => {
           <div className="footer__wrapper">
             <div className="footer__col1">
               <div className="footer__logo">
-                <a href="/" className="logo">
+                <a href="/home" className="logo">
                   <i className="fas fa-capsules fa-5x"></i>
                 </a>
               </div>
@@ -426,7 +426,7 @@ const HomePage = () => {
       {/* <!-- End Footer --> */}
 
       {/* <!-- aos script --> */}
-      {/* <script src="https://unpkg.com/aos@next/dist/aos.js"></script> */}
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
       {/* <!-- custom script --> */}
       {/* <script src="./main.js"></script> */}
     </Fragment>

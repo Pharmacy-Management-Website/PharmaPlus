@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 img,
 span,
 a,
@@ -13,7 +21,6 @@ button {
 }
 
 html {
-  font-family: "Jost", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -202,4 +209,48 @@ html {
 .button-primary .square,
 .button-secondary {
   background: #03045e;
+}
+
+/* Pagination */
+
+.pagination-hurray {
+  min-height: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8rem;
+  margin: 6rem;
+  border-radius: 0.6rem;
+  background: #ffffff;
+  box-shadow: 0 10px 30px hsla(0, 0%, 0%, 0.25);
+}
+
+.page-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem;
+  cursor: pointer;
+}
+
+.page-link {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: #113cfc;
+}
+
+.page-link:hover {
+  color: #ef2f88;
 }

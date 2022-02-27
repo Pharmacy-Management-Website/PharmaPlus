@@ -4,6 +4,15 @@ footer {
   padding-top: 5rem;
   padding-bottom: 2rem;
 }
+
+.logo {
+  color: #548cff;
+}
+
+.logo:hover {
+  color: #548cff99;
+}
+
 .footer__wrapper {
   display: flex;
   flex-direction: column;
@@ -91,6 +100,13 @@ footer {
     font-weight: 300;
     font-size: 1.8rem;
     margin-bottom: 1rem;
+  }
+  .logo {
+    color: #548cff;
+  }
+
+  .logo:hover {
+    color: #548cff99;
   }
 }
 

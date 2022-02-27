@@ -17,7 +17,7 @@
 .medicineGrid__item {
   display: flex;
   flex-direction: column;
-  background-color: #0780ff35;
+  background-color: #0780ff40;
   padding: 0.5rem;
   border-radius: 8px;
   gap: 0.5rem;
@@ -42,7 +42,7 @@
 }
 .medicineGrid__item__price {
   font-size: 1.4rem;
-  color: var(--green-1);
+  color: #07689f;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }

@@ -12,114 +12,116 @@ import MedPage_2 from "../../images/Medicine Page-2.png";
 import "./AddMedicine.css";
 
 const MedicinesPage = () => {
-  const dispatch = useDispatch();
-  const alert = useAlert();
-  const params = useParams();
+	const dispatch = useDispatch();
+	const alert = useAlert();
+	const params = useParams();
 
-  const {
-    error,
-    loading,
-    medicines,
-    medCounts,
-    resultPerPage,
-    filteredMedicinesCount,
-  } = useSelector((state) => state.medicines);
+	const {
+		error,
+		loading,
+		medicines,
+		medCounts,
+		resultPerPage,
+		filteredMedicinesCount,
+	} = useSelector((state) => state.medicines);
 
-  const [currentPage, setCurrentPage] = useState(1);
+	const [currentPage, setCurrentPage] = useState(1);
 
-  const keyword = params.keyword || "";
+	const keyword = params.keyword || "";
 
-  const setCurrentPageNum = (e) => {
-    setCurrentPage(e);
-  };
+	const setCurrentPageNum = (e) => {
+		setCurrentPage(e);
+	};
 
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
-    }
-    dispatch(allMedicines(keyword, currentPage));
-  }, [dispatch, error, alert, keyword, currentPage]);
+	useEffect(() => {
+		if (error) {
+			alert.error(error);
+			dispatch(clearErrors());
+		}
+		dispatch(allMedicines(keyword, currentPage));
+	}, [dispatch, error, alert, keyword, currentPage]);
 
-  return (
-    <Fragment>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Fragment>
-          <section className="event">
-            <div className="event-left">
-              <div className="event-banner">
-                <img
-                  src={MedPage_1}
-                  alt="event banner"
-                  className="banner-img"
-                />
-                <img
-                  src={MedPage_2}
-                  alt="event banner"
-                  className="banner-img"
-                />
-              </div>
-            </div>
+	return (
+		<Fragment>
+			{loading ? (
+				<Loader />
+			) : (
+				<Fragment>
+					<section className="event">
+						<div className="event-left">
+							<div className="event-banner">
+								<img
+									src={MedPage_1}
+									alt="event banner"
+									className="banner-img"
+								/>
+								<img
+									src={MedPage_2}
+									alt="event banner"
+									className="banner-img"
+								/>
+							</div>
+						</div>
 
-            <div className="event-right">
-              <button className="button button-primary">
-                <p className="button-text">
-                  <Link className="button-text-link" to="/newmed">
-                    Add New +
-                  </Link>
-                </p>
-                <span className="square"></span>
-              </button>
+						<div className="event-right">
+							<button className="button button-primary">
+								<p className="button-text">
+									<Link className="button-text-link" to="/newmed">
+										Add New +
+									</Link>
+								</p>
+								<span className="square"></span>
+							</button>
 
-              <div className="event-card-group">
-                {medicines.map((medicine) => (
-                  <div className="event-card">
-                    <div className="content-left">
-                      <p className="stock">
-                        {medicine.stockDetails.length === 0
-                          ? 0
-                          : medicine.stockDetails[0].inStock}
-                      </p>
-                    </div>
+							<div className="event-card-group">
+								{medicines.map((medicine) => (
+									<div className="event-card">
+										<div className="content-left">
+											<p className="stock">
+												{medicine.stockDetails.length === 0
+													? 0
+													: medicine.stockDetails[0].inStock}
+											</p>
+										</div>
 
-                    <div className="content-right">
-                      <Link
-                        to={`/medicine/${medicine._id}`}
-                        className="event-name"
-                      >
-                        {medicine.name}
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
+										<div className="content-right">
+											<Link
+												to={`/medicine/${medicine._id}`}
+												className="event-name"
+											>
+												{medicine.name}
+											</Link>
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+					</section>
 
-              <div className="pagination-container">
-                <div className="paginationBox">
-                  <Pagination
-                    activePage={currentPage}
-                    itemsCountPerPage={resultPerPage}
-                    totalItemsCount={medCounts}
-                    onChange={setCurrentPageNum}
-                    nextPageText="Next"
-                    prevPageText="Prev"
-                    firstPageText="1st"
-                    lastPageText="Last"
-                    itemClass="page-item"
-                    linkClass="page-link"
-                    activeClass="pageItemActive"
-                    activeLinkClass="pageLinkActive"
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
-        </Fragment>
-      )}
-    </Fragment>
-  );
+					{/* Pagination */}
+
+					<div id="app" className="pagination-hurray">
+						<ul className="page">
+							<Pagination
+								activePage={currentPage}
+								itemsCountPerPage={resultPerPage}
+								totalItemsCount={medCounts}
+								onChange={setCurrentPageNum}
+								nextPageText="Next"
+								prevPageText="Prev"
+								firstPageText="1st"
+								lastPageText="Last"
+								itemClass="page-item"
+								linkClass="page-link"
+								activeClass="pageItemActive"
+								activeLinkClass="pageLinkActive"
+							/>
+						</ul>
+					</div>
+				</Fragment>
+			)}
+		</Fragment>
+	);
 };
 
 export default MedicinesPage;

@@ -154,7 +154,7 @@ html {
   border-bottom: 3px solid #55c57a;
 }
 .form__input:focus:invalid {
-  border-bottom: 3px solid #ff7730;
+  border-bottom: 3px solid #ef2f88;
 }
 .form__input::-webkit-input-placeholder {
   color: #999;
@@ -222,7 +222,7 @@ html {
 
 .button-primary,
 .button-secondary .square {
-  background: #f76e11;
+  background: #ef2f88;
 }
 
 .button .square {
