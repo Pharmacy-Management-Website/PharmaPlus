@@ -69,13 +69,7 @@ const Medicine = () => {
 					</Link>
 					<h4>Stocks</h4>
 					{
-						medicine.stockDetails ? (
-							<span>
-								₹{medicine.stockDetails[0].price}
-							</span>
-						)
-							:
-							("No stocks")
+						medicine?.stockDetails?.length > 0 ? medicine.stockDetails[0].price : "No stock"
 					}
 					<div>
 						<button>
