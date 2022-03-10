@@ -236,14 +236,14 @@ const HomePage = () => {
                   <img src={Girl_1} alt="Sayed Ahmed" />
                 </div>
                 <div className="testimonial__item__info">
-                  <h3 className="testimonial__item__name">Deepika Padukone</h3>
+                  <h3 className="testimonial__item__name">Dominick Buckley</h3>
                   <div className="testimonial__item__stars">
                     <img src={Star} alt="3 star" />
                   </div>
                   <p className="testimonial__item__text">
-                    We at Pharma+ are commited to sell the latest drug and
-                    medicine to our customers. The medicines are bound to have
-                    the extended expiration date from the date of purchase.
+                   It's been nice working with it
+                   reduces our work completely and 
+                   Grateful for the experience  here at Pharma+
                   </p>
                 </div>
               </div>
@@ -252,14 +252,16 @@ const HomePage = () => {
                   <img src={Boy_1} alt="Sayed Ahmed" />
                 </div>
                 <div className="testimonial__item__info">
-                  <h3 className="testimonial__item__name">Dawood Ibrahim</h3>
+                  <h3 className="testimonial__item__name">Kate Mckay</h3>
                   <div className="testimonial__item__stars">
                     <img src={Star} alt="3 star" />
                   </div>
                   <p className="testimonial__item__text">
-                    We at Pharma+ are commited to sell the latest drug and
-                    medicine to our customers. The medicines are bound to have
-                    the extended expiration date from the date of purchase.
+                    Our store is commited to sell the latest drug and
+                    medicine to our customers and here with Pharma+
+                    we are very happy as we can help patients
+                     and customers directly each day.
+
                   </p>
                 </div>
               </div>
@@ -268,14 +270,14 @@ const HomePage = () => {
                   <img src={Boy_2} alt="Sayed Ahmed" />
                 </div>
                 <div className="testimonial__item__info">
-                  <h3 className="testimonial__item__name">Osama Bin Laden</h3>
+                  <h3 className="testimonial__item__name">Evelin Crosby</h3>
                   <div className="testimonial__item__stars">
                     <img src={Star} alt="3 star" />
                   </div>
                   <p className="testimonial__item__text">
-                    We at Pharma+ are commited to sell the latest drug and
-                    medicine to our customers. The medicines are bound to have
-                    the extended expiration date from the date of purchase.
+                  We as a pharmacists we are delighted to use this
+                   Excellent website with wonderful features bcoz
+                   we have an Opportunity for advancements 
                   </p>
                 </div>
               </div>
@@ -284,14 +286,15 @@ const HomePage = () => {
                   <img src={Girl_2} alt="Sayed Ahmed" />
                 </div>
                 <div className="testimonial__item__info">
-                  <h3 className="testimonial__item__name">Virat Kohli</h3>
+                  <h3 className="testimonial__item__name">David Sanchez</h3>
                   <div className="testimonial__item__stars">
                     <img src={Star} alt="3 star" />
                   </div>
                   <p className="testimonial__item__text">
-                    We at Pharma+ are commited to sell the latest drug and
-                    medicine to our customers. The medicines are bound to have
-                    the extended expiration date from the date of purchase.
+                    Advancements have become part of our daily lives
+                    and there is no limit to these advancements such
+                    as this website, really grateful as I have utilised 
+                    Pharma+ to my Extent.
                   </p>
                 </div>
               </div>
@@ -412,10 +415,10 @@ const HomePage = () => {
                   <a href="/">+9876543210</a>
                 </li>
                 <li>
-                  <a href="/">abcdefgh@gmail.com</a>
+                  <a href="/">Pharma++@gmail.com</a>
                 </li>
                 <li>
-                  <a href="/">Jayanagar, Bangalore.</a>
+                  <a href="/">Basvanagudi, Bangalore.</a>
                 </li>
               </ol>
             </div>
