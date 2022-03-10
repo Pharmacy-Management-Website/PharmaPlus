@@ -38,7 +38,7 @@ AOS.init({
 
 // navBgOverlayEl.addEventListener("click", navClose);
 
-// AOS
+// AOS;
 // AOS.refreshHard();
 
 // const dishGridEl = Array.from(document.querySelectorAll('#dishGrid'));

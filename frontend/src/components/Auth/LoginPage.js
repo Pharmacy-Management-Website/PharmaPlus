@@ -5,7 +5,6 @@ import { useAlert } from "react-alert";
 import { loginUser, clearErrors } from "../../actions/userActions.js";
 import Loader from "../Utils/Loader/Loader.js";
 import Title from "../Utils/Meta/Title.js";
-import "./LoginPage.css";
 import SignIn from "../../images/SignIn.svg";
 
 const LoginPage = () => {
@@ -21,7 +20,7 @@ const LoginPage = () => {
 
   const loginSubmit = (e) => {
     e.preventDefault();
-    if(loginUsername === "" || loginPassword === ""){
+    if (loginUsername === "" || loginPassword === "") {
       alert.show("Please fill in all fields");
     }
     dispatch(loginUser(loginUsername, loginPassword));
