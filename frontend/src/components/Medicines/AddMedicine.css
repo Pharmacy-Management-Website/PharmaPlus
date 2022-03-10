@@ -1,256 +1,141 @@
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Dongle:wght@300;400;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Poppins:wght@200;300;400;500;600&family=Varela+Round&display=swap");
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-img,
-span,
-a,
-ion-icon {
-  display: block;
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-button {
-  background: none;
-  border: none;
-  font: inherit;
-  cursor: pointer;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: #ffffff80;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: #0780ff50;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #0780ff50;
-}
-
-.event {
-  padding: 80px 80px;
-  /* background: #0780ff50; */
-}
-
-.event-left {
-  position: relative;
-  max-width: max-content;
-  margin-bottom: 50px;
-}
-
-.event .banner-img {
-  width: auto;
-  max-width: 75%;
-  border-radius: 8px;
-}
-
-.event .section-subtitle {
-  margin-bottom: 15px;
-}
-
-.event .section-title {
-  margin-bottom: 30px;
-}
-
-.event-card-group {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-}
-
-.event-card {
-  font-family: "Josefin Sans", sans-serif;
+.addNew__wrapper {
   display: flex;
   align-items: center;
-  text-align: left;
-  background: #fff;
-  border-radius: 8px;
-  padding: 10px 25px;
-  margin-right: 25px;
-  border-right: 7.5px solid transparent;
-  box-shadow: 0 10px 30px hsla(0, 0%, 0%, 0.1);
-  transition: 0.25s ease;
+  justify-content: center;
+  flex-direction: column-reverse;
+  gap: 5rem;
 }
 
-.event-card .content-left {
-  width: 15%;
-  text-align: left;
-  padding: 5px;
-  box-shadow: 0 16px 0 -15px #ffffff80;
+.addNew__left__wrapper {
+  max-width: 475px;
 }
 
-.event-card .stock {
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 25px;
-  font-weight: 700;
-  color: hsl(216, 98%, 52%);
+.addNew__imgWrapper {
+  max-width: 500px;
+  width: 80%;
+  margin: 0 auto;
 }
 
-.event-card .event-name {
-  color: hsl(217, 100%, 20%);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.6;
-  text-align: center;
-  transition: 0.25s ease;
-}
-
-.event-card:hover {
-  border-color: #ef2f88;
-}
-
-.event-card:hover .event-name {
-  color: #ef2f88;
-}
-
-// Media Queries
-
-@media (min-width: 575px) {
-  .event-card {
-    display: flex;
-    align-items: center;
-    text-align: left;
+@media only screen and (min-width: 768px) {
+  .addNew__wrapper {
+    flex-direction: row;
+    gap: 0;
   }
 
-  .event-card .content-left {
-    width: 100px;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    padding-right: 15px;
-    margin-right: 25px;
-    box-shadow: 1px 0 0 0 #ffffff80;
+  .addNew__left {
+    flex: 1.5;
   }
 
-  .event-card .event-name {
-    text-align: left;
+  .addNew__right {
+    flex: 2;
+  }
+
+  .addNew__imgWrapper {
+    max-width: none;
+    width: 80%;
   }
 }
 
-@media (min-width: 992px) {
-  .event {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    gap: 30px;
-    align-items: center;
-  }
-
-  .event-left {
-    margin-bottom: 0;
+@media only screen and (max-width: 900px) {
+  .addNew__left,
+  .addNew__right {
+    flex: 1;
   }
 }
 
-@media (min-width: 1200px) {
-  .event {
-    grid-template-columns: 1fr 1fr;
-  }
+.addNew-box {
+  width: 400px;
+  padding: 40px;
+  border: 5px solid #77acf1;
+  background: #caf0f8;
+  box-sizing: border-box;
+  box-shadow: 10px 15px 20px #77acf1;
+  border-radius: 12px;
 }
 
-.button {
+.addNew-box .user-box {
   position: relative;
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  border-radius: 8px;
-  color: #fff;
-  padding: 20px 45px;
+}
+
+.addNew-box .user-box input {
+  letter-spacing: 0.5px;
+  font-size: 16px;
+  width: 100%;
+  padding: 10px 0;
+  color: #2d31fa;
   margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #151d3b;
+  outline: none;
+  background: transparent;
+}
+
+.addNew-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #2d31fa;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.addNew-box .user-box input:focus ~ label,
+.addNew-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #2d31fa;
+  font-size: 12px;
+}
+
+input {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+.AddNew-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #2d31fa;
+  font-size: 16px;
+  text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 3px;
 }
 
-.button .button-text {
-  position: relative;
-  z-index: 5;
-}
-
-.button-text-link {
-  font-family: "Roboto", sans-serif;
+.addButton {
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
-  font-weight: 600;
-  color: #fff;
-}
-
-.button-primary,
-.button-secondary .square {
-  background: #ef2f88;
-}
-
-.button .square {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  transition: 0.25s ease;
-}
-
-.button:hover .square {
-  right: -2px;
-  width: 102%;
-  height: 102%;
-}
-
-.button-primary .square,
-.button-secondary {
-  background: #03045e;
-}
-
-/* Pagination */
-
-.pagination-hurray {
-  min-height: 5vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-ul {
-  list-style-type: none;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 8rem;
-  margin: 6rem;
-  border-radius: 0.6rem;
-  background: #ffffff;
-  box-shadow: 0 10px 30px hsla(0, 0%, 0%, 0.25);
-}
-
-.page-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  color: #150050;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
   cursor: pointer;
-}
-
-.page-link {
-  font-family: "Josefin Sans", sans-serif;
-  font-weight: 600;
-  font-size: 2.5rem;
-  color: #113cfc;
-}
-
-.page-link:hover {
-  color: #ef2f88;
+  letter-spacing: 3px;
 }

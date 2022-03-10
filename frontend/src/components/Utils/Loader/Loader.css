@@ -32,6 +32,7 @@ body {
 /* loader --6 */
 
 .loader.--6::before {
+  border-radius: 2px;
   width: var(--size-square);
   height: var(--size-square);
   background-color: var(--color);
@@ -63,6 +64,7 @@ body {
 
 .loader.--7::before,
 .loader.--7::after {
+  border-radius: 2px;
   width: var(--size-square);
   height: var(--size-square);
   background-color: #fff;
