@@ -23,7 +23,7 @@ import Oral_Care from "../../images/Oral-Care.jpeg";
 import Mental_Care from "../../images/Mental-Health.jpeg";
 import Pampers from "../../images/Pampers.svg";
 import Dabur from "../../images/Dabur.svg";
-import Loreal from "../../images/Loreal.svg";
+import Dove from "../../images/Dove.svg";
 import Colgate from "../../images/Colgate.svg";
 import Gilette from "../../images/Gilette.svg";
 
@@ -165,14 +165,13 @@ const HomePage = () => {
                   <img src={Diabetes_Care} alt="Sayed Ahmed" />
                 </div>
                 <div className="testimonial__item__info">
-                  <h3 className="testimonial__item__name">Diabetes Care</h3>
-
+                  <h3 className="testimonial__item__name">Disinfectants</h3>
                   <p className="testimonial__item__text">
-                    <li>Sugar Free</li>
-                    <li>Dabur Chyawanprash</li>
-                    <li>Everherb Diabetes Care</li>
-                    <li>D Protein Diabetes Care Powder</li>
-                    <li>Prohance D Vanilla Diabetes Care</li>
+                    <li>Dettol Hand Sanitizer</li>
+                    <li>Himalaya Antiseptic Soap</li>
+                    <li>Boroline Ayurvedic Cream</li>
+                    <li>Savlon Antiseptic Liquid</li>
+                    <li>Lifebuoy Germ Protection</li>
                   </p>
 
                   <div className="testimonial__wrapper">
@@ -262,6 +261,13 @@ const HomePage = () => {
             <div className="shopByBrand__item">
               <div className="shopByBrand__item__img">
                 <a href="/home" className="logo">
+                  <img src={Dove} alt="dove" />
+                </a>
+              </div>
+            </div>
+            <div className="shopByBrand__item">
+              <div className="shopByBrand__item__img">
+                <a href="/home" className="logo">
                   <img src={Pampers} alt="himalaya" />
                 </a>
               </div>
@@ -273,45 +279,11 @@ const HomePage = () => {
                 </a>
               </div>
             </div>
-            <div className="shopByBrand__item">
-              <div className="shopByBrand__item__img">
-                <a href="/home" className="logo">
-                  <img src={Loreal} alt="loreal" />
-                </a>
-              </div>
-            </div>
-            <div className="shopByBrand__item">
-              <div className="shopByBrand__item__img">
-                <a href="/home" className="logo">
-                  <img src={Colgate} alt="colgate" />
-                </a>
-              </div>
-            </div>
+
             <div className="shopByBrand__item">
               <div className="shopByBrand__item__img">
                 <a href="/home" className="logo">
                   <img src={Gilette} alt="gilette" />
-                </a>
-              </div>
-            </div>
-            <div className="shopByBrand__item">
-              <div className="shopByBrand__item__img">
-                <a href="/home" className="logo">
-                  <img src={Colgate} alt="colgate" />
-                </a>
-              </div>
-            </div>
-            <div className="shopByBrand__item">
-              <div className="shopByBrand__item__img">
-                <a href="/home" className="logo">
-                  <img src={Gilette} alt="gilette" />
-                </a>
-              </div>
-            </div>
-            <div className="shopByBrand__item">
-              <div className="shopByBrand__item__img">
-                <a href="/home" className="logo">
-                  <img src={Colgate} alt="colgate" />
                 </a>
               </div>
             </div>
@@ -465,7 +437,7 @@ const HomePage = () => {
       {/* <!-- aos script --> */}
       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
       {/* <!-- custom script --> */}
-      {/* <script src="./main.js"></script> */}
+      <script src="./main.js"></script>
     </Fragment>
   );
 };

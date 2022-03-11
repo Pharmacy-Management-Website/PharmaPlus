@@ -39,13 +39,13 @@ AOS.init({
 
 // navBgOverlayEl.addEventListener("click", navClose);
 
-// AOS;
-// AOS.refreshHard();
+// // AOS;
+// // AOS.refreshHard();
 
-// const dishGridEl = Array.from(document.querySelectorAll('#dishGrid'));
-// if (dishGridEl.length > 0){
+// const dishGridEl = Array.from(document.querySelectorAll("#dishGrid"));
+// if (dishGridEl.length > 0) {
 //   // console.log(dishGridEl)
-//   dishGridEl.forEach(item => {
-//     item.setAttribute('data-aos', 'fade-up');
-//   })
+//   dishGridEl.forEach((item) => {
+//     item.setAttribute("data-aos", "fade-up");
+//   });
 // }

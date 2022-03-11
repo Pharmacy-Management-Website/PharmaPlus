@@ -3,6 +3,7 @@ import { logoutUser } from "../actions/userActions";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
+// import "../styles/main.js";
 
 const Header = () => {
   const dispatch = useDispatch();
