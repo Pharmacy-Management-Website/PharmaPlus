@@ -23,6 +23,9 @@ const AddMedicine = () => {
 
   const newMedSubmit = (e) => {
     e.preventDefault();
+    if(!med_id || !name) {
+      alert.error("Please fill in all fields");
+    }
     dispatch(createMedicine(med_id, name, composition));
     navigate("/medicines");
   };
