@@ -5,7 +5,7 @@ const path = require("path");
 const app = express();
 
 const errorMiddleWare = require("./middleware/errorMiddleWare.js");
-const __dirname = path.resolve();
+__dirname = path.resolve();
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config({ path: "backend/config/config.env" });
