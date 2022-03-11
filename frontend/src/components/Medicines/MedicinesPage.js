@@ -75,7 +75,7 @@ const MedicinesPage = () => {
               </button>
 
               <div className="event-card-group">
-                {medicines.map((medicine) => (
+                {medicines?.map((medicine) => (
                   <div className="event-card">
                     <div className="content-left">
                       <p className="stock">
