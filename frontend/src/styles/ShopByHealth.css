@@ -15,7 +15,7 @@
 .testimonial__items__wrapper {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 2rem;
 }
 .testimonial__item {
   padding: 1rem;
@@ -38,20 +38,16 @@
   object-fit: cover;
 }
 .testimonial__item__name {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-family: "Exo 2", sans-serif;
   font-weight: 700;
   color: #293462;
   margin-bottom: 1rem;
 }
-.testimonial__item__stars {
-  max-height: 15px;
-  width: max-content;
-  margin-bottom: 1.5rem;
-}
+
 .testimonial__item__text {
   font-family: "Varela Round", sans-serif;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 @media only screen and (min-width: 768px) {
   .testimonial__wrapper {
@@ -72,18 +68,18 @@
   }
   .testimonial__item__name {
     color: #293462;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-family: "Exo 2", sans-serif;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-  }
-  .testimonial__item__stars {
-    margin-bottom: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
   }
   .testimonial__item__text {
     font-family: "Varela Round", sans-serif;
-    font-size: 1.4rem;
-    line-height: 2rem;
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+  }
+  .testimonial__wrapper {
+    text-align: left;
   }
 }
 @media only screen and (max-width: 375px) {
@@ -111,3 +107,22 @@
   }
 }
 /* End Testimonial Section */
+
+.testimonial-button {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  color: #eef2ff;
+  background: #548cff;
+}
+
+@media only screen and (min-width: 700px) {
+  .testimonial-button {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+  }
+}

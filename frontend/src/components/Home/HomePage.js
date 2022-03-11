@@ -17,10 +17,15 @@ import Montek from "../../images/montek.jpg";
 import Discount_1 from "../../images/discount-1.jpg";
 import Discount_2 from "../../images/discount-2.jpg";
 import Discount_3 from "../../images/discount-3.jpg";
-import Girl_1 from "../../images/girl-1.jpg";
-import Girl_2 from "../../images/girl-2.jpg";
-import Boy_1 from "../../images/boy-1.jpg";
-import Boy_2 from "../../images/boy-2.jpg";
+import Diabetes_Care from "../../images/Diabetes-Care.jpeg";
+import Cold_Care from "../../images/Cold_Immunity.jpeg";
+import Oral_Care from "../../images/Oral-Care.jpeg";
+import Mental_Care from "../../images/Mental-Health.jpeg";
+import Pampers from "../../images/Pampers.svg";
+import Dabur from "../../images/Dabur.svg";
+import Loreal from "../../images/Loreal.svg";
+import Colgate from "../../images/Colgate.svg";
+import Gilette from "../../images/Gilette.svg";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -109,8 +114,10 @@ const HomePage = () => {
               <div className="medicineGrid__item__info">
                 <h3 className="medicineGrid__item__title">Calpol</h3>
                 <h3 className="medicineGrid__item__price">₹14</h3>
-                <div className="medicineGrid__item__stars">
-                  <img src={Star} alt="3 star" />
+                <div className="grid__wrapper">
+                  <Link to="/medicines" className="grid-button">
+                    Add to Cart
+                  </Link>
                 </div>
               </div>
             </div>
@@ -121,8 +128,10 @@ const HomePage = () => {
               <div className="medicineGrid__item__info">
                 <h3 className="medicineGrid__item__title">Dolo 650</h3>
                 <h3 className="medicineGrid__item__price">₹27</h3>
-                <div className="medicineGrid__item__stars">
-                  <img src={Star} alt="3 star" />
+                <div className="grid__wrapper">
+                  <Link to="/medicines" className="grid-button">
+                    Add to Cart
+                  </Link>
                 </div>
               </div>
             </div>
@@ -133,8 +142,10 @@ const HomePage = () => {
               <div className="medicineGrid__item__info">
                 <h3 className="medicineGrid__item__title">Montek LC</h3>
                 <h3 className="medicineGrid__item__price">₹156</h3>
-                <div className="medicineGrid__item__stars">
-                  <img src={Star} alt="3 star" />
+                <div className="grid__wrapper">
+                  <Link to="/medicines" className="grid-button">
+                    Add to Cart
+                  </Link>
                 </div>
               </div>
             </div>
@@ -142,6 +153,151 @@ const HomePage = () => {
         </div>
       </section>
       {/* <!-- End Top Medicines --> */}
+
+      {/* <!-- Shop By Health Section --> */}
+      <section id="testimonial">
+        <div className="container">
+          <div className="testimonial__wrapper" data-aos="fade-up">
+            <h2 className="testimonial__title">Shop By Health Conditions</h2>
+            <div className="testimonial__items__wrapper">
+              <div className="testimonial__item">
+                <div className="testimonial__item__img">
+                  <img src={Diabetes_Care} alt="Sayed Ahmed" />
+                </div>
+                <div className="testimonial__item__info">
+                  <h3 className="testimonial__item__name">Diabetes Care</h3>
+
+                  <p className="testimonial__item__text">
+                    <li>Sugar Free</li>
+                    <li>Dabur Chyawanprash</li>
+                    <li>Everherb Diabetes Care</li>
+                    <li>D Protein Diabetes Care Powder</li>
+                    <li>Prohance D Vanilla Diabetes Care</li>
+                  </p>
+
+                  <div className="testimonial__wrapper">
+                    <Link to="/medicines" className="testimonial-button">
+                      Explore
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="testimonial__item">
+                <div className="testimonial__item__img">
+                  <img src={Oral_Care} alt="Sayed Ahmed" />
+                </div>
+                <div className="testimonial__item__info">
+                  <h3 className="testimonial__item__name">Oral Care</h3>
+
+                  <p className="testimonial__item__text">
+                    <li>Oral B Electric Brush</li>
+                    <li>Colgate Sensitive Plus</li>
+                    <li>Listerine Cool Mint Mouthwash</li>
+                    <li>Vicco Vajradanti Tooth Powder</li>
+                    <li>Sensodyne Sensitive Toothbrush</li>
+                  </p>
+
+                  <div className="testimonial__wrapper">
+                    <Link to="/medicines" className="testimonial-button">
+                      Explore
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="testimonial__item">
+                <div className="testimonial__item__img">
+                  <img src={Mental_Care} alt="Sayed Ahmed" />
+                </div>
+                <div className="testimonial__item__info">
+                  <h3 className="testimonial__item__name">Mental Wellness</h3>
+
+                  <p className="testimonial__item__text">
+                    <li>Apollo Vitamin B-12</li>
+                    <li>Himalaya Stress Relief</li>
+                    <li>Brainmax Omega 3 Liquid</li>
+                    <li>HealthVit Melatonin Tablets</li>
+                    <li>Mankind Multi Vitamin Tablets</li>
+                  </p>
+
+                  <div className="testimonial__wrapper">
+                    <Link to="/medicines" className="testimonial-button">
+                      Explore
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="testimonial__item">
+                <div className="testimonial__item__img">
+                  <img src={Cold_Care} alt="Sayed Ahmed" />
+                </div>
+                <div className="testimonial__item__info">
+                  <h3 className="testimonial__item__name">Cold & Immunity</h3>
+
+                  <p className="testimonial__item__text">
+                    <li>Crocin</li>
+                    <li>Azitral </li>
+                    <li>Montek LC</li>
+                    <li>Grenil</li>
+                    <li>Dolo 650</li>
+                  </p>
+
+                  <div className="testimonial__wrapper">
+                    <Link to="/medicines" className="testimonial-button">
+                      Explore
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <!-- End Shop By Health Section --> */}
+
+      {/* <!-- Shop By Brand Section --> */}
+      <section id="shopByBrand" data-aos="fade-up">
+        <div className="container">
+          <h2 className="shopByBrand__title">Shop By Brands</h2>
+          <div className="shopByBrand__wrapper">
+            <div className="shopByBrand__item">
+              <div className="shopByBrand__item__img">
+                <a href="/home" className="logo">
+                  <img src={Pampers} alt="himalaya" />
+                </a>
+              </div>
+            </div>
+            <div className="shopByBrand__item">
+              <div className="shopByBrand__item__img">
+                <a href="/home" className="logo">
+                  <img src={Dabur} alt="manforce" />
+                </a>
+              </div>
+            </div>
+            <div className="shopByBrand__item">
+              <div className="shopByBrand__item__img">
+                <a href="/home" className="logo">
+                  <img src={Loreal} alt="loreal" />
+                </a>
+              </div>
+            </div>
+            <div className="shopByBrand__item">
+              <div className="shopByBrand__item__img">
+                <a href="/home" className="logo">
+                  <img src={Colgate} alt="colgate" />
+                </a>
+              </div>
+            </div>
+            <div className="shopByBrand__item">
+              <div className="shopByBrand__item__img">
+                <a href="/home" className="logo">
+                  <img src={Gilette} alt="gilette" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* <!-- End Shop By Brand Section --> */}
 
       {/* <!-- Discount Section --> */}
       <section id="discount" data-aos="fade-up">
@@ -176,131 +332,6 @@ const HomePage = () => {
         </div>
       </section>
       {/* <!-- End Discount Section --> */}
-
-      {/* <!-- Why Us section --> */}
-      <section id="whyUs">
-        <div className="container">
-          <div className="whyUs__wrapper">
-            <div className="whyUs__left" data-aos="fade-right">
-              <h2 className="whyUs__title">Why Choose Our Pills</h2>
-              <p className="whyUs__text">
-                We at Pharma+ are commited to sell the latest drug and medicine
-                to our customers. The medicines are bound to have the extended
-                expiration date from the date of purchase and we dedicate
-                ourselves to keep the customers to have the best experience from
-                our shop.
-              </p>
-            </div>
-            <div className="whyUs__right" data-aos="fade-left">
-              <div className="whyUs__items__wrapper">
-                <div className="whyUs__item">
-                  <div className="whyUs__item__icon">
-                    <i className="far fa-grin-wink fa-5x"></i>
-                  </div>
-                  <p className="whyUs__item__text">
-                    In-house available prescription
-                  </p>
-                </div>
-                <div className="whyUs__item">
-                  <div className="whyUs__item__icon">
-                    <i className="far fa-grin-stars fa-5x"></i>
-                  </div>
-                  <p className="whyUs__item__text">Best Customer Experience</p>
-                </div>
-                <div className="whyUs__item">
-                  <div className="whyUs__item__icon">
-                    <i className="far fa-kiss-wink-heart fa-5x"></i>
-                  </div>
-                  <p className="whyUs__item__text">Latest Medicines</p>
-                </div>
-                <div className="whyUs__item">
-                  <div className="whyUs__item__icon">
-                    <i className="far fa-dizzy fa-5x"></i>
-                  </div>
-                  <p className="whyUs__item__text">48-hour Return Accepted</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* <!-- End Why Us section --> */}
-
-      {/* <!-- Testimonial Section --> */}
-      <section id="testimonial">
-        <div className="container">
-          <div className="testimonial__wrapper" data-aos="fade-up">
-            <h2 className="testimonial__title">What Our Customers Say</h2>
-            <div className="testimonial__items__wrapper">
-              <div className="testimonial__item">
-                <div className="testimonial__item__img">
-                  <img src={Girl_1} alt="Sayed Ahmed" />
-                </div>
-                <div className="testimonial__item__info">
-                  <h3 className="testimonial__item__name">Deepika Padukone</h3>
-                  <div className="testimonial__item__stars">
-                    <img src={Star} alt="3 star" />
-                  </div>
-                  <p className="testimonial__item__text">
-                    We at Pharma+ are commited to sell the latest drug and
-                    medicine to our customers. The medicines are bound to have
-                    the extended expiration date from the date of purchase.
-                  </p>
-                </div>
-              </div>
-              <div className="testimonial__item">
-                <div className="testimonial__item__img">
-                  <img src={Boy_1} alt="Sayed Ahmed" />
-                </div>
-                <div className="testimonial__item__info">
-                  <h3 className="testimonial__item__name">Dawood Ibrahim</h3>
-                  <div className="testimonial__item__stars">
-                    <img src={Star} alt="3 star" />
-                  </div>
-                  <p className="testimonial__item__text">
-                    We at Pharma+ are commited to sell the latest drug and
-                    medicine to our customers. The medicines are bound to have
-                    the extended expiration date from the date of purchase.
-                  </p>
-                </div>
-              </div>
-              <div className="testimonial__item">
-                <div className="testimonial__item__img">
-                  <img src={Boy_2} alt="Sayed Ahmed" />
-                </div>
-                <div className="testimonial__item__info">
-                  <h3 className="testimonial__item__name">Osama Bin Laden</h3>
-                  <div className="testimonial__item__stars">
-                    <img src={Star} alt="3 star" />
-                  </div>
-                  <p className="testimonial__item__text">
-                    We at Pharma+ are commited to sell the latest drug and
-                    medicine to our customers. The medicines are bound to have
-                    the extended expiration date from the date of purchase.
-                  </p>
-                </div>
-              </div>
-              <div className="testimonial__item">
-                <div className="testimonial__item__img">
-                  <img src={Girl_2} alt="Sayed Ahmed" />
-                </div>
-                <div className="testimonial__item__info">
-                  <h3 className="testimonial__item__name">Virat Kohli</h3>
-                  <div className="testimonial__item__stars">
-                    <img src={Star} alt="3 star" />
-                  </div>
-                  <p className="testimonial__item__text">
-                    We at Pharma+ are commited to sell the latest drug and
-                    medicine to our customers. The medicines are bound to have
-                    the extended expiration date from the date of purchase.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* <!-- End Testimonial Section --> */}
 
       {/* <!-- Footer --> */}
       <footer>
@@ -389,6 +420,9 @@ const HomePage = () => {
               <ol className="footer__text">
                 <li>
                   <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href="/">DashBoard</a>
                 </li>
                 <li>
                   <a href="/">Medicines</a>

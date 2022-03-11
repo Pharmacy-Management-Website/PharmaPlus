@@ -17,7 +17,7 @@
 }
 
 section {
-  padding: 7.5rem 0;
+  padding: 10rem 0;
 }
 
 img {
@@ -152,6 +152,7 @@ input {
   overflow: hidden;
   transition: 0.5s;
   letter-spacing: 3px;
+  cursor: pointer;
 }
 
 .login-box form a {

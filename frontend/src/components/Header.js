@@ -85,12 +85,12 @@ const Header = () => {
               <div className="nav__list__wrapper">
                 <li>
                   <a className="nav__link" href="/medicines">
-                    Medicines
+                    Dashboard
                   </a>
                 </li>
                 <li>
-                  <a className="nav__link" href="/allinvoices">
-                    Invoices
+                  <a className="nav__link" href="/medicines">
+                    Medicines
                   </a>
                 </li>
                 <li>
