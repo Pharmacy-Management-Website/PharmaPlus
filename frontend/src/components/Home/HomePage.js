@@ -294,6 +294,27 @@ const HomePage = () => {
                 </a>
               </div>
             </div>
+            <div className="shopByBrand__item">
+              <div className="shopByBrand__item__img">
+                <a href="/home" className="logo">
+                  <img src={Colgate} alt="colgate" />
+                </a>
+              </div>
+            </div>
+            <div className="shopByBrand__item">
+              <div className="shopByBrand__item__img">
+                <a href="/home" className="logo">
+                  <img src={Gilette} alt="gilette" />
+                </a>
+              </div>
+            </div>
+            <div className="shopByBrand__item">
+              <div className="shopByBrand__item__img">
+                <a href="/home" className="logo">
+                  <img src={Colgate} alt="colgate" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -338,14 +359,6 @@ const HomePage = () => {
         <div className="container">
           <div className="footer__wrapper">
             <div className="footer__col1">
-              <div className="footer__logo">
-                <a href="/home" className="logo">
-                  <i className="fas fa-capsules fa-5x"></i>
-                </a>
-              </div>
-              <p className="footer__desc">
-                Only Shop for all your Health Needs
-              </p>
               <div className="footer__socials">
                 <h4 className="footer__socials__title">Follow us</h4>
                 <ol className="footer__socials__list">
@@ -426,17 +439,6 @@ const HomePage = () => {
                 </li>
                 <li>
                   <a href="/">Medicines</a>
-                </li>
-              </ol>
-            </div>
-            <div className="footer__col3">
-              <h3 className="footer__text__title">Support</h3>
-              <ol className="footer__text">
-                <li>
-                  <a href="/">Contact</a>
-                </li>
-                <li>
-                  <a href="/">Refund Policy</a>
                 </li>
               </ol>
             </div>
