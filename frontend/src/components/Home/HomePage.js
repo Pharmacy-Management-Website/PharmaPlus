@@ -48,9 +48,7 @@ const HomePage = () => {
           <div className="hero__wrapper">
             <div className="hero__left" data-aos="fade-left">
               <div className="hero__left__wrapper">
-                <h1 class="hero__heading">
-                  Only Shop for your Healthy LifeStyle
-                </h1>
+                <h1 class="hero__heading">Only Shop for Healthy LifeStyle</h1>
 
                 <p class="hero__info">
                   Making a meaningful difference in patients’ lives.
@@ -436,8 +434,6 @@ const HomePage = () => {
 
       {/* <!-- aos script --> */}
       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-      {/* <!-- custom script --> */}
-      <script src="./main.js"></script>
     </Fragment>
   );
 };

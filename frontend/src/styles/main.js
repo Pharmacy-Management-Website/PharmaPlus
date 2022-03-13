@@ -10,42 +10,20 @@ AOS.init({
   anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
 });
 
-// const navCloseEl = document.querySelector(".nav__close");
-// const navList = document.querySelector(".nav__list");
-// const navIconEl = document.querySelector(".nav__icon");
-// const navBgOverlayEl = document.querySelector(".nav__bgOverlay");
+// // navbar variables
+// const nav = document.querySelector(".navbar-nav");
+// const navLinks = document.querySelectorAll(".nav-link");
+// const navToggleBtn = document.querySelector(".menu-toggle-btn");
 
-// window.addEventListener("DOMContentLoaded", () => {
-//   document.body.style.visibility = "visible";
-// });
-
-// const navOpen = () => {
-//   navList.classList.add("show");
-//   navBgOverlayEl.classList.add("active");
-//   document.body.style =
-//     "visibility: visible; height: 100vh; width:100vw; overflow:hidden;";
+// // nav toggle function
+// const navToggleFunc = function () {
+//   nav.classList.toggle("active");
+//   navToggleBtn.classList.toggle("active");
 // };
 
-// const navClose = () => {
-//   navList.classList.remove("show");
-//   navBgOverlayEl.classList.remove("active");
-//   document.body.style =
-//     "visibility: visible; height: initial; width: 100%; overflow-x: hidden;";
-// };
+// navToggleBtn.addEventListener("click", navToggleFunc);
 
-// navIconEl.addEventListener("click", navOpen);
-
-// navCloseEl.addEventListener("click", navClose);
-
-// navBgOverlayEl.addEventListener("click", navClose);
-
-// // AOS;
-// // AOS.refreshHard();
-
-// const dishGridEl = Array.from(document.querySelectorAll("#dishGrid"));
-// if (dishGridEl.length > 0) {
-//   // console.log(dishGridEl)
-//   dishGridEl.forEach((item) => {
-//     item.setAttribute("data-aos", "fade-up");
-//   });
+// // add event on all nav-link
+// for (let i = 0; i < navLinks.length; i++) {
+//   navLinks[i].addEventListener("click", navToggleFunc);
 // }
