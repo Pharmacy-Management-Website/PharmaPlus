@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useAlert } from 'react-alert';
 import { Link, useNavigate } from 'react-router-dom';
 import { clearErrors, newInvoice } from '../../actions/invoiceActions';
+import Loader from "../Utils/Loader/Loader";
+import Title from "../Utils/Meta/Title";
 
 const OrderPreview = () => {
 
@@ -46,9 +48,10 @@ const OrderPreview = () => {
 		<Fragment>
 			{
 				loading ? (
-					<div>Loading...</div>
+					<Loader />
 				) : (
 					<Fragment>
+						<Title title="Order Preview" />
 						<h2>Order Preview</h2>
 						<div>
 							<p>Customer Name: {customerInfo.customerName}</p>

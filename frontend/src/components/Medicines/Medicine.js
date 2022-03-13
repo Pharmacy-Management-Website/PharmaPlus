@@ -10,6 +10,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { addMedToCart } from "../../actions/cartActions.js";
 import Loader from "../Utils/Loader/Loader.js";
 import AddMedicine from "../../images/Add-Medicine.png";
+import Title from "../Utils/Meta/Title.js";
 import "./Medicine.css";
 
 const Medicine = () => {
@@ -66,6 +67,7 @@ const Medicine = () => {
 				<Loader />
 			) : (
 				<section id="meds_page">
+					<Title title={`${medicine.name}`} />
 					<div className="container">
 						{/* <!-- Meds Page --> */}
 						<div className="meds__wrapper">
@@ -114,6 +116,25 @@ const Medicine = () => {
 										</form>
 									</div>
 								</div>
+								{
+									manager.role === 'admin' && (
+										<div className="admin_stocks">
+											<h2>Stocks</h2>
+											<div className="admin_stocks__wrapper">
+												{medicine?.stockDetails?.map((stock) => (
+													<div className="det_wrap">
+														<div className="st_instock">
+															In Stock: {stock.inStock}
+														</div>
+														<div className="st_price">
+															Price: {stock.price}
+														</div>
+													</div>
+												))}
+											</div>
+										</div>
+									)
+								}
 							</div>
 						</div>
 					</div>

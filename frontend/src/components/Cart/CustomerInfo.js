@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import { saveCustInfo, clearErrors } from "../../actions/cartActions";
-// import "./CustInfo.css";
+import Title from "../Utils/Meta/Title";
+import Loader from "../Utils/Loader/Loader.js";
 
 const CustomerInfo = () => {
   const [customerName, setCustomerName] = useState("");
@@ -35,34 +36,10 @@ const CustomerInfo = () => {
   return (
     <Fragment>
       {loading ? (
-        <div>Loading...</div>
+        <Loader />
       ) : (
         <Fragment>
-          {/* <h2>Customer Info</h2>
-						<form
-							onSubmit={saveHandler}
-						>
-							<div>
-								<input
-									type="text"
-									placeholder="Name"
-									// required
-									value={customerName}
-									onChange={(e) => setCustomerName(e.target.value)}
-								/>
-							</div>
-							<div>
-								<input
-									type="number"
-									placeholder="Mobile Number"
-									// required
-									value={customerMobileNumber}
-									onChange={(e) => setCustomerMobileNumber(e.target.value)}
-								/>
-							</div>
-							<input type="submit" value="Save" />
-						</form> */}
-
+          <Title title="Customer Info" />
           <section className="section-book">
             <div className="row">
               <div className="book">
@@ -80,7 +57,7 @@ const CustomerInfo = () => {
                         id="name"
                         value={customerName}
                         onChange={(e) => setCustomerName(e.target.value)}
-                        // required
+                      // required
                       />
                       <label for="name" className="form__label">
                         Full name
@@ -97,7 +74,7 @@ const CustomerInfo = () => {
                         onChange={(e) =>
                           setCustomerMobileNumber(e.target.value)
                         }
-                        // required
+                      // required
                       />
                       <label for="number" className="form__label">
                         Phone No

@@ -8,6 +8,8 @@ import {
 	removeMedFromCart,
 	clearErrors,
 } from '../../actions/cartActions';
+import Loader from '../Utils/Loader/Loader';
+import Title from "../Utils/Meta/Title";
 
 const Cart = () => {
 
@@ -47,54 +49,57 @@ const Cart = () => {
 		<Fragment>
 			{
 				loading ? (
-					<div>Loading...</div>
+					<Loader />
 				) : (
-					<div>
-						<h2>Cart</h2>
-						{
-							cartItems.length === 0 ? (
-								<div>Cart is empty</div>
-							) : (
-								<div>
-									<p>Total Items: {cartItems.length}</p>
-									{
-										cartItems &&
-										cartItems.map((item) => (
-											<div>
-												<ItemCard med={item} deleteItemFromList={deleteItemFromList} />
-												<button
-													onClick={() =>
-														decreaseQuantity(item.medicine, item.qty)
-													}
-												>
-													-
-												</button>
-												<input readOnly type="number" value={item.qty} />
-												<button
-													onClick={() =>
-														increaseQuantity(
-															item.medicine,
-															item.qty,
-															item.inStock
-														)
-													}
-												>
-													+
-												</button>
-											</div>
-										))
-									}
-									<p>{`₹${cartItems.reduce(
-										(acc, item) => acc + item.qty * item.price,
-										0
-									)}`}</p>
-								</div>
-							)
-						}
-						<Link to="/custinfo">
-							Proceed
-						</Link>
-					</div>
+					<Fragment>
+						<Title title="Cart" />
+						<div>
+							<h2>Cart</h2>
+							{
+								cartItems.length === 0 ? (
+									<div>Cart is empty</div>
+								) : (
+									<div>
+										<p>Total Items: {cartItems.length}</p>
+										{
+											cartItems &&
+											cartItems.map((item) => (
+												<div>
+													<ItemCard med={item} deleteItemFromList={deleteItemFromList} />
+													<button
+														onClick={() =>
+															decreaseQuantity(item.medicine, item.qty)
+														}
+													>
+														-
+													</button>
+													<input readOnly type="number" value={item.qty} />
+													<button
+														onClick={() =>
+															increaseQuantity(
+																item.medicine,
+																item.qty,
+																item.inStock
+															)
+														}
+													>
+														+
+													</button>
+												</div>
+											))
+										}
+										<p>{`₹${cartItems.reduce(
+											(acc, item) => acc + item.qty * item.price,
+											0
+										)}`}</p>
+									</div>
+								)
+							}
+							<Link to="/custinfo">
+								Proceed
+							</Link>
+						</div>
+					</Fragment>
 				)
 			}
 		</Fragment>

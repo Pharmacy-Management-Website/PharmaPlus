@@ -50,7 +50,6 @@ const DashBoard = () => {
 								}
 							</p>
 						</div>
-
 						<div className="content-right">
 							<Link
 								to={`/medicine/${medicine._id}`}
@@ -59,10 +58,24 @@ const DashBoard = () => {
 								{medicine.name}
 							</Link>
 						</div>
-						<div className="AddToCart__wrapper">
+						<div className="AddToCart__wrapper" style={{ marginLeft: '10px' }}>
 							<button>
 								<Link to={`/stockupdate/${medicine._id}`}>
 									Update Stock
+								</Link>
+							</button>
+						</div>
+						<div className="AddToCart__wrapper" style={{ marginLeft: '10px' }}>
+							<button>
+								<Link to={`/updatemed/${medicine._id}`}>
+									Update Medicine
+								</Link>
+							</button>
+						</div>
+						<div className="AddToCart__wrapper" style={{ marginLeft: '10px' }}>
+							<button>
+								<Link to={`/newstock/${medicine._id}`}>
+									Add Stock
 								</Link>
 							</button>
 						</div>
