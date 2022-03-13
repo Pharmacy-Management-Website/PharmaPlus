@@ -42,13 +42,14 @@
   }
 
   .shopByBrand__wrapper {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 6rem;
   }
 
   .shopByBrand__item {
-    flex-direction: row;
-    padding: 3rem;
+    flex-direction: column;
+    background-color: #0780ff40;
+    padding: 1.5rem;
     border-radius: 12px;
     gap: 1rem;
   }
