@@ -118,7 +118,7 @@ export const medicineStockDetail = (stockId) => async (dispatch, getState) => {
 };
 
 // ? Create new Medicine
-export const createMedicine = (med_id, name, composition) => async (dispatch, getState) => {
+export const createMedicine = (med_id, name, composition, categoryOne, categoryTwo) => async (dispatch, getState) => {
 	try {
 		dispatch({ type: CREATE_MEDICINE_REQUEST });
 		const { userLogin: { manager } } = getState();
@@ -128,7 +128,7 @@ export const createMedicine = (med_id, name, composition) => async (dispatch, ge
 			},
 		};
 		const { data } = await axios.post(`/medapi/addmedicine`,
-			{ med_id, name, composition },
+			{ med_id, name, composition, categoryOne, categoryTwo },
 			config
 		);
 		dispatch({

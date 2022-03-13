@@ -10,6 +10,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { addMedToCart } from "../../actions/cartActions.js";
 import Loader from "../Utils/Loader/Loader.js";
 import AddMedicine from "../../images/Add-Medicine.png";
+import Title from "../Utils/Meta/Title.js";
 import "./Medicine.css";
 
 const Medicine = () => {
@@ -66,6 +67,7 @@ const Medicine = () => {
 				<Loader />
 			) : (
 				<section id="meds_page">
+					<Title title={`${medicine.name}`} />
 					<div className="container">
 						{/* <!-- Meds Page --> */}
 						<div className="meds__wrapper">
@@ -108,12 +110,50 @@ const Medicine = () => {
 														>
 															Add to Cart
 														</button>
+														{
+															manager.role === 'admin' && (
+																<button
+																	style={{ marginLeft: '10px' }}
+																	className="updBtn secBtn"
+																	onClick={() => deleteMedHandler(medId)}
+																>
+																	Delete
+																</button>
+															)
+														}
 													</div>
 												</div>
 											</div>
 										</form>
 									</div>
 								</div>
+								<div className="br_hlt">
+									<h2>
+										Brand: {medicine.categoryOne}
+									</h2>
+									<h2>
+										Health Issue: {medicine.categoryTwo}
+									</h2>
+								</div>
+								{
+									manager.role === 'admin' && (
+										<div className="admin_stocks">
+											<h2>Stocks</h2>
+											<div className="admin_stocks__wrapper">
+												{medicine?.stockDetails?.map((stock) => (
+													<div className="det_wrap">
+														<div className="st_instock">
+															In Stock: {stock.inStock}
+														</div>
+														<div className="st_price">
+															Price: {stock.price}
+														</div>
+													</div>
+												))}
+											</div>
+										</div>
+									)
+								}
 							</div>
 						</div>
 					</div>

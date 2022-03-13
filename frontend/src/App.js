@@ -67,13 +67,13 @@ function App() {
 						<Route exact path="/medicines/:keyword" element={<MedicinesPage />} />
 						<Route path="/medicine/:id" element={<Medicine />} />
 						<Route path="/newmed" element={<AddMedicine />} />
-						<Route path="/newstock/:id" element={<NewStock />} />
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/custinfo" element={<CustomerInfo />} />
 						<Route path="/orderpreview" element={<OrderPreview />} />
 						<Route path="/allinvoices" element={<AllInvoices />} />
 						<Route path="/invoice/:id" element={<InvoiceDetails />} />
 						<Route path="/dashboard" element={<DashBoard />} />
+						<Route path="/newstock/:id" element={<NewStock />} />
 						<Route path="/updatemed/:id" element={<UpdateMedicine />} />
 						<Route path="/stockupdate/:id" element={<UpdateStock />} />
 					</Route>

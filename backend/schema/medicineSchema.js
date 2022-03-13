@@ -33,6 +33,14 @@ const medicineSchema = new mongoose.Schema({
 		required: [true, "med_id is required"],
 		unique: true
 	},
+	categoryOne: {
+		type: String,
+		required: true
+	},
+	categoryTwo: {
+		type: String,
+		required: true
+	},
 	name: {
 		type: String,
 		required: true,

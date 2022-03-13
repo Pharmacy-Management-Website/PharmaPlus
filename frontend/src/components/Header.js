@@ -53,11 +53,22 @@ const Header = () => {
         {/* Navbar */}
         <div className="navbar-btn-group">
           <ul className="navbar-nav">
-            <li>
-              <a href="#home" className="nav-link">
-                Dashboard
-              </a>
-            </li>
+            {
+              manager.role === 'admin' ? (
+                <li>
+                  <a href="/dashboard" className="nav-link">
+                    Dashboard
+                  </a>
+                </li>
+              ) : (
+                <li>
+                  <a href="/invoices" className="nav-link">
+                    Invoices
+                  </a>
+                </li>
+              )
+            }
+
 
             <li>
               <a href="/medicines" className="nav-link">
@@ -85,8 +96,6 @@ const Header = () => {
           </button>
         </div>
       </div>
-      {/* <!-- custom script --> */}
-      {/* <script src="./main.js"></script> */}
     </div>
   );
 };

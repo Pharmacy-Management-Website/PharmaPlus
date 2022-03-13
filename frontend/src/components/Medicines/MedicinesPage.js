@@ -48,6 +48,7 @@ const MedicinesPage = () => {
 				<Loader />
 			) : (
 				<Fragment>
+					<Title title="Medicines" />
 					<section className="event">
 						<div className="event-left" data-aos="fade-right">
 							<div className="event-banner">
