@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { allMedicines, clearErrors } from "../../actions/medicineActions.js";
+import { allMedicines, clearErrors, deleteMedicine } from "../../actions/medicineActions.js";
 import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
 import Loader from "../Utils/Loader/Loader.js";
@@ -78,6 +78,18 @@ const DashBoard = () => {
 								<Link to={`/newstock/${medicine._id}`}>
 									Add Stock
 								</Link>
+							</button>
+						</div>
+						<div className="AddToCart__wrapper" style={{ marginLeft: '10px' }}>
+							<button
+								onClick={() => {
+									if (window.confirm("Are you sure you wish to delete this item?")) {
+										dispatch(deleteMedicine(medicine._id));
+										navigate("/dashboard");
+									}
+								}}
+							>
+								Delete
 							</button>
 						</div>
 					</div>
