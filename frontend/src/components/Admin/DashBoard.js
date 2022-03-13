@@ -1,7 +1,11 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { allMedicines, clearErrors } from "../../actions/medicineActions.js";
+import {
+  allMedicines,
+  clearErrors,
+  deleteMedicine,
+} from "../../actions/medicineActions.js";
 import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
 import Loader from "../Utils/Loader/Loader.js";
@@ -28,6 +32,14 @@ const DashBoard = () => {
   const setCurrentPageNum = (e) => {
     setCurrentPage(e);
   };
+
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+    dispatch(allMedicines(keyword, currentPage));
+  }, [dispatch, error, alert, keyword, currentPage]);
 
   useEffect(() => {
     if (error) {
@@ -67,6 +79,20 @@ const DashBoard = () => {
             <div className="AddToCart__wrapper" style={{ marginLeft: "10px" }}>
               <button>
                 <Link to={`/newstock/${medicine._id}`}>Add Stock</Link>
+              </button>
+            </div>
+            <div className="AddToCart__wrapper" style={{ marginLeft: "10px" }}>
+              <button
+                onClick={() => {
+                  if (
+                    window.confirm("Are you sure you wish to delete this item?")
+                  ) {
+                    dispatch(deleteMedicine(medicine._id));
+                    navigate("/dashboard");
+                  }
+                }}
+              >
+                Delete
               </button>
             </div>
           </div>

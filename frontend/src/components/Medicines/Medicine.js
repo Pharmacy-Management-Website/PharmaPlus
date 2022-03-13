@@ -91,6 +91,9 @@ const Medicine = () => {
 												<p>
 													{medicine.composition}
 												</p>
+												<h2>
+													Brand: {medicine.categoryOne}
+												</h2>
 												<div>
 													<div className="wrapper">
 														<a className="minus" onClick={decreaseQuantity}>
@@ -110,32 +113,13 @@ const Medicine = () => {
 														>
 															Add to Cart
 														</button>
-														{
-															manager.role === 'admin' && (
-																<button
-																	style={{ marginLeft: '10px' }}
-																	className="updBtn secBtn"
-																	onClick={() => deleteMedHandler(medId)}
-																>
-																	Delete
-																</button>
-															)
-														}
 													</div>
 												</div>
 											</div>
 										</form>
 									</div>
 								</div>
-								<div className="br_hlt">
-									<h2>
-										Brand: {medicine.categoryOne}
-									</h2>
-									<h2>
-										Health Issue: {medicine.categoryTwo}
-									</h2>
-								</div>
-								{
+								{/* {
 									manager.role === 'admin' && (
 										<div className="admin_stocks">
 											<h2>Stocks</h2>
@@ -153,7 +137,7 @@ const Medicine = () => {
 											</div>
 										</div>
 									)
-								}
+								} */}
 							</div>
 						</div>
 					</div>
