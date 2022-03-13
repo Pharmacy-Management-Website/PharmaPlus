@@ -41,13 +41,14 @@
 }
 
 .nav-link {
-  color: #3f3c3c;
+  color: #3b413a;
   font-size: 1.8rem;
   transition: 0.25s ease;
+  letter-spacing: 0.25px;
 }
 
 .nav-link:hover {
-  color: #516beb95;
+  color: #516beb90;
 }
 
 .navbar-btn-group {
@@ -83,36 +84,6 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-@media only screen and (min-width: 350px) {
-  .btn-group {
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
-@media (min-width: 1024px) {
-  .navbar {
-    padding: 35px 30px;
-  }
-
-  .navbar-nav {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    width: auto;
-    height: auto;
-    transform: translateY(0);
-    padding: 0;
-    flex-direction: row;
-    gap: 50px;
-    pointer-events: all;
-  }
-
-  .menu-toggle-btn {
-    display: none;
-  }
-}
-
 .search {
   flex: 0 0 40%;
   display: flex;
@@ -127,8 +98,8 @@
   background-color: #f4f2f2;
   box-shadow: 2.5px 5px 15px#0780ff50;
   border: none;
-  padding: 0.9rem 2rem;
-  border-radius: 100px;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
   width: 85%;
   transition: all 0.2s;
   margin-right: -3.25rem;
@@ -178,6 +149,54 @@
   padding: 1rem 1rem;
   color: #eef2ff;
   background: #548cff;
+}
+
+@media only screen and (max-width: 400px) {
+  .navbar-wrapper {
+    padding: 0;
+  }
+  .search {
+    flex: 0 0 50%;
+    margin: 0 auto;
+  }
+  .search__input {
+    font-size: 1rem;
+    box-shadow: 2.5px 5px 15px#0780ff50;
+    padding: 0.8rem 1.6rem;
+    border-radius: 10px;
+    width: 85%;
+    margin-right: -2.5rem;
+  }
+}
+
+@media only screen and (min-width: 350px) {
+  .btn-group {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 35px 30px;
+  }
+
+  .navbar-nav {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    width: auto;
+    height: auto;
+    transform: translateY(0);
+    padding: 0;
+    flex-direction: row;
+    gap: 50px;
+    pointer-events: all;
+  }
+
+  .menu-toggle-btn {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 700px) {

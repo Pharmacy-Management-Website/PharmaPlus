@@ -26,7 +26,7 @@
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
-  color: var(--black-1);
+  color: #3b413a;
 }
 
 .hero__info {
@@ -80,7 +80,7 @@
   .hero__info {
     font-family: "Dongle", sans-serif;
     font-weight: 300;
-    line-height: 5rem;
+    line-height: 4rem;
     margin-bottom: 2rem;
     text-align: left;
     font-size: 4rem;
