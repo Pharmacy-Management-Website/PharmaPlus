@@ -33,6 +33,8 @@ exports.addMedicine = async (req, res, next) => {
 			med_id: req.body.med_id,
 			name: req.body.name,
 			composition: req.body.composition,
+			categoryOne: req.body.categoryOne,
+			categoryTwo: req.body.categoryTwo,
 		});
 		const result = await medicine.save();
 		res.status(201).json({

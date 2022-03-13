@@ -110,11 +110,30 @@ const Medicine = () => {
 														>
 															Add to Cart
 														</button>
+														{
+															manager.role === 'admin' && (
+																<button
+																	style={{ marginLeft: '10px' }}
+																	className="updBtn secBtn"
+																	onClick={() => deleteMedHandler(medId)}
+																>
+																	Delete
+																</button>
+															)
+														}
 													</div>
 												</div>
 											</div>
 										</form>
 									</div>
+								</div>
+								<div className="br_hlt">
+									<h2>
+										Brand: {medicine.categoryOne}
+									</h2>
+									<h2>
+										Health Issue: {medicine.categoryTwo}
+									</h2>
 								</div>
 								{
 									manager.role === 'admin' && (
