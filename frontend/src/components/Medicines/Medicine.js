@@ -21,6 +21,8 @@ const Medicine = () => {
 	const { medicine, loading, error } = useSelector(
 		(state) => state.medicineDetails
 	);
+	const { manager } = useSelector((state) => state.userLogin);
+
 	const [quantity, setQuantity] = useState(1);
 
 	const medId = params.id;
@@ -84,34 +86,30 @@ const Medicine = () => {
 												<h1>
 													{medicine.name}
 												</h1>
-												<div className="wrapper">
-													<a className="minus" onClick={decreaseQuantity}>
-														-
-													</a>
-													<div className="num">
-														<input readOnly type="number" value={quantity} />
+												<p>
+													{medicine.composition}
+												</p>
+												<div>
+													<div className="wrapper">
+														<a className="minus" onClick={decreaseQuantity}>
+															-
+														</a>
+														<div className="num">
+															<input readOnly type="number" value={quantity} />
+														</div>
+														<a className="plus" onClick={increaseQuantity}>
+															+
+														</a>
 													</div>
-													<a className="plus" onClick={increaseQuantity}>
-														+
-													</a>
+													<div className="AddToCart__wrapper">
+														<button
+															onClick={addToListHandler}
+															className="updBtn secBtn"
+														>
+															Add to Cart
+														</button>
+													</div>
 												</div>
-												{/* <div>
-													<Link to={`/updatemed/${medicine._id}`}>Update</Link>
-												</div> */}
-												<div className="AddToCart__wrapper">
-													<button
-														onClick={addToListHandler}
-														className="updBtn secBtn"
-													>
-														Add to Cart
-													</button>
-												</div>
-												{/* <button
-													onClick={deleteMedHandler}
-													className="updBtn secBtn"
-												>
-													Delete
-												</button> */}
 											</div>
 										</form>
 									</div>

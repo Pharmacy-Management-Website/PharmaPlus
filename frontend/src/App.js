@@ -16,13 +16,15 @@ import HomePage from "./components/Home/HomePage.js";
 import MedicinesPage from "./components/Medicines/MedicinesPage.js";
 import Medicine from "./components/Medicines/Medicine.js";
 import AddMedicine from "./components/Medicines/AddMedicine.js";
-import UpdateMedicine from "./components/Medicines/UpdateMedicine";
-import NewStock from "./components/Medicines/NewStock.js";
+import NewStock from "./components/Admin/NewStock.js";
 import Cart from "./components/Cart/Cart.js";
 import CustomerInfo from "./components/Cart/CustomerInfo.js";
 import OrderPreview from "./components/Cart/OrderPreview.js";
 import AllInvoices from "./components/Invoice/AllInvoices";
 import InvoiceDetails from "./components/Invoice/InvoiceDetails";
+import DashBoard from "./components/Admin/DashBoard";
+import UpdateMedicine from "./components/Admin/UpdateMedicine";
+import UpdateStock from "./components/Admin/UpdateStock";
 import NotFound from "./components/Utils/NotFound/NotFound";
 
 function App() {
@@ -65,13 +67,15 @@ function App() {
 						<Route exact path="/medicines/:keyword" element={<MedicinesPage />} />
 						<Route path="/medicine/:id" element={<Medicine />} />
 						<Route path="/newmed" element={<AddMedicine />} />
-						<Route path="/updatemed/:id" element={<UpdateMedicine />} />
 						<Route path="/newstock/:id" element={<NewStock />} />
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/custinfo" element={<CustomerInfo />} />
 						<Route path="/orderpreview" element={<OrderPreview />} />
 						<Route path="/allinvoices" element={<AllInvoices />} />
 						<Route path="/invoice/:id" element={<InvoiceDetails />} />
+						<Route path="/dashboard" element={<DashBoard />} />
+						<Route path="/updatemed/:id" element={<UpdateMedicine />} />
+						<Route path="/stockupdate/:id" element={<UpdateStock />} />
 					</Route>
 					<Route exact path="*" element={<NotFound />} />
 				</Routes>

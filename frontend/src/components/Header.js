@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { logoutUser } from "../actions/userActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
 
@@ -9,6 +9,8 @@ const Header = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const alert = useAlert();
+
+	const { manager } = useSelector((state) => state.userLogin);
 
 	const handleLogout = () => {
 		dispatch(logoutUser());
@@ -84,11 +86,15 @@ const Header = () => {
 								</svg>
 							</div>
 							<div className="nav__list__wrapper">
-								<li>
-									<a className="nav__link" href="/medicines">
-										Dashboard
-									</a>
-								</li>
+								{
+									manager.role === 'admin' && (
+										<li>
+											<a className="nav__link" href="/dashboard">
+												Dashboard
+											</a>
+										</li>
+									)
+								}
 								<li>
 									<a className="nav__link" href="/medicines">
 										Medicines

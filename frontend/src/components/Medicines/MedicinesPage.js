@@ -4,7 +4,6 @@ import { useParams, Link } from "react-router-dom";
 import { allMedicines, clearErrors } from "../../actions/medicineActions.js";
 import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
-import MedDisplay from "../Utils/MedComp/MedDisplay.js";
 import Loader from "../Utils/Loader/Loader.js";
 import Title from "../Utils/Meta/Title.js";
 import MedPage_1 from "../../images/Medicine Page-1.svg";
@@ -13,6 +12,7 @@ import "../../styles/main.js";
 import "./MedicinePage.css";
 
 const MedicinesPage = () => {
+
 	const dispatch = useDispatch();
 	const alert = useAlert();
 	const params = useParams();
