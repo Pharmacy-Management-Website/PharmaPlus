@@ -28,6 +28,9 @@ const stockSchema = new mongoose.Schema({
 
 const medicineSchema = new mongoose.Schema(
   {
+    med_id: {
+      type: String,
+    },
     categoryOne: {
       type: String,
       required: true,
