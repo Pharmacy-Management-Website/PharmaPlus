@@ -30,6 +30,8 @@ const MedicinesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const keyword = params.keyword || "";
+  const brand = params.brand || "";
+  const health = params.health || "";
 
   const setCurrentPageNum = (e) => {
     setCurrentPage(e);
@@ -40,8 +42,8 @@ const MedicinesPage = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
-    dispatch(allMedicines(keyword, currentPage));
-  }, [dispatch, error, alert, keyword, currentPage]);
+    dispatch(allMedicines(keyword, brand, health, currentPage));
+  }, [dispatch, error, alert, keyword, currentPage, brand, health]);
 
   return (
     <Fragment>

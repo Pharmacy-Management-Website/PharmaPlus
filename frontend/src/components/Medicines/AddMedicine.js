@@ -17,6 +17,7 @@ const AddMedicine = () => {
     (state) => state.newMedicine
   );
 
+  const [med_id, setMedId] = useState("");
   const [name, setName] = useState("");
   const [composition, setComposition] = useState("");
   const [categoryOne, setCategoryOne] = useState("");
@@ -27,7 +28,9 @@ const AddMedicine = () => {
     if (!categoryOne || !categoryTwo || !name) {
       alert.error("Please fill in all fields");
     }
-    dispatch(createMedicine(name, composition, categoryOne, categoryTwo));
+    dispatch(
+      createMedicine(med_id, name, composition, categoryOne, categoryTwo)
+    );
     navigate("/medicines");
   };
 
@@ -66,6 +69,15 @@ const AddMedicine = () => {
                     <div className="addNew__left__wrapper">
                       <div className="addNew-box">
                         <form onSubmit={newMedSubmit}>
+                          <div class="user-box">
+                            <input
+                              type="text"
+                              required
+                              value={med_id}
+                              onChange={(e) => setMedId(e.target.value)}
+                            />
+                            <label>Med Id</label>
+                          </div>
                           <div class="user-box">
                             <input
                               type="text"
