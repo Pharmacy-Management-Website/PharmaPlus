@@ -60,7 +60,7 @@ const AddMedicine = () => {
                     </div>
                   </div>
 
-                  {/* <!-- Login Right Side --> */}
+                  {/* <!-- Add New Right Side --> */}
 
                   <div className="addNew__left" data-aos="fade-right">
                     <div className="addNew__left__wrapper">
@@ -70,7 +70,6 @@ const AddMedicine = () => {
                             <input
                               type="text"
                               required
-                              name="username"
                               value={name}
                               onChange={(e) => setName(e.target.value)}
                             />
@@ -80,7 +79,6 @@ const AddMedicine = () => {
                             <input
                               type="text"
                               required
-                              name="username"
                               value={composition}
                               onChange={(e) => setComposition(e.target.value)}
                             />
@@ -90,7 +88,6 @@ const AddMedicine = () => {
                             <input
                               type="text"
                               required
-                              name="username"
                               value={categoryOne}
                               onChange={(e) => setCategoryOne(e.target.value)}
                             />
@@ -100,7 +97,6 @@ const AddMedicine = () => {
                             <input
                               type="text"
                               required
-                              name="username"
                               value={categoryTwo}
                               onChange={(e) => setCategoryTwo(e.target.value)}
                             />

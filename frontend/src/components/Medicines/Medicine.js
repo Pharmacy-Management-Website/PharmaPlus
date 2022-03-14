@@ -1,9 +1,9 @@
 import React, { useEffect, Fragment, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	getMedicineDetails,
-	clearErrors,
-	deleteMedicine,
+  getMedicineDetails,
+  clearErrors,
+  deleteMedicine,
 } from "../../actions/medicineActions";
 import { useAlert } from "react-alert";
 import { useNavigate, useParams, Link } from "react-router-dom";
@@ -12,114 +12,112 @@ import Loader from "../Utils/Loader/Loader.js";
 import AddMedicine from "../../images/Add-Medicine.png";
 import Title from "../Utils/Meta/Title.js";
 import "./Medicine.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Medicine = () => {
-	const dispatch = useDispatch();
-	const alert = useAlert();
-	const navigate = useNavigate();
-	const params = useParams();
+  const dispatch = useDispatch();
+  const alert = useAlert();
+  const navigate = useNavigate();
+  const params = useParams();
 
-	const { medicine, loading, error } = useSelector(
-		(state) => state.medicineDetails
-	);
-	const { manager } = useSelector((state) => state.userLogin);
+  const { medicine, loading, error } = useSelector(
+    (state) => state.medicineDetails
+  );
+  const { manager } = useSelector((state) => state.userLogin);
 
-	const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
 
-	const medId = params.id;
+  const medId = params.id;
 
-	const increaseQuantity = () => {
-		if (medicine.stockDetails[0].inStock <= quantity) return;
-		const qty = quantity + 1;
-		setQuantity(qty);
-	};
+  const increaseQuantity = () => {
+    if (medicine.stockDetails[0].inStock <= quantity) return;
+    const qty = quantity + 1;
+    setQuantity(qty);
+  };
 
-	const decreaseQuantity = () => {
-		if (1 >= quantity) return;
-		const qty = quantity - 1;
-		setQuantity(qty);
-	};
+  const decreaseQuantity = () => {
+    if (1 >= quantity) return;
+    const qty = quantity - 1;
+    setQuantity(qty);
+  };
 
-	const addToListHandler = () => {
-		dispatch(addMedToCart(medId, quantity));
-		alert.success("Medicine added to cart");
-		navigate("/cart");
-	};
+  const addToListHandler = () => {
+    dispatch(addMedToCart(medId, quantity));
+    alert.success("Medicine added to cart");
+    navigate("/cart");
+  };
 
-	const deleteMedHandler = (e) => {
-		e.preventDefault();
-		dispatch(deleteMedicine(medId));
-		alert.success("Medicine deleted successfully");
-		navigate("/medicines");
-	};
+  const deleteMedHandler = (e) => {
+    e.preventDefault();
+    dispatch(deleteMedicine(medId));
+    alert.success("Medicine deleted successfully");
+    navigate("/medicines");
+  };
 
-	useEffect(() => {
-		if (error) {
-			alert.error(error);
-			dispatch(clearErrors());
-		}
-		dispatch(getMedicineDetails(medId));
-	}, [error, alert, dispatch, medId]);
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors());
+    }
+    dispatch(getMedicineDetails(medId));
+  }, [error, alert, dispatch, medId]);
 
-	return (
-		<Fragment>
-			{loading ? (
-				<Loader />
-			) : (
-				<section id="meds_page">
-					<Title title={`${medicine.name}`} />
-					<div className="container">
-						{/* <!-- Meds Page --> */}
-						<div className="meds__wrapper">
-							{/* <!--  Meds Left Side --> */}
+  return (
+    <Fragment>
+      {loading ? (
+        <Loader />
+      ) : (
+        <section id="meds_page">
+          <Title title={`${medicine.name}`} />
+          <div className="container">
+            {/* <!-- Meds Page --> */}
+            <div className="meds__wrapper">
+              {/* <!--  Meds Left Side --> */}
 
-							<div className="meds__right" data-aos="fade-left">
-								<div className="meds__imgWrapper">
-									<img src={AddMedicine} />
-								</div>
-							</div>
-							{/* <!-- Meds Right Side --> */}
+              <div className="meds__right" data-aos="fade-left">
+                <div className="meds__imgWrapper">
+                  <img src={AddMedicine} />
+                </div>
+              </div>
+              {/* <!-- Meds Right Side --> */}
 
-							<div className="meds__left" data-aos="fade-right">
-								<div className="meds__left__wrapper">
-									<div className="meds-box">
-										<form>
-											<div className="user-box">
-												<h1>
-													{medicine.name}
-												</h1>
-												<p>
-													{medicine.composition}
-												</p>
-												<h2>
-													Brand: {medicine.categoryOne}
-												</h2>
-												<div>
-													<div className="wrapper">
-														<a className="minus" onClick={decreaseQuantity}>
-															-
-														</a>
-														<div className="num">
-															<input readOnly type="number" value={quantity} />
-														</div>
-														<a className="plus" onClick={increaseQuantity}>
-															+
-														</a>
-													</div>
-													<div className="AddToCart__wrapper">
-														<button
-															onClick={addToListHandler}
-															className="updBtn secBtn"
-														>
-															Add to Cart
-														</button>
-													</div>
-												</div>
-											</div>
-										</form>
-									</div>
-								</div>
-								{/* {
+              <div className="meds__left" data-aos="fade-right">
+                <div className="meds__left__wrapper">
+                  <div className="meds-box">
+                    <form>
+                      <div className="user-box">
+                        <h1 className="meds_brand">
+                          Brand: {medicine.categoryOne}
+                        </h1>
+                        <h2 className="meds_h2">{medicine.name}</h2>
+                        <p className="meds_p">{medicine.composition}</p>
+                        <div>
+                          <div className="wrapper">
+                            <a className="minus" onClick={decreaseQuantity}>
+                              -
+                            </a>
+                            <div className="num">
+                              <input readOnly type="number" value={quantity} />
+                            </div>
+                            <a className="plus" onClick={increaseQuantity}>
+                              +
+                            </a>
+                          </div>
+                          <div className="AddToCart__wrapper">
+                            <button
+                              onClick={addToListHandler}
+                              className="updBtn secBtn"
+                            >
+                              Add to Cart
+                            </button>
+                            <FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                {/* {
 									manager.role === 'admin' && (
 										<div className="admin_stocks">
 											<h2>Stocks</h2>
@@ -138,13 +136,13 @@ const Medicine = () => {
 										</div>
 									)
 								} */}
-							</div>
-						</div>
-					</div>
-				</section>
-			)}
-		</Fragment>
-	);
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+    </Fragment>
+  );
 };
 
 export default Medicine;
