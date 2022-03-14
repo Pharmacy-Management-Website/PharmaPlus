@@ -32,6 +32,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
     "nodemon": "^2.0.15",
+    "react-script-tag": "^1.1.2",
     "redux-persist": "^6.0.0"
   },
   "repository": {

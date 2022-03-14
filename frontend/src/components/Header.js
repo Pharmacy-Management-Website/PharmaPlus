@@ -3,7 +3,6 @@ import { logoutUser } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
-// import "../styles/main.js";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -27,6 +26,18 @@ const Header = () => {
     } else {
       navigate("/medicines");
     }
+  };
+
+  window.onload = function () {
+    // navbar variables
+    const navbarNav = document.querySelector(".navbar-nav");
+    const navbarToggleBtn = document.querySelector(".menu-toggle-btn");
+
+    // navbar toggle functionality
+    navbarToggleBtn.addEventListener("click", function () {
+      navbarNav.classList.toggle("active");
+      this.classList.toggle("active");
+    });
   };
 
   return (
@@ -53,22 +64,19 @@ const Header = () => {
         {/* Navbar */}
         <div className="navbar-btn-group">
           <ul className="navbar-nav">
-            {
-              manager.role === 'admin' ? (
-                <li>
-                  <a href="/dashboard" className="nav-link">
-                    Dashboard
-                  </a>
-                </li>
-              ) : (
-                <li>
-                  <a href="/invoices" className="nav-link">
-                    Invoices
-                  </a>
-                </li>
-              )
-            }
-
+            {manager.role === "admin" ? (
+              <li>
+                <a href="/dashboard" className="nav-link">
+                  Dashboard
+                </a>
+              </li>
+            ) : (
+              <li>
+                <a href="/invoices" className="nav-link">
+                  Invoices
+                </a>
+              </li>
+            )}
 
             <li>
               <a href="/medicines" className="nav-link">

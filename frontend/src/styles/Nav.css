@@ -60,6 +60,8 @@
 .menu-toggle-btn {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 20px;
   gap: 5px;
 }

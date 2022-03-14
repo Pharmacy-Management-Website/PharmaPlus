@@ -447,15 +447,6 @@ const HomePage = () => {
         </div>
       </footer>
 
-      <form className="search" onSubmit={filterHealth}>
-        <input
-          type="text"
-          className="search__input"
-          placeholder="Search Medicines"
-          onChange={(e) => setHealth(e.target.value)}
-        />
-      </form>
-
       {/* <!-- End Footer --> */}
 
       {/* <!-- aos script --> */}
