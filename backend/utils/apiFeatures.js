@@ -18,6 +18,32 @@ class ApiFeatures {
 		return this;
 	}
 
+	shopByBrand() {
+		const brand = this.queryStr.brand
+			? {
+				categoryOne: {
+					$regex: this.queryStr.brand,
+					$options: "i",
+				},
+			}
+			: {};
+		this.query = this.query.find({ ...brand });
+		return this;
+	}
+
+	shopByHealth() {
+		const health = this.queryStr.health
+			? {
+				categoryTwo: {
+					$regex: this.queryStr.health,
+					$options: "i",
+				},
+			}
+			: {};
+		this.query = this.query.find({ ...health });
+		return this;
+	}
+
 	pagination(resultPerPage) {
 		const currentPage = Number(this.queryStr.page) || 1;
 		const skip = resultPerPage * (currentPage - 1);

@@ -9,6 +9,8 @@ exports.getAllMedicinesDetails = async (req, res, next) => {
     const medCounts = await Medicine.countDocuments();
     const apiFeature = new ApiFeatures(Medicine.find(), req.query)
       .search()
+      .shopByBrand()
+      .shopByHealth()
       .pagination(resultPerPage);
     let medicines = await apiFeature.query;
     let filteredMedicinesCount = medicines.length;
@@ -30,6 +32,7 @@ exports.getAllMedicinesDetails = async (req, res, next) => {
 exports.addMedicine = async (req, res, next) => {
   try {
     const medicine = new Medicine({
+      med_id: req.body.med_id,
       name: req.body.name,
       composition: req.body.composition,
       categoryOne: req.body.categoryOne,
