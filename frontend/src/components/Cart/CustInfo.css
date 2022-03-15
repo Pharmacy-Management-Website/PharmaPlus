@@ -1,13 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Alata&family=Dongle:wght@300;400;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Poppins:wght@200;300;400;500;600&family=Varela+Round&display=swap");
 
-*,
-*::before,
-*::after {
-  margin: ;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   box-sizing: border-box;
 }
@@ -17,38 +9,27 @@ html {
   scroll-behavior: smooth;
 }
 
-/* .u-margin-bottom-medium {
-  margin-bottom: 4rem !important;
-}
-
-@media only screen and (max-width: 56.25em) {
-  .u-margin-bottom-medium {
-    margin-bottom: 3rem !important;
-  }
-} */
-
 .heading-secondary {
   font-family: "Josefin Sans", sans-serif;
   font-size: 35px;
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
-  background-image: linear-gradient(to right, #fff8f3, #d6e5fa);
+  color: #aefeff;
   -webkit-background-clip: text;
-  color: transparent;
   letter-spacing: 0.2rem;
   transition: all 0.2s;
   margin-top: 0;
   margin-bottom: 40px;
 }
 
-@media only screen and (max-width: 56.25em) {
+@media only screen and (max-width: 900px) {
   .heading-secondary {
     font-size: 25px;
   }
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 600px) {
   .heading-secondary {
     font-size: 25px;
   }
@@ -61,15 +42,10 @@ html {
 
 .section-book {
   padding: 150px 50px;
-  background-image: linear-gradient(
-    to right bottom,
-    #0780ff30,
-    #0780ff,
-    #0780ff60
-  );
+  background: inherit;
 }
 
-@media only screen and (max-width: 56.25em) {
+@media only screen and (max-width: 900px) {
   .section-book {
     padding: 30px 0;
   }
@@ -89,7 +65,7 @@ html {
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.25);
 }
 
-@media only screen and (max-width: 75em) {
+@media only screen and (max-width: 1200px) {
   .book {
     background-image: linear-gradient(
         105deg,
@@ -102,14 +78,13 @@ html {
   }
 }
 
-@media only screen and (max-width: 56.25em) {
+@media only screen and (max-width: 900px) {
   .book {
     background-image: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0.9) 0%,
-        rgba(255, 255, 255, 0.9) 100%
-      ),
-      url(../../images/form-bg-1.jpg);
+      to right bottom,
+      #00b4d8 50%,
+      #caf0f8 100%
+    );
   }
 }
 
@@ -118,13 +93,13 @@ html {
   padding: 50px;
 }
 
-@media only screen and (max-width: 75em) {
+@media only screen and (max-width: 1200px) {
   .book__form {
     width: 65%;
   }
 }
 
-@media only screen and (max-width: 56.25em) {
+@media only screen and (max-width: 900px) {
   .book__form {
     width: 100%;
   }
@@ -136,14 +111,14 @@ html {
   color: inherit;
   padding: 13.5px 18px;
   border-radius: 2px;
-  background-color: rbga(#fff, 0.5);
+  background-color: #fbf8f1;
   border: none;
   border-bottom: 3px solid transparent;
   width: 60%;
   display: block;
   transition: all 0.3s;
 }
-@media only screen and (max-width: 56.25em) {
+@media only screen and (max-width: 900px) {
   .form__input {
     width: 100%;
   }
@@ -175,74 +150,10 @@ html {
   transform: translateY(-4rem);
 }
 
-.form__radio-group {
-  width: 49%;
-  display: inline-block;
-}
-@media only screen and (max-width: 56.25em) {
-  .form__radio-group {
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-}
-
-.form__radio-input {
-  display: none;
-}
-
-.form__radio-label {
-  font-size: 1.6rem;
-  cursor: pointer;
-  position: relative;
-  padding-left: 4.5rem;
-}
-
-.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
-  opacity: 1;
-}
-
-.button {
-  position: relative;
+.button-text-link_2 {
   font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
   color: #fff;
-  padding: 20px 50px;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  overflow: hidden;
-}
-
-.button .button-text {
-  position: relative;
-  z-index: 5;
-  margin: 0;
-}
-
-.button-primary,
-.button-secondary .square {
-  background: #f76e11;
-}
-
-.button .square {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  transition: 0.25s ease;
-}
-
-.button:hover .square {
-  right: -2px;
-  width: 102%;
-  height: 102%;
-}
-
-.button-primary .square,
-.button-secondary {
-  background: #03045e;
 }

@@ -38,6 +38,7 @@ body {
 
 .login__left__wrapper {
   max-width: 475px;
+  margin: 4rem;
 }
 
 .login__imgWrapper {

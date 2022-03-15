@@ -24,6 +24,7 @@ img {
 
 .cart__left__wrapper {
   max-width: 475px;
+  margin: 4rem;
 }
 
 .cart__imgWrapper {
