@@ -184,15 +184,14 @@ const HomePage = () => {
                   </p>
 
                   <div className="testimonial__wrapper">
-                    <Link to="/medicines" className="testimonial-button">
-                      <button
-                        onClick={(e) => {
-                          navigate("/medicines/Disinfectants");
-                        }}
-                      >
-                        Explore
-                      </button>
-                    </Link>
+                    <button
+                      className="testimonial-button"
+                      onClick={(e) => {
+                        navigate("/medicines/Disinfectants");
+                      }}
+                    >
+                      Explore
+                    </button>
                   </div>
                 </div>
               </div>
@@ -212,9 +211,14 @@ const HomePage = () => {
                   </p>
 
                   <div className="testimonial__wrapper">
-                    <Link to="/medicines" className="testimonial-button">
+                    <button
+                      className="testimonial-button"
+                      onClick={(e) => {
+                        navigate("/medicines/Disinfectants");
+                      }}
+                    >
                       Explore
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -234,9 +238,14 @@ const HomePage = () => {
                   </p>
 
                   <div className="testimonial__wrapper">
-                    <Link to="/medicines" className="testimonial-button">
+                    <button
+                      className="testimonial-button"
+                      onClick={(e) => {
+                        navigate("/medicines/Disinfectants");
+                      }}
+                    >
                       Explore
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -256,9 +265,14 @@ const HomePage = () => {
                   </p>
 
                   <div className="testimonial__wrapper">
-                    <Link to="/medicines" className="testimonial-button">
+                    <button
+                      className="testimonial-button"
+                      onClick={(e) => {
+                        navigate("/medicines/Disinfectants");
+                      }}
+                    >
                       Explore
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
