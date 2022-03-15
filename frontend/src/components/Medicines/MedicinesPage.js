@@ -12,122 +12,122 @@ import "../../styles/main.js";
 import "./MedicinePage.css";
 
 const MedicinesPage = () => {
-  const dispatch = useDispatch();
-  const alert = useAlert();
-  const params = useParams();
+	const dispatch = useDispatch();
+	const alert = useAlert();
+	const params = useParams();
 
-  const {
-    error,
-    loading,
-    medicines,
-    medCounts,
-    resultPerPage,
-    filteredMedicinesCount,
-  } = useSelector((state) => state.medicines);
+	const {
+		error,
+		loading,
+		medicines,
+		medCounts,
+		resultPerPage,
+		filteredMedicinesCount,
+	} = useSelector((state) => state.medicines);
 
-  const { manager } = useSelector((state) => state.userLogin);
+	const { manager } = useSelector((state) => state.userLogin);
 
-  const [currentPage, setCurrentPage] = useState(1);
+	const [currentPage, setCurrentPage] = useState(1);
 
-  const keyword = params.keyword || "";
-  const brand = params.brand || "";
-  const health = params.health || "";
+	const keyword = params.keyword || "";
+	const health = params.health || "";
+	const brand = params.brand || "";
 
-  const setCurrentPageNum = (e) => {
-    setCurrentPage(e);
-  };
+	const setCurrentPageNum = (e) => {
+		setCurrentPage(e);
+	};
 
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
-    }
-    dispatch(allMedicines(keyword, brand, health, currentPage));
-  }, [dispatch, error, alert, keyword, currentPage, brand, health]);
+	useEffect(() => {
+		if (error) {
+			alert.error(error);
+			dispatch(clearErrors());
+		}
+		dispatch(allMedicines(keyword, brand, health, currentPage));
+	}, [dispatch, error, alert, keyword, currentPage, brand, health]);
 
-  return (
-    <Fragment>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Fragment>
-          <Title title="Medicines" />
-          <section className="event">
-            <div className="event-left" data-aos="fade-right">
-              <div className="event-banner">
-                <img
-                  src={MedPage_1}
-                  alt="event banner"
-                  className="banner-img"
-                />
-                <img
-                  src={MedPage_2}
-                  alt="event banner"
-                  className="banner-img"
-                />
-              </div>
-            </div>
+	return (
+		<Fragment>
+			{loading ? (
+				<Loader />
+			) : (
+				<Fragment>
+					<Title title="Medicines" />
+					<section className="event">
+						<div className="event-left" data-aos="fade-right">
+							<div className="event-banner">
+								<img
+									src={MedPage_1}
+									alt="event banner"
+									className="banner-img"
+								/>
+								<img
+									src={MedPage_2}
+									alt="event banner"
+									className="banner-img"
+								/>
+							</div>
+						</div>
 
-            <div className="event-right" data-aos="fade-left">
-              {manager.role === "admin" && (
-                <button className="button button-primary">
-                  <p className="button-text">
-                    <Link className="button-text-link" to="/newmed">
-                      Add New +
-                    </Link>
-                  </p>
-                  <span className="square"></span>
-                </button>
-              )}
-              <div className="event-card-group">
-                {medicines?.map((medicine) => (
-                  <div className="event-card">
-                    <div className="content-left">
-                      <p className="stock">
-                        {medicine.stockDetails.length === 0
-                          ? 0
-                          : medicine.stockDetails[0].inStock}
-                      </p>
-                    </div>
+						<div className="event-right" data-aos="fade-left">
+							{manager.role === "admin" && (
+								<button className="button button-primary">
+									<p className="button-text">
+										<Link className="button-text-link" to="/newmed">
+											Add New +
+										</Link>
+									</p>
+									<span className="square"></span>
+								</button>
+							)}
+							<div className="event-card-group">
+								{medicines?.map((medicine) => (
+									<div className="event-card">
+										<div className="content-left">
+											<p className="stock">
+												{medicine.stockDetails.length === 0
+													? 0
+													: medicine.stockDetails[0].inStock}
+											</p>
+										</div>
 
-                    <div className="content-right">
-                      <Link
-                        to={`/medicine/${medicine._id}`}
-                        className="event-name"
-                      >
-                        {medicine.name}
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+										<div className="content-right">
+											<Link
+												to={`/medicine/${medicine._id}`}
+												className="event-name"
+											>
+												{medicine.name}
+											</Link>
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+					</section>
 
-          {/* Pagination */}
+					{/* Pagination */}
 
-          <div id="app" className="pagination-hurray">
-            <ul className="page">
-              <Pagination
-                activePage={currentPage}
-                itemsCountPerPage={resultPerPage}
-                totalItemsCount={medCounts}
-                onChange={setCurrentPageNum}
-                nextPageText="Next"
-                prevPageText="Prev"
-                firstPageText="1st"
-                lastPageText="Last"
-                itemClass="page-item"
-                linkClass="page-link"
-                activeClass="pageItemActive"
-                activeLinkClass="pageLinkActive"
-              />
-            </ul>
-          </div>
-        </Fragment>
-      )}
-    </Fragment>
-  );
+					<div id="app" className="pagination-hurray">
+						<ul className="page">
+							<Pagination
+								activePage={currentPage}
+								itemsCountPerPage={resultPerPage}
+								totalItemsCount={medCounts}
+								onChange={setCurrentPageNum}
+								nextPageText="Next"
+								prevPageText="Prev"
+								firstPageText="1st"
+								lastPageText="Last"
+								itemClass="page-item"
+								linkClass="page-link"
+								activeClass="pageItemActive"
+								activeLinkClass="pageLinkActive"
+							/>
+						</ul>
+					</div>
+				</Fragment>
+			)}
+		</Fragment>
+	);
 };
 
 export default MedicinesPage;
