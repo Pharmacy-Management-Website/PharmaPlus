@@ -82,7 +82,7 @@ const Cart = () => {
                               <div>
                                 <ItemCard
                                   med={item}
-                                  deleteItemFromList={deleteItemFromList}
+                                  deleteMedFromCart={deleteItemFromList}
                                   className="cart_medicine"
                                 />
                                 <div className="carts_wrapper">
@@ -126,7 +126,9 @@ const Cart = () => {
                         </div>
                       )}
                       <div className="cart_proceed_head">
-                        <Link className="cart_proceed" to="/custinfo">
+                        <Link className="cart_proceed" to={
+                          cartItems.length === 0 ? "/medicines" : "/custinfo"
+                        }>
                           Proceed
                         </Link>
                       </div>

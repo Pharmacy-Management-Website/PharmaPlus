@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useAlert } from 'react-alert';
 import { Link, useNavigate } from 'react-router-dom';
 import { clearErrors, newInvoice } from '../../actions/invoiceActions';
+import { CART_RESET } from '../../constants/cartConstants';
 import Loader from "../Utils/Loader/Loader";
 import Title from "../Utils/Meta/Title";
 
@@ -31,9 +32,10 @@ const OrderPreview = () => {
 		}
 		e.preventDefault();
 		dispatch(newInvoice(invoice));
+		dispatch({ type: CART_RESET });
 		localStorage.removeItem('cartItems');
 		localStorage.removeItem('customerDetails');
-		navigate('/allinvoices');
+		navigate('/cart');
 		alert.success('Invoice created successfully');
 	};
 
