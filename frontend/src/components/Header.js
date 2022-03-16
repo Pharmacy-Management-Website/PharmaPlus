@@ -67,19 +67,13 @@ const Header = () => {
         {/* Navbar */}
         <div className="navbar-btn-group">
           <ul className="navbar-nav">
-            {manager.role === "admin" ? (
-              <li>
-                <a href="/dashboard" className="nav-link">
-                  Dashboard
-                </a>
-              </li>
-            ) : (
-              <li>
-                <a href="/invoices" className="nav-link">
-                  Invoices
-                </a>
-              </li>
-            )}
+
+            <li>
+              <a href="/dashboard" className="nav-link">
+                Dashboard
+              </a>
+            </li>
+
 
             <li>
               <a href="/medicines" className="nav-link">
