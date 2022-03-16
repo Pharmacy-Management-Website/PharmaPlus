@@ -9,6 +9,7 @@ import {
 import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
 import Loader from "../Utils/Loader/Loader.js";
+import "./Dashboard.css";
 
 const DashBoard = () => {
   const dispatch = useDispatch();
@@ -51,9 +52,9 @@ const DashBoard = () => {
 
   return (
     <Fragment>
-      <div className="event-card-group">
+      <div className="dashboard-card-group">
         {medicines?.map((medicine) => (
-          <div className="event-card">
+          <div className="dashboard-card">
             <div className="content-left">
               <p className="stock">
                 {medicine.stockDetails.length === 0
@@ -61,27 +62,28 @@ const DashBoard = () => {
                   : medicine.stockDetails[0].inStock}
               </p>
             </div>
+            {/* <div className="dashboard-right"> */}
             <div className="content-right">
-              <Link to={`/medicine/${medicine._id}`} className="event-name">
+              <Link to={`/medicine/${medicine._id}`} className="dashboard-name">
                 {medicine.name}
               </Link>
             </div>
-            <div className="AddToCart__wrapper" style={{ marginLeft: "10px" }}>
+            <div className="dasboard__wrapper">
               <button>
                 <Link to={`/stockupdate/${medicine._id}`}>Update Stock</Link>
               </button>
             </div>
-            <div className="AddToCart__wrapper" style={{ marginLeft: "10px" }}>
+            <div className="dasboard__wrapper">
               <button>
                 <Link to={`/updatemed/${medicine._id}`}>Update Medicine</Link>
               </button>
             </div>
-            <div className="AddToCart__wrapper" style={{ marginLeft: "10px" }}>
+            <div className="dasboard__wrapper">
               <button>
                 <Link to={`/newstock/${medicine._id}`}>Add Stock</Link>
               </button>
             </div>
-            <div className="AddToCart__wrapper" style={{ marginLeft: "10px" }}>
+            <div className="dasboard__wrapper">
               <button
                 onClick={() => {
                   if (
@@ -96,6 +98,7 @@ const DashBoard = () => {
               </button>
             </div>
           </div>
+          // </div>
         ))}
       </div>
     </Fragment>

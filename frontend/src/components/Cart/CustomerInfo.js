@@ -58,9 +58,9 @@ const CustomerInfo = () => {
                         onChange={(e) => setCustomerName(e.target.value)}
                         // required
                       />
-                      <label for="name" className="form__label">
+                      {/* <label for="name" className="form__label">
                         Full name
-                      </label>
+                      </label> */}
                     </div>
 
                     <div className="form__group">
@@ -75,9 +75,9 @@ const CustomerInfo = () => {
                         }
                         // required
                       />
-                      <label for="number" className="form__label">
+                      {/* <label for="number" className="form__label">
                         Phone No
-                      </label>
+                      </label> */}
                     </div>
 
                     <div className="event-right">

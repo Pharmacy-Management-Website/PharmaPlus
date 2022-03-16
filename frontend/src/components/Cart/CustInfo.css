@@ -117,6 +117,7 @@ html {
   width: 60%;
   display: block;
   transition: all 0.3s;
+  margin-bottom: 3rem;
 }
 @media only screen and (max-width: 900px) {
   .form__input {
@@ -135,20 +136,20 @@ html {
   color: #999;
 }
 
-.form__label {
+/* .form__label {
   font-size: 1.2rem;
   font-weight: 700;
   margin-left: 2rem;
   margin-top: 0.7rem;
   display: block;
   transition: all 0.3s;
-}
+} */
 
-.form__input:placeholder-shown + .form__label {
+/* .form__input:placeholder-shown + .form__label {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4rem);
-}
+} */
 
 .button-text-link_2 {
   font-family: "Roboto", sans-serif;
