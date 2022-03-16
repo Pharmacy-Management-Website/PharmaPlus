@@ -20,11 +20,11 @@ import NewStock from "./components/Admin/NewStock.js";
 import Cart from "./components/Cart/Cart.js";
 import CustomerInfo from "./components/Cart/CustomerInfo.js";
 import OrderPreview from "./components/Cart/OrderPreview.js";
-import AllInvoices from "./components/Invoice/AllInvoices";
-import InvoiceDetails from "./components/Invoice/InvoiceDetails";
 import DashBoard from "./components/Admin/DashBoard";
 import UpdateMedicine from "./components/Admin/UpdateMedicine";
 import UpdateStock from "./components/Admin/UpdateStock";
+import InvoiceList from "./components/Admin/InvoiceList";
+import InvoiceDetails from "./components/Admin/InvoiceDetails";
 import NotFound from "./components/Utils/NotFound/NotFound";
 
 function App() {
@@ -70,12 +70,12 @@ function App() {
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/custinfo" element={<CustomerInfo />} />
 						<Route path="/orderpreview" element={<OrderPreview />} />
-						<Route path="/allinvoices" element={<AllInvoices />} />
-						<Route path="/invoice/:id" element={<InvoiceDetails />} />
 						<Route path="/dashboard" element={<DashBoard />} />
 						<Route path="/newstock/:id" element={<NewStock />} />
 						<Route path="/updatemed/:id" element={<UpdateMedicine />} />
 						<Route path="/stockupdate/:id" element={<UpdateStock />} />
+						<Route path="/invoices" element={<InvoiceList />} />
+						<Route path="/invoice/:id" element={<InvoiceDetails />} />
 					</Route>
 					<Route exact path="*" element={<NotFound />} />
 				</Routes>

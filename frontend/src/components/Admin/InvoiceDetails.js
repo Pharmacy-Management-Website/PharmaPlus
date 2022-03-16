@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAlert } from 'react-alert';
 import { getInvoiceDetails } from '../../actions/invoiceActions';
+import Loader from '../Utils/Loader/Loader';
 
 const InvoiceDetails = () => {
 
@@ -10,7 +11,7 @@ const InvoiceDetails = () => {
 	const alert = useAlert();
 	const params = useParams();
 
-	const { error, invoice } = useSelector((state) => state.invoiceDetails);
+	const { error, loading, invoice } = useSelector((state) => state.invoiceDetails);
 
 	const invId = params.id;
 
@@ -22,7 +23,19 @@ const InvoiceDetails = () => {
 	}, [error, alert, dispatch, invId]);
 
 	return (
-		<div>InvoiceDetails</div>
+		<Fragment>
+			{
+				loading ?
+					(<Loader />)
+					:
+					(
+						<Fragment>
+							<h1>Invoice Details</h1>
+							<h2>{invoice?._id}</h2>
+						</Fragment>
+					)
+			}
+		</Fragment>
 	)
 };
 
