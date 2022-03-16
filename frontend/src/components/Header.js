@@ -20,6 +20,12 @@ const Header = () => {
     }
   };
 
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    alert.success("Logged out successfully");
+    navigate("/");
+  };
+
   const [keyword, setKeyword] = useState("");
   const [click, setClick] = useState(false);
 
@@ -44,6 +50,19 @@ const Header = () => {
         <a href="/home" className="logo">
           <i className="fas fa-capsules fa-5x"></i>
         </a>
+
+        {/* {Search} */}
+        <form className="search" onSubmit={handleSearch}>
+          <input
+            type="text"
+            className="search__input"
+            placeholder="Search Medicines"
+            onChange={(e) => setKeyword(e.target.value)}
+          />
+          <button type="submit" className="search__button">
+            <i className="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </form>
 
         {/* Navbar */}
         <div className="navbar-btn-group">

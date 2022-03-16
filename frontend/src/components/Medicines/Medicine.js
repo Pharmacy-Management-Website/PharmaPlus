@@ -92,16 +92,18 @@ const Medicine = () => {
                         <p className="meds_p">{medicine.composition}</p>
                         <div>
                           <div className="signs_wrapper">
-                            <a className="minus" onClick={decreaseQuantity}>
+                            <button
+                              className="minus"
+                              onClick={decreaseQuantity}
+                            >
                               -
-                            </a>
+                            </button>
                             <div className="num">
-                              {/* <span value={quantity}>1</span> */}
                               <input readOnly type="number" value={quantity} />
                             </div>
-                            <a className="plus" onClick={increaseQuantity}>
+                            <button className="plus" onClick={increaseQuantity}>
                               +
-                            </a>
+                            </button>
                           </div>
                           <div className="AddToCart__wrapper">
                             <button
