@@ -38,7 +38,7 @@ const OrderPreview = () => {
     dispatch({ type: CART_RESET });
     localStorage.removeItem('cartItems');
     localStorage.removeItem('customerDetails');
-    navigate('/cart');
+    navigate('/home');
     alert.success('Invoice created successfully');
   };
 
