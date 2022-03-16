@@ -71,11 +71,11 @@ const DashBoard = () => {
                   {medicine.name}
                 </Link>
               </div>
-              <div className="dasboard__wrapper">
+              {/* <div className="dasboard__wrapper">
                 <button>
                   <Link to={`/stockupdate/${medicine._id}`}>Update Stock</Link>
                 </button>
-              </div>
+              </div> */}
               <div className="dasboard__wrapper">
                 <button>
                   <Link to={`/updatemed/${medicine._id}`}>Update Medicine</Link>

@@ -183,7 +183,7 @@ const HomePage = () => {
                       ₹{medicines[3]?.stockDetails[0]?.price}
                     </h3>
                     <div className="grid__wrapper">
-                      <Link to="/cart" className="grid-button">
+                      <Link to="/cart">
                         <button
                           className="primary-btn"
                           onClick={() => {
@@ -210,7 +210,7 @@ const HomePage = () => {
                       ₹{medicines[4]?.stockDetails[0]?.price}
                     </h3>
                     <div className="grid__wrapper">
-                      <Link to="/cart" className="grid-button">
+                      <Link to="/cart">
                         <button
                           className="primary-btn"
                           onClick={() => {
@@ -252,11 +252,8 @@ const HomePage = () => {
                       </p>
                       <div className="testimonial__wrapper">
                         <Link to="/medicines" className="testimonial-button">
-                          <button
-                          // onClick={filterBrand("Disinfectants")}
-                          >
-                            Explore
-                          </button>
+                          {/* // onClick={filterBrand("Disinfectants")} */}
+                          Explore
                         </Link>
                       </div>
                     </div>
