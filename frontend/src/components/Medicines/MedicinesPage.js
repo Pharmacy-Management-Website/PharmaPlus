@@ -42,7 +42,7 @@ const MedicinesPage = () => {
 			alert.error(error);
 			dispatch(clearErrors());
 		}
-		dispatch(allMedicines(keyword, brand, health, currentPage));
+		dispatch(allMedicines(keyword, currentPage, brand, health));
 	}, [dispatch, error, alert, keyword, currentPage, brand, health]);
 
 	return (
@@ -113,10 +113,10 @@ const MedicinesPage = () => {
 								itemsCountPerPage={resultPerPage}
 								totalItemsCount={medCounts}
 								onChange={setCurrentPageNum}
-								nextPageText="Next"
-								prevPageText="Prev"
-								firstPageText="1st"
-								lastPageText="Last"
+								// nextPageText="Next"
+								// prevPageText="Prev"
+								// firstPageText="1st"
+								// lastPageText="Last"
 								itemClass="page-item"
 								linkClass="page-link"
 								activeClass="pageItemActive"

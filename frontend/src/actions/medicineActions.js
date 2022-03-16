@@ -40,12 +40,12 @@ export const allMedicines =
 			try {
 				dispatch({ type: ALL_MEDICINE_REQUEST });
 				let link = `/medapi/medicines?page=${currentPage}&keyword=${keyword}`;
-				// if (health) {
-				// 	link = `/medapi/medicines?page=${currentPage}&keyword=${keyword}&health=${health}`;
-				// }
-				// if (brand) {
-				// 	link = `/medapi/medicines?page=${currentPage}&keyword=${keyword}&brand=${brand}`;
-				// }
+				if (brand) {
+					link = `/medapi/medicines?page=${currentPage}&keyword=${keyword}&brand=${brand}`;
+				}
+				if (health) {
+					link = `/medapi/medicines?page=${currentPage}&keyword=${keyword}&health=${health}`;
+				}
 				const {
 					userLogin: { manager },
 				} = getState();
