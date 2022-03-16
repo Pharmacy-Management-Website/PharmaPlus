@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import { saveCustInfo, clearErrors } from "../../actions/cartActions";
-// import "./CustInfo.css";
+import Title from "../Utils/Meta/Title";
+import Loader from "../Utils/Loader/Loader.js";
+import "./CustInfo.css";
 
 const CustomerInfo = () => {
   const [customerName, setCustomerName] = useState("");
@@ -35,42 +37,16 @@ const CustomerInfo = () => {
   return (
     <Fragment>
       {loading ? (
-        <div>Loading...</div>
+        <Loader />
       ) : (
         <Fragment>
-          {/* <h2>Customer Info</h2>
-						<form
-							onSubmit={saveHandler}
-						>
-							<div>
-								<input
-									type="text"
-									placeholder="Name"
-									// required
-									value={customerName}
-									onChange={(e) => setCustomerName(e.target.value)}
-								/>
-							</div>
-							<div>
-								<input
-									type="number"
-									placeholder="Mobile Number"
-									// required
-									value={customerMobileNumber}
-									onChange={(e) => setCustomerMobileNumber(e.target.value)}
-								/>
-							</div>
-							<input type="submit" value="Save" />
-						</form> */}
-
+          <Title title="Customer Info" />
           <section className="section-book">
             <div className="row">
               <div className="book">
                 <div className="book__form">
                   <form onSubmit={saveHandler} className="form">
-                    <div className="u-margin-bottom-medium">
-                      <h2 className="heading-secondary">Invoice Page</h2>
-                    </div>
+                    <h2 className="heading-secondary">Invoice Page</h2>
 
                     <div className="form__group">
                       <input
@@ -82,9 +58,9 @@ const CustomerInfo = () => {
                         onChange={(e) => setCustomerName(e.target.value)}
                         // required
                       />
-                      <label for="name" className="form__label">
+                      {/* <label for="name" className="form__label">
                         Full name
-                      </label>
+                      </label> */}
                     </div>
 
                     <div className="form__group">
@@ -99,19 +75,18 @@ const CustomerInfo = () => {
                         }
                         // required
                       />
-                      <label for="number" className="form__label">
+                      {/* <label for="number" className="form__label">
                         Phone No
-                      </label>
+                      </label> */}
                     </div>
 
                     <div className="event-right">
                       <button className="button button-primary">
-                        <input
-                          type="submit"
-                          value="Save"
-                          className="button-text"
-                        />
-                        {/* <p className="button-text">Create Invoice</p> */}
+                        <p className="button-text">
+                          <span className="button-text-link_2">
+                            Create Invoice
+                          </span>
+                        </p>
                         <span className="square"></span>
                       </button>
                     </div>

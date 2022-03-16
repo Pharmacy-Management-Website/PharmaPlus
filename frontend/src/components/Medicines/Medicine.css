@@ -22,6 +22,7 @@ img {
 
 .meds__left__wrapper {
   max-width: 475px;
+  margin: 4rem;
 }
 
 .meds__imgWrapper {
@@ -55,8 +56,112 @@ img {
     flex: 1;
   }
 }
-
+/* #caf0f8 */
 .meds-box {
+  width: 400px;
+  padding: 40px;
+  border: 4px solid #77acf1;
+  background: #caf0f8;
+  box-sizing: border-box;
+  box-shadow: 10px 15px 25px #77acf1;
+  border-radius: 12px;
+}
+
+.meds_brand {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #041562;
+  text-align: center;
+}
+
+.meds_h2 {
+  font-family: "Varela Round", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #041562;
+  text-align: center;
+}
+
+.meds_p {
+  font-family: "Varela Round", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0 0 30px;
+  padding: 0;
+  color: #041562;
+  text-align: center;
+}
+
+.AddToCart__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.AddToCart__wrapper button {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #041562;
+  background: #fbf8f1;
+  border: 5px solid #041562;
+  padding: 7px 28px;
+  border-radius: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-align: center;
+}
+
+.AddToCart__wrapper button:hover {
+  background: #041562;
+  color: #fbf8f1;
+}
+
+.signs_wrapper {
+  display: flex;
+  align-items: flex-start;
+  border-radius: 8px;
+  background: #03045e;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  /* margin-top: 0.8rem; */
+}
+
+.num input {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 2px;
+  background: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+  outline: none;
+  text-align: center;
+}
+
+.minus,
+.plus {
+  font-size: 2.2rem;
+  font-weight: 700;
+  width: 100%;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+}
+/* 
+.admin_stocks {
+  margin-top: 40px;
   width: 400px;
   padding: 40px;
   border: 4px solid #041562;
@@ -66,29 +171,20 @@ img {
   border-radius: 16px;
 }
 
-h1 {
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 3rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  margin: 0 0 30px;
-  padding: 0;
-  color: #041562;
-  text-align: center;
+.det_wrap {
+  border-bottom: 1px solid #000;
 }
 
-.wrapper {
+.admin_stocks h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.admin_stocks .st_instock,
+.admin_stocks .st_price {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  background: #343f4f;
-}
-
-.minus,
-.plus {
-  width: 100%;
-  color: #fff;
-  text-align: center;
-  cursor: pointer;
-}
+  margin-top: 10px;
+  font-size: 1.5rem;
+} */

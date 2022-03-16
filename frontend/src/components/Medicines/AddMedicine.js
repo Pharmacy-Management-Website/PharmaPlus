@@ -17,13 +17,20 @@ const AddMedicine = () => {
     (state) => state.newMedicine
   );
 
-  const [med_id, setMed_id] = useState("");
+  const [med_id, setMedId] = useState("");
   const [name, setName] = useState("");
   const [composition, setComposition] = useState("");
+  const [categoryOne, setCategoryOne] = useState("");
+  const [categoryTwo, setCategoryTwo] = useState("");
 
   const newMedSubmit = (e) => {
     e.preventDefault();
-    dispatch(createMedicine(med_id, name, composition));
+    if (!categoryOne || !categoryTwo || !name) {
+      alert.error("Please fill in all fields");
+    }
+    dispatch(
+      createMedicine(med_id, name, composition, categoryOne, categoryTwo)
+    );
     navigate("/medicines");
   };
 
@@ -56,7 +63,7 @@ const AddMedicine = () => {
                     </div>
                   </div>
 
-                  {/* <!-- Login Right Side --> */}
+                  {/* <!-- Add New Right Side --> */}
 
                   <div className="addNew__left" data-aos="fade-right">
                     <div className="addNew__left__wrapper">
@@ -66,17 +73,15 @@ const AddMedicine = () => {
                             <input
                               type="text"
                               required
-                              name="username"
                               value={med_id}
-                              onChange={(e) => setMed_id(e.target.value)}
+                              onChange={(e) => setMedId(e.target.value)}
                             />
-                            <label>Med-id</label>
+                            <label>Med Id</label>
                           </div>
                           <div class="user-box">
                             <input
                               type="text"
                               required
-                              name="username"
                               value={name}
                               onChange={(e) => setName(e.target.value)}
                             />
@@ -86,11 +91,28 @@ const AddMedicine = () => {
                             <input
                               type="text"
                               required
-                              name="username"
                               value={composition}
                               onChange={(e) => setComposition(e.target.value)}
                             />
                             <label>Composition</label>
+                          </div>
+                          <div class="user-box">
+                            <input
+                              type="text"
+                              required
+                              value={categoryOne}
+                              onChange={(e) => setCategoryOne(e.target.value)}
+                            />
+                            <label>Brand</label>
+                          </div>
+                          <div class="user-box">
+                            <input
+                              type="text"
+                              required
+                              value={categoryTwo}
+                              onChange={(e) => setCategoryTwo(e.target.value)}
+                            />
+                            <label>Health Category</label>
                           </div>
                           <a href="/">
                             <br></br>

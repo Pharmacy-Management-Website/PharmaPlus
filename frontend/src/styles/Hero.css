@@ -26,7 +26,7 @@
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
-  color: var(--black-1);
+  color: #3b413a;
 }
 
 .hero__info {
@@ -36,8 +36,26 @@
   color: var(--black-2);
 }
 
-.btn__wrapper {
+.button__wrapper {
   text-align: center;
+}
+
+.primary-btn {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  color: #eef2ff;
+  background: #548cff;
+}
+
+@media only screen and (min-width: 700px) {
+  .btn {
+    padding: 1rem 2rem;
+    font-size: 2rem;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -62,7 +80,7 @@
   .hero__info {
     font-family: "Dongle", sans-serif;
     font-weight: 300;
-    line-height: 5rem;
+    line-height: 4rem;
     margin-bottom: 2rem;
     text-align: left;
     font-size: 4rem;

@@ -10,6 +10,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { addMedToCart } from "../../actions/cartActions.js";
 import Loader from "../Utils/Loader/Loader.js";
 import AddMedicine from "../../images/Add-Medicine.png";
+import Title from "../Utils/Meta/Title.js";
 import "./Medicine.css";
 
 const Medicine = () => {
@@ -21,6 +22,8 @@ const Medicine = () => {
   const { medicine, loading, error } = useSelector(
     (state) => state.medicineDetails
   );
+  const { manager } = useSelector((state) => state.userLogin);
+
   const [quantity, setQuantity] = useState(1);
 
   const medId = params.id;
@@ -64,6 +67,7 @@ const Medicine = () => {
         <Loader />
       ) : (
         <section id="meds_page">
+          <Title title={`${medicine.name}`} />
           <div className="container">
             {/* <!-- Meds Page --> */}
             <div className="meds__wrapper">
@@ -81,58 +85,58 @@ const Medicine = () => {
                   <div className="meds-box">
                     <form>
                       <div className="user-box">
-                        <h1>{medicine.name}</h1>
-                        <div className="wrapper">
-                          <a className="minus" onClick={decreaseQuantity}>
-                            <i className="fa-solid fa-minus fa-3x"></i>
-                          </a>
-                          <div className="num">
-                            <input readOnly type="number" value={quantity} />
+                        <h1 className="meds_brand">
+                          Brand: {medicine.categoryOne}
+                        </h1>
+                        <h2 className="meds_h2">{medicine.name}</h2>
+                        <p className="meds_p">{medicine.composition}</p>
+                        <div>
+                          <div className="signs_wrapper">
+                            <button
+                              className="minus"
+                              onClick={decreaseQuantity}
+                            >
+                              -
+                            </button>
+                            <div className="num">
+                              <input readOnly type="number" value={quantity} />
+                            </div>
+                            <button className="plus" onClick={increaseQuantity}>
+                              +
+                            </button>
                           </div>
-                          <a className="plus" onClick={increaseQuantity}>
-                            <i className="fa-solid fa-plus fa-3x"></i>
-                          </a>
+                          <div className="AddToCart__wrapper">
+                            <button
+                              onClick={addToListHandler}
+                              className="updBtn secBtn"
+                            >
+                              Add to Cart
+                            </button>
+                          </div>
                         </div>
-
-                        <div>
-                          <Link to={`/updatemed/${medicine._id}`}>Update</Link>
-                        </div>
-                        {/* <h4>Stocks</h4> */}
-                        {/* {medicine.stockDetails ? (
-                          <span>₹{medicine.stockDetails[0].price}</span>
-                        ) : (
-                          "No stocks"
-                        )}
-                        <div className="Update_wrapper">
-                          <button className="updBtn secBtn">
-                            <Link to="/">Update Stock</Link>
-                          </button>
-                        </div>
-                        <div>
-                          <button className="updBtn secBtn">
-                            <Link to={`/newstock/${medicine._id}`}>
-                              New Stock+
-                            </Link>
-                          </button>
-                        </div> */}
-                        <div className="AddToCart__wrapper">
-                          <button
-                            onClick={addToListHandler}
-                            className="updBtn secBtn"
-                          >
-                            Add to Cart
-                          </button>
-                        </div>
-                        <button
-                          onClick={deleteMedHandler}
-                          className="updBtn secBtn"
-                        >
-                          Delete
-                        </button>
                       </div>
                     </form>
                   </div>
                 </div>
+                {/* {
+									manager.role === 'admin' && (
+										<div className="admin_stocks">
+											<h2>Stocks</h2>
+											<div className="admin_stocks__wrapper">
+												{medicine?.stockDetails?.map((stock) => (
+													<div className="det_wrap">
+														<div className="st_instock">
+															In Stock: {stock.inStock}
+														</div>
+														<div className="st_price">
+															Price: {stock.price}
+														</div>
+													</div>
+												))}
+											</div>
+										</div>
+									)
+								} */}
               </div>
             </div>
           </div>

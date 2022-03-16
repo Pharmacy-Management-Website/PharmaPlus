@@ -8,7 +8,7 @@ import App from "./App";
 import "./index.css";
 
 const options = {
-  timeout: 5000,
+  timeout: 10000,
   position: positions.BOTTOM_CENTER,
   transition: transitions.SCALE,
 };

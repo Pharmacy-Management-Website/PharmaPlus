@@ -210,22 +210,25 @@ export const newStockReducer = (state = {}, action) => {
 	}
 };
 
-export const medicineUpdateReducer = (state = {}, action) => {
+export const medicineUpdateReducer = (state = { medicine: {} }, action) => {
 	switch (action.type) {
 		case UPDATE_MEDICINE_REQUEST:
 			return {
 				loading: true,
+				isUpdated: false,
 				...state,
 			};
 		case UPDATE_MEDICINE_SUCCESS:
 			return {
 				loading: false,
-				medicine: action.payload,
+				isUpdated: true,
+				medicine: action.payload.medicine,
 			};
 		case UPDATE_MEDICINE_FAIL:
 			return {
 				...state,
 				loading: false,
+				isUpdated: false,
 				error: action.payload
 			};
 		case UPDATE_MEDICINE_RESET:

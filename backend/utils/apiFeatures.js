@@ -18,6 +18,49 @@ class ApiFeatures {
 		return this;
 	}
 
+	shopByBrand() {
+		// let removeForBrands = ["keyword", "health", "page", "limit"]
+		// removeForBrands.forEach((field) => delete this.queryStr[field]);
+		const brand = this.queryStr.brand
+			? {
+				categoryOne: {
+					$regex: this.queryStr.brand,
+					$options: "i",
+				},
+			}
+			: {};
+		this.query = this.query.find({ ...brand });
+		return this;
+		// const brand = this.queryStr.brand;
+		// const removeFields = ["keyword", "health", "page", "limit"];
+		// removeFields.forEach((field) => delete this.queryStr[field]);
+		// if (brand) {
+		// 	this.query = this.query.find({
+		// 		categoryOne: {
+		// 			$regex: brand,
+		// 			$options: "i",
+		// 		},
+		// 	});
+		// } else {
+		// 	this.query = this.query.find({});
+		// }
+	}
+
+	shopByHealth() {
+		// let removeForHealth = ["keyword", "brand", "page", "limit"];
+		// removeForHealth.forEach((field) => delete this.queryStr[field]);
+		const health = this.queryStr.health
+			? {
+				categoryTwo: {
+					$regex: this.queryStr.health,
+					$options: "i",
+				},
+			}
+			: {};
+		this.query = this.query.find({ ...health });
+		return this;
+	}
+
 	pagination(resultPerPage) {
 		const currentPage = Number(this.queryStr.page) || 1;
 		const skip = resultPerPage * (currentPage - 1);
