@@ -9,7 +9,7 @@ import {
 import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
 import Loader from "../Utils/Loader/Loader.js";
-import "./Dashboard.css";
+import "./dashboard.css";
 
 const DashBoard = () => {
   const dispatch = useDispatch();
