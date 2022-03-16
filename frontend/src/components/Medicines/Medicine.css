@@ -22,7 +22,7 @@ img {
 
 .meds__left__wrapper {
   max-width: 475px;
-  /* margin: 4rem; */
+  margin: 4rem;
 }
 
 .meds__imgWrapper {
@@ -104,41 +104,35 @@ img {
 }
 
 .AddToCart__wrapper button {
-  background: #343f4f;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 16px;
+  font-family: "Ubuntu", sans-serif;
   font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-
-.AddToCart__wrapper button a {
-  text-decoration: none;
-  color: #fff;
+  font-weight: 400;
+  color: #041562;
+  background: #fbf8f1;
+  border: 5px solid #041562;
+  padding: 7px 28px;
+  border-radius: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-align: center;
 }
 
 .AddToCart__wrapper button:hover {
-  background: #fff;
-  color: #343f4f;
-  border: 1px solid #343f4f;
-}
-
-.AddToCart__wrapper button a:hover {
-  color: #343f4f;
+  background: #041562;
+  color: #fbf8f1;
 }
 
 .signs_wrapper {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
   border-radius: 8px;
-  background: #343f4f;
+  background: #03045e;
   width: 50%;
   margin: 0 auto;
+  text-align: center;
+  /* margin-top: 0.8rem; */
 }
 
 .num input {
@@ -150,7 +144,6 @@ img {
   border: none;
   border-radius: 2px;
   background: #fff;
-  padding-top: 10px;
   padding-left: 20px;
   padding-right: 20px;
   outline: none;
@@ -160,7 +153,7 @@ img {
 .minus,
 .plus {
   font-size: 2.2rem;
-  font-weight: 600;
+  font-weight: 700;
   width: 100%;
   color: #fff;
   cursor: pointer;
