@@ -46,6 +46,22 @@ function App() {
 				<Outlet />
 			</>
 		);
+	};
+
+	function AdminRequired() {
+		if (!manager) {
+			alert.error("Please Login");
+			return <Navigate to="/" />;
+		}
+		if (manager.role !== "admin") {
+			alert.error("You are not authorized to view this page");
+			return <Navigate to="/home" />;
+		}
+		return (
+			<>
+				<Outlet />
+			</>
+		);
 	}
 
 	useEffect(() => {
@@ -70,12 +86,14 @@ function App() {
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/custinfo" element={<CustomerInfo />} />
 						<Route path="/orderpreview" element={<OrderPreview />} />
-						<Route path="/dashboard" element={<DashBoard />} />
-						<Route path="/newstock/:id" element={<NewStock />} />
-						<Route path="/updatemed/:id" element={<UpdateMedicine />} />
-						<Route path="/stockupdate/:id" element={<UpdateStock />} />
-						<Route path="/invoices" element={<InvoiceList />} />
-						<Route path="/invoice/:id" element={<InvoiceDetails />} />
+						<Route element={<AdminRequired />}>
+							<Route path="/dashboard" element={<DashBoard />} />
+							<Route path="/newstock/:id" element={<NewStock />} />
+							<Route path="/updatemed/:id" element={<UpdateMedicine />} />
+							<Route path="/stockupdate/:id" element={<UpdateStock />} />
+							<Route path="/invoices" element={<InvoiceList />} />
+							<Route path="/invoice/:id" element={<InvoiceDetails />} />
+						</Route>
 					</Route>
 					<Route exact path="*" element={<NotFound />} />
 				</Routes>
