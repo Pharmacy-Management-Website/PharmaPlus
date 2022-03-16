@@ -12,7 +12,6 @@ import Loader from "../Utils/Loader/Loader.js";
 import AddMedicine from "../../images/Add-Medicine.png";
 import Title from "../Utils/Meta/Title.js";
 import "./Medicine.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Medicine = () => {
   const dispatch = useDispatch();
@@ -92,11 +91,12 @@ const Medicine = () => {
                         <h2 className="meds_h2">{medicine.name}</h2>
                         <p className="meds_p">{medicine.composition}</p>
                         <div>
-                          <div className="wrapper">
+                          <div className="signs_wrapper">
                             <a className="minus" onClick={decreaseQuantity}>
                               -
                             </a>
                             <div className="num">
+                              {/* <span value={quantity}>1</span> */}
                               <input readOnly type="number" value={quantity} />
                             </div>
                             <a className="plus" onClick={increaseQuantity}>
@@ -110,7 +110,6 @@ const Medicine = () => {
                             >
                               Add to Cart
                             </button>
-                            <FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
                           </div>
                         </div>
                       </div>

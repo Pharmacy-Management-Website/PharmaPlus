@@ -20,6 +20,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.0.0",
     "@fortawesome/free-solid-svg-icons": "^6.0.0",
     "@fortawesome/react-fontawesome": "^0.1.17",
+    "@mui/icons-material": "^5.5.1",
     "aos": "^2.3.4",
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
@@ -32,7 +33,12 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
     "nodemon": "^2.0.15",
-    "redux-persist": "^6.0.0"
+    "react-script-tag": "^1.1.2",
+    "redux-persist": "^6.0.0",
+    "styled-components": "^5.3.3"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   },
   "repository": {
     "type": "git",

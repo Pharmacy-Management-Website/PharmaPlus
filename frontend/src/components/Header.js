@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
 
 const Header = () => {
+
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const alert = useAlert();
@@ -22,13 +23,16 @@ const Header = () => {
 
 	const handleClick = () => setClick(!click);
 
-	const handleSearch = (e) => {
-		e.preventDefault();
-		if (keyword.trim()) {
-			navigate(`/medicines/${keyword}`);
-		} else {
-			navigate("/medicines");
-		}
+	window.onload = function () {
+		// navbar variables
+		const navbarNav = document.querySelector(".navbar-nav");
+		const navbarToggleBtn = document.querySelector(".menu-toggle-btn");
+
+		// navbar toggle functionality
+		navbarToggleBtn.addEventListener("click", function () {
+			navbarNav.classList.toggle("active");
+			this.classList.toggle("active");
+		});
 	};
 
 	return (
@@ -39,50 +43,47 @@ const Header = () => {
 					<i className="fas fa-capsules fa-5x"></i>
 				</a>
 
-				{/* Search */}
-				<form className="search" onSubmit={handleSearch}>
-					<input
-						type="text"
-						className="search__input"
-						placeholder="Search Medicines"
-						onChange={(e) => setKeyword(e.target.value)}
-					/>
-					<button type="submit" className="search__button">
-						<i className="fa fa-search" aria-hidden="true"></i>
-					</button>
-				</form>
-
 				{/* Navbar */}
 				<div className="navbar-btn-group">
-					<ul className={click ? "nav-menu active" : "nav-menu"}>
-						<li className="nav-item">
-							{
-								manager.role === "admin" && (
-									<a href="/dashboard" className="nav-links">
-										Dashboard
-									</a>
-								)
-							}
-						</li>
-						<li className="nav-item">
-							<a href="/medicines" className="nav-links">
+					<ul className="navbar-nav">
+						{manager.role === "admin" ? (
+							<li>
+								<a href="/dashboard" className="nav-link">
+									Dashboard
+								</a>
+							</li>
+						) : (
+							<li>
+								<a href="/invoices" className="nav-link">
+									Invoices
+								</a>
+							</li>
+						)}
+
+						<li>
+							<a href="/medicines" className="nav-link">
 								Medicines
 							</a>
 						</li>
-						<li className="nav-item">
-							<a href="/cart" className="nav-links">
+
+						<li>
+							<a href="/cart" className="nav-link">
 								Cart
 							</a>
 						</li>
-						<li className="nav-item">
-							<a className="nav-links" onClick={handleLogout} href="/">
+
+						<li>
+							<a className="btn primary-btn" onClick={handleLogout} href="/">
 								Logout
 							</a>
 						</li>
 					</ul>
-					<div className="nav-icon" onClick={handleClick}>
-						<i className={click ? "fas fa-times" : "fas fa-bars"}></i>
-					</div>
+
+					<button class="menu-toggle-btn">
+						<span class="line one"></span>
+						<span class="line two"></span>
+						<span class="line three"></span>
+					</button>
 				</div>
 			</div>
 		</div>

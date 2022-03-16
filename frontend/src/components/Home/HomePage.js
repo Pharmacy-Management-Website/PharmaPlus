@@ -52,7 +52,6 @@ const HomePage = () => {
 	return (
 		<Fragment>
 			<Title title="Home" />
-
 			{/* Hero Section */}
 			<section id="hero">
 				<div className="container">
@@ -60,7 +59,6 @@ const HomePage = () => {
 						<div className="hero__left" data-aos="fade-left">
 							<div className="hero__left__wrapper">
 								<h1 class="hero__heading">Only Shop for Healthy LifeStyle</h1>
-
 								<p class="hero__info">
 									Making a meaningful difference in patients’ lives.
 								</p>
@@ -80,7 +78,6 @@ const HomePage = () => {
 				</div>
 			</section>
 			{/* <!-- End Hero Section --> */}
-
 			{/* <!-- Store Info Section --> */}
 			<section id="storeInfo" data-aos="fade-up">
 				<div className="container">
@@ -110,7 +107,6 @@ const HomePage = () => {
 				</div>
 			</section>
 			{/* <!-- End Store Info Section --> */}
-
 			{/* <!-- Top Medicines --> */}
 			<section id="medicineGrid" data-aos="fade-up">
 				<div className="container">
@@ -162,7 +158,6 @@ const HomePage = () => {
 				</div>
 			</section>
 			{/* <!-- End Top Medicines --> */}
-
 			{/* <!-- Shop By Health Section --> */}
 			<section id="testimonial">
 				<div className="container">
@@ -174,7 +169,7 @@ const HomePage = () => {
 									<img src={Diabetes_Care} alt="Sayed Ahmed" />
 								</div>
 								<div className="testimonial__item__info">
-									<h3 className="testimonial__item__name">{healthCategories[0]}</h3>
+									<h3 className="testimonial__item__name">Disinfectants</h3>
 									<p className="testimonial__item__text">
 										<li>Dettol Hand Sanitizer</li>
 										<li>Himalaya Antiseptic Soap</li>
@@ -182,16 +177,14 @@ const HomePage = () => {
 										<li>Savlon Antiseptic Liquid</li>
 										<li>Lifebuoy Germ Protection</li>
 									</p>
-
 									<div className="testimonial__wrapper">
-										{/* <Link to="/medicines" className="testimonial-button"> */}
-										<button
-											// onClick={() => filterHealth(healthCategories[0])}
-											onClick={() => navigate(`/medicines/${healthCategories[0]}`)}
-										>
-											Explore
-										</button>
-										{/* </Link> */}
+										<Link to="/medicines" className="testimonial-button">
+											<button
+											// onClick={filterBrand("Disinfectants")}
+											>
+												Explore
+											</button>
+										</Link>
 									</div>
 								</div>
 							</div>
@@ -200,8 +193,7 @@ const HomePage = () => {
 									<img src={Oral_Care} alt="Sayed Ahmed" />
 								</div>
 								<div className="testimonial__item__info">
-									<h3 className="testimonial__item__name">{healthCategories[1]}</h3>
-
+									<h3 className="testimonial__item__name">Oral Care</h3>
 									<p className="testimonial__item__text">
 										<li>Oral B Electric Brush</li>
 										<li>Colgate Sensitive Plus</li>
@@ -209,13 +201,10 @@ const HomePage = () => {
 										<li>Vicco Vajradanti Tooth Powder</li>
 										<li>Sensodyne Sensitive Toothbrush</li>
 									</p>
-
 									<div className="testimonial__wrapper">
-										<button
-											onClick={() => filterHealth(healthCategories[1])}
-										>
+										<Link to="/medicines" className="testimonial-button">
 											Explore
-										</button>
+										</Link>
 									</div>
 								</div>
 							</div>
@@ -224,8 +213,7 @@ const HomePage = () => {
 									<img src={Mental_Care} alt="Sayed Ahmed" />
 								</div>
 								<div className="testimonial__item__info">
-									<h3 className="testimonial__item__name">{healthCategories[2]}</h3>
-
+									<h3 className="testimonial__item__name">Mental Wellness</h3>
 									<p className="testimonial__item__text">
 										<li>Apollo Vitamin B-12</li>
 										<li>Himalaya Stress Relief</li>
@@ -233,13 +221,10 @@ const HomePage = () => {
 										<li>HealthVit Melatonin Tablets</li>
 										<li>Mankind Multi Vitamin Tablets</li>
 									</p>
-
 									<div className="testimonial__wrapper">
-										<button
-											onClick={() => filterHealth(healthCategories[2])}
-										>
+										<Link to="/medicines" className="testimonial-button">
 											Explore
-										</button>
+										</Link>
 									</div>
 								</div>
 							</div>
@@ -248,8 +233,7 @@ const HomePage = () => {
 									<img src={Cold_Care} alt="Sayed Ahmed" />
 								</div>
 								<div className="testimonial__item__info">
-									<h3 className="testimonial__item__name">{healthCategories[3]}</h3>
-
+									<h3 className="testimonial__item__name">Cold & Immunity</h3>
 									<p className="testimonial__item__text">
 										<li>Crocin</li>
 										<li>Azitral </li>
@@ -257,13 +241,10 @@ const HomePage = () => {
 										<li>Grenil</li>
 										<li>Dolo 650</li>
 									</p>
-
 									<div className="testimonial__wrapper">
-										<button
-											onClick={() => filterHealth(healthCategories[3])}
-										>
+										<Link to="/medicines" className="testimonial-button">
 											Explore
-										</button>
+										</Link>
 									</div>
 								</div>
 							</div>
@@ -272,7 +253,6 @@ const HomePage = () => {
 				</div>
 			</section>
 			{/* <!-- End Shop By Health Section --> */}
-
 			{/* <!-- Shop By Brand Section --> */}
 			<section id="shopByBrand" data-aos="fade-up">
 				<div className="container">
@@ -299,7 +279,6 @@ const HomePage = () => {
 								</a>
 							</div>
 						</div>
-
 						<div className="shopByBrand__item">
 							<div className="shopByBrand__item__img">
 								<a href="/home" className="logo">
@@ -311,7 +290,6 @@ const HomePage = () => {
 				</div>
 			</section>
 			{/* <!-- End Shop By Brand Section --> */}
-
 			{/* <!-- Discount Section --> */}
 			<section id="discount" data-aos="fade-up">
 				<div className="container">
@@ -345,7 +323,6 @@ const HomePage = () => {
 				</div>
 			</section>
 			{/* <!-- End Discount Section --> */}
-
 			{/* <!-- Footer --> */}
 			<footer>
 				<div className="container">
@@ -451,7 +428,6 @@ const HomePage = () => {
 					</div>
 				</div>
 			</footer>
-
 			{/* <!-- End Footer --> */}
 
 			{/* <!-- aos script --> */}
@@ -459,5 +435,4 @@ const HomePage = () => {
 		</Fragment>
 	);
 };
-
 export default HomePage;

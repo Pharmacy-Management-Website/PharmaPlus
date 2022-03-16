@@ -58,6 +58,12 @@ html {
   border-radius: 8px;
 }
 
+@media only screen and (max-width: 450px) {
+  .event .banner-img {
+    display: none;
+  }
+}
+
 .event .section-subtitle {
   margin-bottom: 15px;
 }
@@ -117,9 +123,7 @@ html {
   color: #ef2f88;
 }
 
-// Media Queries
-
-@media (min-width: 575px) {
+@media only screen and (max-width: 450px) {
   .event-card {
     display: flex;
     align-items: center;
