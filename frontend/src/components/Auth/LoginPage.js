@@ -42,7 +42,6 @@ const LoginPage = () => {
       ) : (
         <Fragment>
           <Title title="Login" />
-
           <section id="login">
             <div className="container">
               {/* <!-- Login Page --> */}

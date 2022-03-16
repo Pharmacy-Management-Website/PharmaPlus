@@ -193,7 +193,7 @@ export const addMedicineStock =
 
 // ? Update Medicine
 export const updateMedicine =
-	(id, name, composition) => async (dispatch, getState) => {
+	(mId, name, composition, categoryOne, categoryTwo) => async (dispatch, getState) => {
 		try {
 			dispatch({ type: UPDATE_MEDICINE_REQUEST });
 			const {
@@ -205,8 +205,8 @@ export const updateMedicine =
 				},
 			};
 			const { data } = await axios.put(
-				`/medapi/medicine/${id}`,
-				{ name, composition },
+				`/medapi/medicine/${mId}`,
+				{ mId, name, composition, categoryOne, categoryTwo },
 				config
 			);
 			dispatch({

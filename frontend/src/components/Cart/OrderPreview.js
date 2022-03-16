@@ -1,8 +1,9 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useAlert } from "react-alert";
-import { Link, useNavigate } from "react-router-dom";
-import { clearErrors, newInvoice } from "../../actions/invoiceActions";
+import React, { Fragment, useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useAlert } from 'react-alert';
+import { Link, useNavigate } from 'react-router-dom';
+import { clearErrors, newInvoice } from '../../actions/invoiceActions';
+import { CART_RESET } from '../../constants/cartConstants';
 import Loader from "../Utils/Loader/Loader";
 import Title from "../Utils/Meta/Title";
 import Order from "../../images/Order-preview.png";
@@ -29,23 +30,17 @@ const OrderPreview = () => {
 
   const invoiceHandler = (e) => {
     if (!invNum) {
-      alert.error("Please enter invoice number");
+      alert.error('Please enter invoice number');
       return;
     }
     e.preventDefault();
     dispatch(newInvoice(invoice));
-    localStorage.removeItem("cartItems");
-    localStorage.removeItem("customerDetails");
-    navigate("/allinvoices");
-    alert.success("Invoice created successfully");
+    dispatch({ type: CART_RESET });
+    localStorage.removeItem('cartItems');
+    localStorage.removeItem('customerDetails');
+    navigate('/home');
+    alert.success('Invoice created successfully');
   };
-
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
-    }
-  }, [error, alert, dispatch]);
 
   return (
     <Fragment>

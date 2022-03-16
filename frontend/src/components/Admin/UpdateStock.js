@@ -7,6 +7,7 @@ import {
 	clearErrors
 } from '../../actions/medicineActions';
 import { useAlert } from "react-alert";
+import Loader from "../Utils/Loader/Loader";
 
 const UpdateStock = () => {
 
@@ -15,15 +16,20 @@ const UpdateStock = () => {
 	const navigate = useNavigate();
 	const params = useParams();
 
-	const { medicine } = useSelector((state) => state.medicineDetails);
+	const { loading, error, medicine } = useSelector((state) => state.medicineDetails);
 
 	const medId = params.id;
 
 	return (
 		<Fragment>
-			<div>Update Stock</div>
 			{
-
+				loading ? (
+					<Loader />
+				) : (
+					<Fragment>
+						<h2>Update Stock</h2>
+					</Fragment>
+				)
 			}
 		</Fragment>
 	)

@@ -86,7 +86,7 @@ const RegisterPage = () => {
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                           />
-                          <label>Password</label>
+                          <label>Confirm Password</label>
                         </div>
 
                         <a href="/register">

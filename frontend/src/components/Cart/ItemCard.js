@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ItemCard.css";
 
-const ItemCard = ({ med, deleteItemFromList }) => {
+const ItemCard = ({ med, deleteMedFromCart }) => {
+
   return (
     <div>
       <div className="cart_medicine_head">
@@ -18,7 +19,7 @@ const ItemCard = ({ med, deleteItemFromList }) => {
         <div className="cart_del_head">
           <button
             className="cart_delete"
-            onClick={() => deleteItemFromList(med._id)}
+            onClick={() => deleteMedFromCart(med.medicine)}
           >
             Delete
           </button>
