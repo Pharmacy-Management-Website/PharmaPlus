@@ -52,73 +52,78 @@ const DashBoard = () => {
 
   return (
     <Fragment>
-      <div className="dashboard-card-group">
-        {medicines?.map((medicine) => (
-          <div className="dashboard-card">
-            <div className="content-left">
-              <p className="stock">
-                {medicine.stockDetails.length === 0
-                  ? 0
-                  : medicine.stockDetails[0].inStock}
-              </p>
+      <div className="dashboard">
+        <div className="dashboard-card-group">
+          {medicines?.map((medicine) => (
+            <div className="dashboard-card">
+              <div className="content-left">
+                <p className="stock">
+                  {medicine.stockDetails.length === 0
+                    ? 0
+                    : medicine.stockDetails[0].inStock}
+                </p>
+              </div>
+              <div className="content-right">
+                <Link
+                  to={`/medicine/${medicine._id}`}
+                  className="dashboard-name"
+                >
+                  {medicine.name}
+                </Link>
+              </div>
+              <div className="dasboard__wrapper">
+                <button>
+                  <Link to={`/stockupdate/${medicine._id}`}>Update Stock</Link>
+                </button>
+              </div>
+              <div className="dasboard__wrapper">
+                <button>
+                  <Link to={`/updatemed/${medicine._id}`}>Update Medicine</Link>
+                </button>
+              </div>
+              <div className="dasboard__wrapper">
+                <button>
+                  <Link to={`/newstock/${medicine._id}`}>Add Stock</Link>
+                </button>
+              </div>
+              <div className="dasboard__wrapper">
+                <button
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        "Are you sure you wish to delete this item?"
+                      )
+                    ) {
+                      dispatch(deleteMedicine(medicine._id));
+                      navigate("/dashboard");
+                    }
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
-            {/* <div className="dashboard-right"> */}
-            <div className="content-right">
-              <Link to={`/medicine/${medicine._id}`} className="dashboard-name">
-                {medicine.name}
-              </Link>
-            </div>
-            <div className="dasboard__wrapper">
-              <button>
-                <Link to={`/stockupdate/${medicine._id}`}>Update Stock</Link>
-              </button>
-            </div>
-            <div className="dasboard__wrapper">
-              <button>
-                <Link to={`/updatemed/${medicine._id}`}>Update Medicine</Link>
-              </button>
-            </div>
-            <div className="dasboard__wrapper">
-              <button>
-                <Link to={`/newstock/${medicine._id}`}>Add Stock</Link>
-              </button>
-            </div>
-            <div className="dasboard__wrapper">
-              <button
-                onClick={() => {
-                  if (
-                    window.confirm("Are you sure you wish to delete this item?")
-                  ) {
-                    dispatch(deleteMedicine(medicine._id));
-                    navigate("/dashboard");
-                  }
-                }}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-          // </div>
-        ))}
-        {/* Pagination */}
+          ))}
+          {/* Pagination */}
 
-        <div id="app" className="pagination-hurray">
-          <ul className="page">
-            <Pagination
-              activePage={currentPage}
-              itemsCountPerPage={resultPerPage}
-              totalItemsCount={medCounts}
-              onChange={setCurrentPageNum}
-              // nextPageText="Next"
-              // prevPageText="Prev"
-              // firstPageText="1st"
-              // lastPageText="Last"
-              itemClass="page-item"
-              linkClass="page-link"
-              activeClass="pageItemActive"
-              activeLinkClass="pageLinkActive"
-            />
-          </ul>
+          <div id="app" className="pagination-hurray">
+            <ul className="page">
+              <Pagination
+                activePage={currentPage}
+                itemsCountPerPage={resultPerPage}
+                totalItemsCount={medCounts}
+                onChange={setCurrentPageNum}
+                // nextPageText="Next"
+                // prevPageText="Prev"
+                // firstPageText="1st"
+                // lastPageText="Last"
+                itemClass="page-item"
+                linkClass="page-link"
+                activeClass="pageItemActive"
+                activeLinkClass="pageLinkActive"
+              />
+            </ul>
+          </div>
         </div>
       </div>
     </Fragment>
