@@ -72,7 +72,7 @@ export const allInvoicesReducer = (state = { invoices: [] }, action) => {
 	}
 };
 
-export const invoiceDetailsReducer = (state = { invoice: {} }, action) => {
+export const invoiceDetailsReducer = (state = {}, action) => {
 	switch (action.type) {
 		case INVOICE_DETAILS_REQUEST:
 			return {
