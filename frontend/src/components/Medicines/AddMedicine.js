@@ -119,7 +119,7 @@ const AddMedicine = () => {
                             <input
                               type="submit"
                               value="Add"
-                              className="addButton"
+                              className="update_btn "
                             />
                           </a>
                         </form>

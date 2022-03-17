@@ -8,6 +8,7 @@
   margin-bottom: 3rem;
   text-align: center;
 }
+
 .medicineGrid__wrapper {
   display: grid;
   /* grid-template-columns: repeat(autofit, minmax(140px, 1fr)); */

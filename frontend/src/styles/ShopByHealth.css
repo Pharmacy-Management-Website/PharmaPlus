@@ -12,6 +12,12 @@
   margin-bottom: 3rem;
   text-align: center;
 }
+
+/* .testimonial__title:hover {
+  transform: skewY(1deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+} */
+
 .testimonial__items__wrapper {
   display: grid;
   grid-template-columns: 1fr;
