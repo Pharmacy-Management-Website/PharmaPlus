@@ -67,13 +67,11 @@ const Header = () => {
         {/* Navbar */}
         <div className="navbar-btn-group">
           <ul className="navbar-nav">
-
             <li>
               <a href="/dashboard" className="nav-link">
                 Dashboard
               </a>
             </li>
-
 
             <li>
               <a href="/medicines" className="nav-link">
