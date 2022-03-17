@@ -6,6 +6,7 @@ import Title from "../Utils/Meta/Title.js";
 import "../../styles/main.js";
 import { allMedicines, clearErrors } from "../../actions/medicineActions.js";
 import { addMedToCart } from "../../actions/cartActions.js";
+import FilterByHealth from "../Medicines/FilterByHealth.js";
 
 import Hero from "../../images/hero-2.svg";
 import Clock from "../../images/clock.png";
@@ -43,8 +44,6 @@ const HomePage = () => {
 	const navigate = useNavigate();
 	const params = useParams();
 
-	// const [health, setHealth] = useState("");
-
 	const {
 		error,
 		loading,
@@ -66,15 +65,6 @@ const HomePage = () => {
 		}
 		dispatch(allMedicines(keyword, currentPage, brand, health));
 	}, [dispatch, error, alert, keyword, currentPage, brand, health]);
-
-	// const filterHealth = (healthCat) => {
-	// 	setHealth(healthCat);
-	// 	// if (health.trim()) {
-	// 	navigate(`/medicines/${health}`);
-	// 	// } else {
-	// 	// 	navigate("/medicines");
-	// 	// }
-	// };
 
 	return (
 		<Fragment>
@@ -239,12 +229,8 @@ const HomePage = () => {
 														<li>Lifebuoy Germ Protection</li>
 													</p>
 													<div className="testimonial__wrapper">
-														<Link to="/medicines" className="testimonial-button">
-															<button
-															// onClick={filterBrand("Disinfectants")}
-															>
-																Explore
-															</button>
+														<Link to="/fbh/antacids" className="testimonial-button">
+															Explore
 														</Link>
 													</div>
 												</div>
@@ -263,7 +249,7 @@ const HomePage = () => {
 														<li>Sensodyne Sensitive Toothbrush</li>
 													</p>
 													<div className="testimonial__wrapper">
-														<Link to="/medicines" className="testimonial-button">
+														<Link to="/fbh/gen" className="testimonial-button">
 															Explore
 														</Link>
 													</div>
@@ -283,7 +269,7 @@ const HomePage = () => {
 														<li>Mankind Multi Vitamin Tablets</li>
 													</p>
 													<div className="testimonial__wrapper">
-														<Link to="/medicines" className="testimonial-button">
+														<Link to="/fbh/antacids" className="testimonial-button">
 															Explore
 														</Link>
 													</div>
@@ -303,7 +289,7 @@ const HomePage = () => {
 														<li>Dolo 650</li>
 													</p>
 													<div className="testimonial__wrapper">
-														<Link to="/medicines" className="testimonial-button">
+														<Link to="/fbh/antacids" className="testimonial-button">
 															Explore
 														</Link>
 													</div>
@@ -321,28 +307,28 @@ const HomePage = () => {
 									<div className="shopByBrand__wrapper">
 										<div className="shopByBrand__item">
 											<div className="shopByBrand__item__img">
-												<a href="/home" className="logo">
+												<a href="/fbb/vicks" className="logo">
 													<img src={Dove} alt="dove" />
 												</a>
 											</div>
 										</div>
 										<div className="shopByBrand__item">
 											<div className="shopByBrand__item__img">
-												<a href="/home" className="logo">
+												<a href="/fbb/cadila" className="logo">
 													<img src={Pampers} alt="himalaya" />
 												</a>
 											</div>
 										</div>
 										<div className="shopByBrand__item">
 											<div className="shopByBrand__item__img">
-												<a href="/home" className="logo">
+												<a href="/fbb/pfizer" className="logo">
 													<img src={Dabur} alt="manforce" />
 												</a>
 											</div>
 										</div>
 										<div className="shopByBrand__item">
 											<div className="shopByBrand__item__img">
-												<a href="/home" className="logo">
+												<a href="/fbb/cipla" className="logo">
 													<img src={Gilette} alt="gilette" />
 												</a>
 											</div>

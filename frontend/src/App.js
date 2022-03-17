@@ -25,6 +25,8 @@ import UpdateMedicine from "./components/Admin/UpdateMedicine";
 import UpdateStock from "./components/Admin/UpdateStock";
 import InvoiceList from "./components/Admin/InvoiceList";
 import InvoiceDetails from "./components/Admin/InvoiceDetails";
+import FilterByHealth from "./components/Medicines/FilterByHealth";
+import FilterByBrand from "./components/Medicines/FilterByBrand";
 import NotFound from "./components/Utils/NotFound/NotFound";
 
 function App() {
@@ -86,6 +88,8 @@ function App() {
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/custinfo" element={<CustomerInfo />} />
 						<Route path="/orderpreview" element={<OrderPreview />} />
+						<Route path="/fbh/:health" element={<FilterByHealth />} />
+						<Route path="/fbb/:brand" element={<FilterByBrand />} />
 						<Route element={<AdminRequired />}>
 							<Route path="/dashboard" element={<DashBoard />} />
 							<Route path="/newstock/:id" element={<NewStock />} />
