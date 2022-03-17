@@ -6,7 +6,6 @@ import Title from "../Utils/Meta/Title.js";
 import "../../styles/main.js";
 import { allMedicines, clearErrors } from "../../actions/medicineActions.js";
 import { addMedToCart } from "../../actions/cartActions.js";
-import FilterByHealth from "../Medicines/FilterByHealth.js";
 
 import Hero from "../../images/hero-2.svg";
 import Clock from "../../images/clock.png";
@@ -43,8 +42,6 @@ const HomePage = () => {
   const navigate = useNavigate();
   const params = useParams();
 
-  // const [health, setHealth] = useState("");
-
   const {
     error,
     loading,
@@ -54,6 +51,11 @@ const HomePage = () => {
     filteredMedicinesCount,
   } = useSelector((state) => state.medicines);
 
+  const keyword = params.keyword || "";
+  const brand = params.brand || "";
+  const health = params.health || "";
+  const currentPage = 1;
+
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -61,15 +63,6 @@ const HomePage = () => {
     }
     dispatch(allMedicines(keyword, currentPage, brand, health));
   }, [dispatch, error, alert, keyword, currentPage, brand, health]);
-
-  // const filterHealth = (healthCat) => {
-  // 	setHealth(healthCat);
-  // 	// if (health.trim()) {
-  // 	navigate(`/medicines/${health}`);
-  // 	// } else {
-  // 	// 	navigate("/medicines");
-  // 	// }
-  // };
 
   return (
     <Fragment>
