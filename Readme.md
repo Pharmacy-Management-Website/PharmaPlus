@@ -18,6 +18,6 @@ We have created this website to help the medical shop retailers where they can h
 
 [Pharma+](https://pharmaplus.herokuapp.com/)
 
-## Home page
+## Login Page
 
-<img src="https://res.cloudinary.com/siddarth72/image/upload/v1647770603/pharmaplus/home_giffy_q4m14k.gif" alt="Home Page" width="600px" height="700px"></img>
+<img src="./uploads/d3.png" alt="Login page"></img>
