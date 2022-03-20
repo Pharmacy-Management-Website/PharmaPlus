@@ -16,6 +16,8 @@ We have created this website to help the medical shop retailers where they can h
 
 ## Demo
 
+## Layout
+
 [Pharma+](https://pharmaplus.herokuapp.com/)
 
 ### Login Page:
@@ -28,9 +30,19 @@ If the user is new then he has to newly register himself to the protal.
 
 ### Home Page:
 
-The main landing page after legal authentication
-Contains many fields such as:
+The main landing page after legal authentication. Contains many fields such as:
 
 - Adding top medicines to the cart directly
 - Filter the medicines by their brands
 - Filtering the medicines by their health issue used for
+- Filtering the medicines by their name using the search box present in the navigation bar
+
+### Medicines Page:
+
+Contains the list of all the medicines with thrie present stock number on the Left hand side.
+Per page display of medicines is 8. Pagination is enabled to search or access all the medicines
+
+### Dashboard:
+
+This page is only accessed by admins of the shop.
+Contains the list of all medicines with additional functionalities.
