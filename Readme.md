@@ -20,4 +20,4 @@ We have created this website to help the medical shop retailers where they can h
 
 ## Home page
 
-<img src="./uploads/giffies/home_giffy.gif" alt="Home Page"></img>
+(https://res.cloudinary.com/siddarth72/image/upload/v1647770603/pharmaplus/home_giffy_q4m14k.gif)
