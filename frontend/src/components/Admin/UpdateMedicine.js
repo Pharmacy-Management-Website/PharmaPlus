@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useAlert } from "react-alert";
 import { useParams, useNavigate } from "react-router-dom";
 import Loader from "../Utils/Loader/Loader.js";
+import Title from "../Utils/Meta/Title.js";
 import {
   updateMedicine,
   getMedicineDetails,
@@ -88,6 +89,7 @@ const UpdateMedicine = () => {
         <Loader />
       ) : (
         <Fragment>
+          <Title title="Update Medicine" />
           <section id="login">
             <div className="container">
               {/* <!-- Update Stock Page --> */}

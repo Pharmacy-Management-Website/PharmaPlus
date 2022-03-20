@@ -52,7 +52,7 @@ const FilterByHealth = () => {
 				<Loader />
 			) : (
 				<Fragment>
-					<Title title="Medicines" />
+					<Title title={`Medicines-${health}`} />
 					<section className="event">
 						<div className="event-left" data-aos="fade-right">
 							<div className="event-banner">

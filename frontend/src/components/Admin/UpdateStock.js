@@ -8,6 +8,7 @@ import {
 } from '../../actions/medicineActions';
 import { useAlert } from "react-alert";
 import Loader from "../Utils/Loader/Loader";
+import Title from "../Utils/Meta/Title";
 
 const UpdateStock = () => {
 
@@ -27,6 +28,7 @@ const UpdateStock = () => {
 					<Loader />
 				) : (
 					<Fragment>
+						<Title title="Update Stock" />
 						<h2>Update Stock</h2>
 					</Fragment>
 				)
