@@ -14,11 +14,7 @@ We have created this website to help the medical shop retailers where they can h
 - Database
   - MongoDB
 
-## Demo
-
 ## Layout
-
-[Pharma+](https://pharmaplus.herokuapp.com/)
 
 ### Login Page:
 
@@ -59,3 +55,15 @@ Contains the list of all medicines with additional functionalities.
 - Further after adding the medicines manager can proceed to seek the customer's information like name and mobile number.
 - After this the customer can preview his/her order before the payment(made in cash).
 - By these steps the invoice is created.
+
+## Source
+
+- Website Link: [Pharma+](https://pharmaplus.herokuapp.com/)
+- Hosting Service: [Heroku](https://www.heroku.com/)
+
+## Reference
+
+- [Youtube](https://www.youtube.com)
+- [Github](https://github.com)
+- [Udemy](https://www.udemy.com)
+- [Traversy Media](https://www.traversymedia.com)
