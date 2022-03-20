@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useAlert } from 'react-alert';
 import { getAllInvoices, deleteInvoice } from '../../actions/invoiceActions';
 import Loader from "../Utils/Loader/Loader";
+import Title from '../Utils/Meta/Title';
 
 const InvoiceList = () => {
 
@@ -29,6 +30,7 @@ const InvoiceList = () => {
 					:
 					(
 						<Fragment>
+							<Title title="Invoices" />
 							<h1>All Invoices</h1>
 							<div className="event-card-group">
 								{
