@@ -46,3 +46,16 @@ Per page display of medicines is 8. Pagination is enabled to search or access al
 
 This page is only accessed by admins of the shop.
 Contains the list of all medicines with additional functionalities.
+
+- Adding the medicines through the medicines page
+- Update the medicine
+- Add/Update the stock of the medicine
+- Delete the medicine
+- Can view all the invoices made in past(exclusively)
+
+### Cart:
+
+- While the customer is buying the medicines the manager goes to the cart page to add those medicnes.
+- Further after adding the medicines manager can proceed to seek the customer's information like name and mobile number.
+- After this the customer can preview his/her order before the payment(made in cash).
+- By these steps the invoice is created.
