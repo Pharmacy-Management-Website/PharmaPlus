@@ -3,7 +3,6 @@
 
 # production
 /frontend/build
-/uploads
 
 # misc
 /backend/config/config.env
