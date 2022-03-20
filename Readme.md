@@ -3,12 +3,17 @@
 We have created this website to help the medical shop retailers where they can have a look at all the remaining stocks and sales at one place.
 
 ## Tools used
+
 - Frontend
-    -Reactjs
-	-Redux
-	-Material u icons
+  - Reactjs
+  - Redux
+  - Material u icons
 - Backend
-    -Nodejs
-	-Expressjs
+  - Nodejs
+  - Expressjs
 - Database
-    -MongoDB
+  - MongoDB
+
+## Demo
+
+[Pharma+](https://pharmaplus.herokuapp.com/)
