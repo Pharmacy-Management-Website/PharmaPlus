@@ -53,82 +53,91 @@ const DashBoard = () => {
 
   return (
     <Fragment>
-      {
-        loading ? (
-          <Loader />
-        )
-          :
-          (
-            <Fragment>
-              <Title title="Dashboard" />
-              <div className="dashboard">
-                <div className="dashboard-card-group">
-                  {medicines?.map((medicine) => (
-                    <div className="dashboard-card">
-                      <div className="content-left">
-                        <p className="stock">
-                          {medicine.stockDetails.length === 0
-                            ? 0
-                            : medicine.stockDetails[0].inStock}
-                        </p>
-                      </div>
-                      <div className="content-right">
-                        <Link
-                          to={`/medicine/${medicine._id}`}
-                          className="dashboard-name"
-                        >
-                          {medicine.name}
-                        </Link>
-                      </div>
-                      <div className="dasboard__wrapper">
-                        <button>
-                          <Link to={`/updatemed/${medicine._id}`}>Update Medicine</Link>
-                        </button>
-                      </div>
-                      <div className="dasboard__wrapper">
-                        <button>
-                          <Link to={`/newstock/${medicine._id}`}>Add Stock</Link>
-                        </button>
-                      </div>
-                      <div className="dasboard__wrapper">
-                        <button
-                          onClick={() => {
-                            if (
-                              window.confirm(
-                                "Are you sure you wish to delete this item?"
-                              )
-                            ) {
-                              dispatch(deleteMedicine(medicine._id));
-                              navigate("/dashboard");
-                            }
-                          }}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                  {/* Pagination */}
+      {loading ? (
+        <Loader />
+      ) : (
+        <Fragment>
+          <Title title="Dashboard" />
 
-                  <div id="app" className="pagination-hurray">
-                    <ul className="page">
-                      <Pagination
-                        activePage={currentPage}
-                        itemsCountPerPage={resultPerPage}
-                        totalItemsCount={medCounts}
-                        onChange={setCurrentPageNum}
-                        itemClass="page-item"
-                        linkClass="page-link"
-                        activeClass="pageItemActive"
-                        activeLinkClass="pageLinkActive"
-                      />
-                    </ul>
+          <div className="dashboard">
+            <div>
+              <button className="button button-primary">
+                <p className="button-text">
+                  <Link className="button-text-link" to="/newmed">
+                    Add New +
+                  </Link>
+                </p>
+                <span className="square"></span>
+              </button>
+            </div>
+            <div className="dashboard-card-group">
+              {medicines?.map((medicine) => (
+                <div className="dashboard-card">
+                  <div className="content-left">
+                    <p className="stock">
+                      {medicine.stockDetails.length === 0
+                        ? 0
+                        : medicine.stockDetails[0].inStock}
+                    </p>
+                  </div>
+                  <div className="content-right">
+                    <Link
+                      to={`/medicine/${medicine._id}`}
+                      className="dashboard-name"
+                    >
+                      {medicine.name}
+                    </Link>
+                  </div>
+                  <div className="dasboard__wrapper">
+                    <button>
+                      <Link to={`/updatemed/${medicine._id}`}>
+                        Update Medicine
+                      </Link>
+                    </button>
+                  </div>
+                  <div className="dasboard__wrapper">
+                    <button>
+                      <Link to={`/newstock/${medicine._id}`}>Add Stock</Link>
+                    </button>
+                  </div>
+                  <div className="dasboard__wrapper">
+                    <button
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            "Are you sure you wish to delete this item?"
+                          )
+                        ) {
+                          dispatch(deleteMedicine(medicine._id));
+                          navigate("/dashboard");
+                        }
+                      }}
+                    >
+                      Delete
+                    </button>
                   </div>
                 </div>
+              ))}
+              {/* Pagination */}
+
+              <div id="app" className="pagination-hurray">
+                <ul className="page">
+                  <Pagination
+                    activePage={currentPage}
+                    itemsCountPerPage={resultPerPage}
+                    totalItemsCount={medCounts}
+                    onChange={setCurrentPageNum}
+                    itemClass="page-item"
+                    linkClass="page-link"
+                    activeClass="pageItemActive"
+                    activeLinkClass="pageLinkActive"
+                  />
+                </ul>
               </div>
-            </Fragment>
-          )
-      }
+            </div>
+          </div>
+        </Fragment>
+      )}
     </Fragment>
   );
 };
