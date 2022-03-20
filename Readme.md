@@ -17,3 +17,7 @@ We have created this website to help the medical shop retailers where they can h
 ## Demo
 
 [Pharma+](https://pharmaplus.herokuapp.com/)
+
+## Home page
+
+<img src="./uploads/giffies/home_giffy.gif" alt="Home Page"></img>
