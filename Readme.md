@@ -20,4 +20,4 @@ We have created this website to help the medical shop retailers where they can h
 
 ## Login Page
 
-<img src="./uploads/giffies/home_giffy.gif" alt="Login page"></img>
+<img src="./uploads/giffies/home_giffy.gif" width="300" height="400"alt="Login page"></img>
