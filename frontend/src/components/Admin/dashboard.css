@@ -10,8 +10,6 @@
   box-shadow: 0 10px 30px hsla(0, 0%, 0%, 0.1);
 }
 
-/* #f68989, #4d77ff, #94DAFF*/
-
 .dashboard-card-group {
   display: grid;
   grid-template-columns: 1fr;
@@ -105,4 +103,10 @@
 
 .dasboard__wrapper button a:hover {
   color: #fff;
+}
+
+@media only screen and (max-width: 450px) {
+  .dashboard {
+    display: none;
+  }
 }

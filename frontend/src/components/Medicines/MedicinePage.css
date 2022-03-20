@@ -124,6 +124,11 @@ html {
 }
 
 @media only screen and (max-width: 450px) {
+  .event {
+    padding: 30px;
+    /* background: #0780ff50; */
+  }
+
   .event-card {
     display: flex;
     align-items: center;

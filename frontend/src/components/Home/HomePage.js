@@ -339,7 +339,7 @@ const HomePage = () => {
                 <div className="shopByBrand__item">
                   <div className="shopByBrand__item__img">
                     <a href="/fbb/cipla" className="logo">
-                      <img src={Gilette} alt="gilette" />
+                      <img src={Colgate} alt="colgate" />
                     </a>
                   </div>
                 </div>
